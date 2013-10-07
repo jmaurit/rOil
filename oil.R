@@ -1,4 +1,4 @@
-#Analysis of Oil Decline in Norway
+#Cleaning of oil Production data
 
 library(ggplot2)
 library(plyr)
@@ -22,7 +22,7 @@ library(mgcv)
 #
 
 #import last saved file
-fields<-read.csv("/Users/johannesmauritzen/Google Drive/Oil/cleanedData/oil_fields.csv")
+fields<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/oil_fields.csv")
 
 #Analysis*************************************************************************************
 #fields<-read.csv("/Users/johannesmauritzen/Google Drive/Oil/cleanedData/oil_fields.csv")

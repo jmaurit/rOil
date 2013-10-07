@@ -23,3 +23,9 @@ prod_gam_under<-gam(year_prod~s(time_to_peak, recoverable_oil) +  s(year),
 
 prod_gam_over_boot <- boot(fields_p, prod_gam_over_bootstrap , R=10)
 
+
+
+#better idea - generate one forecast point at a time
+# for each point where time to peak, peak to end, and recoverable_oil are approximate
+#
+

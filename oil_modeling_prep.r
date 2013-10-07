@@ -1,7 +1,7 @@
 #oil_modeling_prep
 
 #modeling with price
-fields<-read.csv("/Users/johannesmauritzen/Google Drive/Oil/cleanedData/oil_fields.csv")
+fields<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/oil_fields.csv")
 
 #weed out fields where oil is not produced
 fields_p<-fields[fields$tot.prod>0,]

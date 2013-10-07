@@ -223,4 +223,4 @@ fields<-fields[!is.na(fields$year),]
 #deflated investment
 fields$investmentMillNOK_real<-with(fields, investmentMillNOK*(1/deflator))
 
-write.csv(fields, "/Users/johannesmauritzen/Google Drive/Oil/cleanedData/oil_fields.csv")
+write.csv(fields, "/Users/johannesmauritzen/Google Drive/github/rOil/oil_fields.csv")

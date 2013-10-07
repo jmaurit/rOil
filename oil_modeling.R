@@ -11,10 +11,10 @@ library(boot)
 
 
 #run fresh data import and clean:
-source("/Users/johannesmauritzen/Google Drive/Oil/rOil/oil_clean.r") 
+#source("/Users/johannesmauritzen/Google Drive/Oil/rOil/oil_clean.r") 
 
 #prep data for modeling
-source("/Users/johannesmauritzen/Google Drive/Oil/rOil/oil_modeling_prep.r") 
+source("/Users/johannesmauritzen/Google Drive/github/rOil/oil_modeling_prep.r") 
 
 
 #gam modeling*************************************************************************
@@ -114,12 +114,8 @@ coef_over[2:7]
 sd_over[2:7]
 
 #now use ridge regression option
-gam_under<-gam(year_prod~s(time_to_peak),
-	data=fields_p[fields_p$max_prod<=split,], select=TRUE)
-
-gam_over<-gam(year_prod~s(time_to_peak),
-	weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,], select=TRUE)
-
+	
+	
 #test on statfjord
 gam_test<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
 geom_point(aes(x=year, y=year_prod)) +
