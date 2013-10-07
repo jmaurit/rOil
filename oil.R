@@ -1,0 +1,400 @@
+#Analysis of Oil Decline in Norway
+
+library(ggplot2)
+library(plyr)
+library(reshape2)
+library(ggmap)
+library(rgdal)
+library(sp)
+library(maptools)
+library(maps)
+library(mapdata) #worldHiRes
+library(mapproj)
+library(rgeos)
+library(gdata) #for reading xls
+library(lubridate) #for date manipulation
+library(Quandl)
+library(mgcv)
+
+#run fresh data import and clean:
+#source("/Users/johannesmauritzen/Google Drive/Oil/rOil/oil_clean.r") 
+
+#
+
+#import last saved file
+fields<-read.csv("/Users/johannesmauritzen/Google Drive/Oil/cleanedData/oil_fields.csv")
+
+#Analysis*************************************************************************************
+#fields<-read.csv("/Users/johannesmauritzen/Google Drive/Oil/cleanedData/oil_fields.csv")
+
+
+ekofisk<-month.prod[month.prod$name=="EKOFISK",]
+statfjord<-month.prod[month.prod$name=="STATFJORD",]
+
+#plot all fields individually
+
+#test a few
+ekofisk<-month.prod[month.prod$name=="EKOFISK",]
+statfjord<-month.prod[month.prod$name=="STATFJORD",]
+qplot(x=date, y=oil_prod, geom="line",data=ekofisk)
+qplot(x=date, y=oil_prod, geom="line",data=statfjord)
+
+plotProduction<-function(prod.data)
+{
+	qplot(x=date, y=oil_prod, geom="line", data=prod.data, main=unique(prod.data$name))
+}
+
+plots<-by(month.prod, month.prod$name, failwith(NA, plotProduction))
+
+field_names<-unique(month.prod$name)
+
+#plot several fields on same page
+m<-ceiling(length(field_names)/9)  #m is number of pages
+
+for(j in 0:(m-1)){
+	#test
+	#j=2
+	#test
+	from<-j*9+1
+	to <-min(from+8,length(field_names)) 
+	print(c(from,to))
+	
+month.prod.9<-month.prod[month.prod$name==field_names[from:to],]
+prod.plot<-ggplot(month.prod.9) +
+geom_line(aes(x=date, y=oil_prod)) +
+facet_wrap(~name, scales="free", nrow=3)
+
+print(prod.plot)
+}
+
+ 
+
+#plot geographic production
+#create sums for oil production and investment
+fields<-ddply(fields, .(name), mutate, total.oil=sum(year_prod, na.rm=TRUE))
+fields<-ddply(fields, .(name), mutate, total.invest=sum(investmentMillNOK, na.rm=TRUE))
+
+
+#limit to one entry per field
+tot.prod.fields<-fields[!duplicated(fields$name),] 
+
+#maps of total production in North and Norwegian Sea
+northsea<-get_map(location = c(lon = 2.74, lat = 59.00), zoom=6)
+ggmap(northsea) +
+geom_point(aes(x = lon, y = lat, size=tot.prod, color=init_year),alpha=.7, data = tot.prod.fields)+
+scale_color_continuous(low="red", high="black")
+
+norwegiansea<-get_map(location = c(lon = 7, lat = 65.00), zoom=6)
+ggmap(norwegiansea) +
+geom_point(aes(x = lon, y = lat, size=tot.prod, color=init_year),alpha=.7, data = tot.prod.fields)+
+scale_color_continuous(low="red", high="black")
+
+
+#create label columns - to label two biggest fields
+tot.prod.fields$labels<-rep(NA, length(tot.prod.fields[,1]))
+tot.prod.fields$labels[tot.prod.fields$name=="EKOFISK"]<-tot.prod.fields$name[tot.prod.fields$name=="EKOFISK"]
+tot.prod.fields$labels[tot.prod.fields$name=="STATFJORD"]<-tot.prod.fields$name[tot.prod.fields$name=="STATFJORD"]
+
+
+#Map Reserves
+ggmap(northsea) +
+geom_point(aes(x = lon, y = lat, size=recoverable_oil, color=init_year),alpha=.7, data = tot.prod.fields)+
+geom_text(aes(label=labels), data=tot.prod.fields, size=3) +
+scale_color_continuous(low="red", high="black") +
+labs(color="Initial Production Year", size="Total Recoverable Oil")
+
+
+
+#Production Fall *************************************************************************
+
+
+#create multiple lines for production fall
+production2<-fields[order(fields$year),c(1:4, 12:13)]
+
+#first, get all production from fields that have produced at or before 1980 (but not those that started after)
+#first, tot. yearly production
+production_tot<-ddply(production2,.(year), summarize, tot_year_prod=sum(year_prod, na.rm=TRUE))
+
+#direct total - check
+production2_tot<-ddply(tot.month.prod, .(year), summarize, tot_year_prod=sum(oil_prod, na.rm=TRUE))
+
+#test, production for active pre-1980 fields
+
+prod_sum<-function(year_prod,init_year, before_year){
+	#test
+	#year_prod<-production2$year_prod[production2$year==2000]
+	#init_year<-production2$init_year[production2$year==2000]
+	#before_year=1990
+	#test	
+	year_prod<-year_prod[init_year<=before_year]
+	tot_exist<-sum(year_prod, na.rm=TRUE)
+	return(tot_exist)		
+}
+
+
+#production_1980<-ddply(production2,.(year), summarize, pre2000=prod_sum(year_prod, init_year, 1980))
+
+years<-seq(1970,2010, by=5)
+
+production.lim<-matrix(NA, ncol=length(years), nrow=length(unique(production2$year)))
+production.lim<-data.frame(production.lim)
+
+c=1
+for(i_year in years){
+	#test
+	#c=1
+	#i_year<-1995
+	#test
+	#print(c)
+	prod.lim<-ddply(production2,.(year), summarize, lim.prod=prod_sum(year_prod, init_year, before_year=i_year))
+	production.lim[,c]<-prod.lim[,2]
+	c<-c+1
+}
+
+col.names<-as.character(years)
+names(production.lim)<-col.names
+production.lim<-cbind(unique(production2$year), production.lim, production_tot[,2])
+names(production.lim)[1]<-"years"
+names(production.lim)[length(production.lim)]<-"total"
+production.lim<-production.lim[-length(production.lim[,1]),] #get rid of 2013 (full year effect)
+
+production.lim.long<-melt(production.lim, id="years")
+names(production.lim.long)[3]<-"static_production"
+#production.lim.long$variable<-as.numeric(as.character(production.lim.long$variable))
+
+ggplot(production.lim.long) +
+geom_line(aes(x=years, y=static_production, color=variable))+
+labs(x="Year", y="Production from Existing Fields, Mill Sm3", color="Production Before:") +
+scale_color_discrete()
+
+#look at money put out ******************************
+
+
+
+#***************** Look at investments**************************
+tot_investments_real<-ddply(fields, .(year),summarize, tot_invest_real=sum(investmentMillNOK_real, na.rm=TRUE))
+tot_investments_real<-tot_investments_real[1:(length(tot_investments_real[,1])-2),]
+
+#plot
+tot_investments_real<-merge(tot_investments_real, oil_long, all.x=TRUE)
+
+ggplot(tot_investments_real) +
+geom_line(aes(x=year, y=tot_invest_real)) +
+xlab("") + ylab("Investments, MILL NOK, 2010 Prices")
+
+#with oil prices
+tot_investments_real$oil_price_nom<-NULL
+invest.melt<-melt(tot_investments_real, id="year")
+invest.melt$variable<-factor(invest.melt$variable, labels=c("Total Investment, Mill 2010 NOK", "Oil Price, 2010 USD/Barrell"))
+
+ggplot(invest.melt) +
+geom_line(aes(x=year, y=value)) +
+facet_grid(variable~., scales="free_y") +
+ylab("") + xlab("")
+
+#Production per investment kroner
+#MillSm3
+
+tot_investments_real<-merge(tot_investments_real, production_tot, all.x=TRUE)
+tot_investments_real$nok_per_sm3<-with(tot_investments_real, tot_invest_real/tot_year_prod)
+tot_investments_real<-tot_investments_real[-1,]
+
+ggplot(tot_investments_real) +
+geom_line(aes(x=year, y=nok_per_sm3)) +
+xlab("") + ylab("NOK Investment per sm3 of Oil Production")
+
+#lag, three years
+tot_investments_real$lag5_prod<-NA
+tot_investments_real$lag5_prod[1:37]<-tot_investments_real$tot_year_prod[5:41]
+tot_investments_real$nok_per_sm3_lag5<-with(tot_investments_real, tot_invest_real/lag5_prod)
+
+ggplot(tot_investments_real) +
+geom_line(aes(x=year, y=nok_per_sm3_lag5)) +
+xlab("") + ylab("NOK Investment per sm3 of Oil Production, 5 year lag")
+
+
+#Time from discovery to production *********************
+field_unique<-fields[!duplicated(fields$name),] 
+field_unique$approved_to_producing<-with(field_unique, producing_from-approved_at)
+field_unique$approved_to_producing<-as.numeric(field_unique$approved_to_producing)
+
+ggplot(field_unique,aes(x=producing_from, y=approved_to_producing)) +
+geom_point() +
+stat_smooth(method="lm") +
+xlab("") + ylab("Time between approval and production, days")
+
+
+#Reserves over time and investment*************************
+
+ggplot(field_unique) +
+geom_point(aes(x=producing_from, y=recoverable_oil, size=total.invest)) +
+xlab("First Production year") + ylab("Total Recoverable Oil, Sm3") + labs(size="Total Investment, Mill NOK:")
+
+#investment over time by year and reserves?  IE question is where is current investment going?
+
+#chart investment x time x reserve size
+
+#average age of producing oil fields over time*********************************
+
+#first create variable giving age since first year of production
+fields$first_prod_year<-year(fields$producing_from)
+fields$age<-with(fields, year-first_prod_year)
+
+#now average by age
+field_age<-ddply(fields, .(year), summarize, average_age=mean(age, na.rm=TRUE))
+ggplot(field_age, aes(x=year, y=average_age)) +
+geom_line() +
+labs(x="", y="Average age of Producing Wells")
+
+#Size of reserves found over time
+field_unique<-fields[!duplicated(fields$name),] 
+found_reserves_year<-ddply(field_unique,.(init_year), summarize, found_reserves=sum(recoverable_oil, na.rm=TRUE))
+
+ggplot(found_reserves_year, aes(x=init_year, y=found_reserves))+
+geom_histogram(stat="identity") +
+labs(x="", y="Discovered Recoverable Oil")
+
+#individual reserves
+#try statfjord
+statfjord<-fields[fields$name=="STATFJORD",]
+ggplot(statfjord) +
+geom_point(aes(x=year, y=year_prod, size=investmentMillNOK))
+
+field_plot<-ggplot(statfjord) +
+geom_point(aes(x=year, y=year_prod, size=investmentMillNOK*(1/deflator), color=oil_price_real)) +
+scale_color_continuous(low="black", high="red")
+print(field_plot)
+
+gam_statfjord<-gam(year_prod~s(year), data=statfjord)
+statfjord<-statfjord[!is.na(statfjord$year_prod),]
+statfjord$smooth<-gam_statfjord$fitted.values
+
+field_plot +
+geom_line(aes(x=year, y=smooth))
+
+gam2_statfjord<-gam(year_prod~s(year) + s(investmentMillNOK*(1/deflator)), data=statfjord)
+statfjord$smooth2<-gam2_statfjord$fitted.values
+
+field_plot %+% statfjord +
+geom_line(aes(x=year, y=smooth)) +
+geom_line(aes(x=year, y=smooth2), color="blue")
+
+#what is the relationship between investment production
+
+ggplot(statfjord) +
+geom_point(aes(x=year, y=year_prod, size=investmentMillNOK)) +
+geom_line(aes(x=year, y=smooth))
+ 
+
+#Ekofisk
+ekofisk<-fields[fields$name=="EKOFISK",]
+ekofisk<-ekofisk[!is.na(ekofisk$year_prod),]
+ekofisk<-ekofisk[!is.na(ekofisk$year_prod),]
+
+
+gam_ekofisk<-gam(year_prod~s(year), data=ekofisk)
+gam2_ekofisk<-gam(year_prod~s(year) + s(investmentMillNOK*(1/deflator)), data=ekofisk)
+gam3_ekofisk<-gam(year_prod~s(year) + s(oil_price_real), data=ekofisk)
+
+
+ekofisk$smooth<-gam_ekofisk$fitted.values
+ekofisk$smooth2<-gam2_ekofisk$fitted.values
+ekofisk$smooth3<-gam3_ekofisk$fitted.values
+
+
+field_plot%+%ekofisk +
+geom_line(aes(x=year, y=smooth)) +
+geom_line(aes(x=year, y=smooth2), color="blue") +
+geom_line(aes(x=year, y=smooth3), color="red")
+
+#Survival time of differing fields****************************************
+
+
+
+#first restrict to producing fields
+fields_p$producing_from<-as.Date(fields_p$producing_from)
+fields_p$producing_to<-as.Date(fields_p$producing_to)
+
+fields_p<-fields[fields$tot.prod>0,]
+
+
+#create variable for each field that gives the top year
+max_year<-function(year_prod, year)
+{
+	#test
+	#field<-fields_p[fields_p$name=="STATFJORD",]
+	#year_prod<-field$year_prod
+	#year<-field$year
+	#test
+	peak_prod<-max(year_prod, na.rm=TRUE)
+	peak_year<-year[year_prod==peak_prod]
+	peak_year<-peak_year[!is.na(peak_year)]
+	return(peak_year)
+}
+
+fields_p<-ddply(fields_p, .(name), mutate, peak_year=max_year(year_prod, year))
+
+
+
+#create variable, production time
+fields_p<-ddply(fields_p, .(name), mutate, producing_time=year-year(producing_from))
+
+fields_p<-ddply(fields_p, .(name), mutate, field_life_dead=producing_to - producing_from)
+
+fields_p<-ddply(fields_p, .(name), mutate, field_life_alive=as.Date("2012-09-01")-producing_from)
+fields_p$field_life_alive[!is.na(fields_p$producing_to)]<-NA
+fields_p$field_life<-pmax(fields_p$field_life_dead, fields_p$field_life_alive, na.rm=TRUE)
+
+field_unique<-fields_p[!duplicated(fields_p$name),] 
+field_unique$yes_dead<-0
+field_unique$yes_dead[!is.na(field_unique$producing_to)]<-1
+field_unique$yes_dead<-factor(field_unique$yes_dead, labels=c("no", "yes"))
+
+field_unique$field_life<-as.numeric(field_unique$field_life)
+
+ggplot(field_unique) +
+geom_point(aes(x=recoverable_oil, y=field_life, color=yes_dead)) +
+scale_color_manual(values=c("black", "red")) +
+labs(x="Estimated Recoverable Oil", y="Field Life, Days", color="Field is Shut Down")
+
+#create variable - time to peak
+field_unique$time_to_peak<-with(field_unique, as.Date(paste(peak_year, "01-01", sep="-"))-producing_from)
+field_unique$time_to_peak<-as.numeric(field_unique$time_to_peak)
+field_unique$peak_2013<-0; field_unique$peak_2013[field_unique$peak_year==2013]<-1
+field_unique$peak_2013<-factor(field_unique$peak_2013, labels=c("no", "yes"))
+
+ggplot(field_unique, aes(x=recoverable_oil, y=time_to_peak, color=peak_2013)) +
+geom_point() +
+scale_color_manual(values=c("black", "red")) +
+stat_smooth(method="lm") +
+labs(x="Estimated Recoverable Oil", y="Time to peak, Days", color="2013 is Peak Year (censored)")
+
+
+#differences between large and small
+
+#split into two groups - large and small over and under
+#first look at sizes
+
+prod_plot<-ggplot(fields_unique, aes(max_prod)) +
+geom_histogram(binwidth=.5)
+
+prod_plot
+
+prod_plot +
+geom_histogram(aes(log(max_prod)))
+
+prod_plot +
+geom_point(aes(y=field_time_to_peak, x=max_prod)) +
+labs(x="Max Yearly Production of Field", y="Time to peak of Field") +
+stat_smooth(aes(y=field_time_to_peak, x=max_prod), method=lm)
+
+#relationship between oil price and investments
+price_invest<-fields_p[c(12:18, 26)]
+price_invest_long<-melt(price_invest, id.vars="investmentMillNOK_real")
+
+ggplot(price_invest_long) +
+geom_point(aes(x=value, y=investmentMillNOK_real, color=variable), alpha=.3)
+
+ggplot(price_invest) +
+geom_point(aes(x=oil_price_real, y=investmentMillNOK_real))
+
