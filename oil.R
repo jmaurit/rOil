@@ -96,13 +96,39 @@ tot.prod.fields$labels<-rep(NA, length(tot.prod.fields[,1]))
 tot.prod.fields$labels[tot.prod.fields$name=="EKOFISK"]<-tot.prod.fields$name[tot.prod.fields$name=="EKOFISK"]
 tot.prod.fields$labels[tot.prod.fields$name=="STATFJORD"]<-tot.prod.fields$name[tot.prod.fields$name=="STATFJORD"]
 
+#add data for Johan Sverdrup
+#what is the size of Johan Sverdrup:
+#1,700-3,300 million barrels
+#1sm3=6.29 barrels of oil
+#standard cubic meter
+#Temperature: 15 °C, Pressure: 1.01325 barA
+#npd gives 300 SM3 recoverable oil 
+sverdrup<-data.frame(name="JOHAN SVERDRUP", recoverable_oil=300, lon=2.36, lat=58.49, labels="SVERDRUP", init_year=2010)
+tot.prod.fields_sverd<-merge(tot.prod.fields, sverdrup, 
+		by=c("name","lon", "lat", "recoverable_oil", "labels","init_year"), all=TRUE)
 
 #Map Reserves
-ggmap(northsea) +
-geom_point(aes(x = lon, y = lat, size=recoverable_oil, color=init_year),alpha=.7, data = tot.prod.fields)+
-geom_text(aes(label=labels), data=tot.prod.fields, size=3) +
+north_sea_reserves<-ggmap(northsea) +
+geom_point(aes(x = lon, y = lat, size=recoverable_oil, color=init_year),alpha=.7, data = tot.prod.fields_sverd)+
+geom_text(aes(label=labels), data=tot.prod.fields_sverd, size=3) +
 scale_color_continuous(low="red", high="black") +
-labs(color="Initial Production Year", size="Total Recoverable Oil")
+labs(color="Initial Production Year", size="Total Recoverable Oil, Mill SM3")
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/north_sea_reserves.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(north_sea_reserves)
+dev.off()	
+
+reserves_norwegian_sea<-ggmap(norwegiansea) +
+geom_point(aes(x = lon, y = lat, size=recoverable_oil, color=init_year),alpha=.7, data = tot.prod.fields)+
+#geom_text(aes(label=labels), data=tot.prod.fields, size=3) +
+scale_color_continuous(low="red", high="black") +
+labs(color="Initial Production Year", size="Total Recoverable Oil, Mill SM3")
+
+#print(reserves_norwegian_sea)
+png("/Users/johannesmauritzen/Google Drive/oil/figures/norwegian_sea_reserves.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(reserves_norwegian_sea)
+dev.off()	
+
 
 
 
@@ -110,14 +136,14 @@ labs(color="Initial Production Year", size="Total Recoverable Oil")
 
 
 #create multiple lines for production fall
-production2<-fields[order(fields$year),c(1:4, 12:13)]
+production2<-fields[order(fields$year),c("name", "year", "year_prod","init_year")]
 
 #first, get all production from fields that have produced at or before 1980 (but not those that started after)
 #first, tot. yearly production
 production_tot<-ddply(production2,.(year), summarize, tot_year_prod=sum(year_prod, na.rm=TRUE))
 
 #direct total - check
-production2_tot<-ddply(tot.month.prod, .(year), summarize, tot_year_prod=sum(oil_prod, na.rm=TRUE))
+#production2_tot<-ddply(tot.month.prod, .(year), summarize, tot_year_prod=sum(oil_prod, na.rm=TRUE))
 
 #test, production for active pre-1980 fields
 
@@ -163,10 +189,14 @@ production.lim.long<-melt(production.lim, id="years")
 names(production.lim.long)[3]<-"static_production"
 #production.lim.long$variable<-as.numeric(as.character(production.lim.long$variable))
 
-ggplot(production.lim.long) +
+tot_exist_prod_cf<-ggplot(production.lim.long) +
 geom_line(aes(x=years, y=static_production, color=variable))+
-labs(x="Year", y="Production from Existing Fields, Mill Sm3", color="Production Before:") +
+labs(x="", y="Production from Existing Fields, Mill Sm3", color="Fields Producing From:") +
 scale_color_discrete()
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/tot_exist_prod_cf.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(tot_exist_prod_cf)
+dev.off()
 
 #look at money put out ******************************
 
@@ -179,14 +209,24 @@ tot_investments_real<-tot_investments_real[1:(length(tot_investments_real[,1])-2
 #plot
 tot_investments_real<-merge(tot_investments_real, oil_long, all.x=TRUE)
 
-ggplot(tot_investments_real) +
-geom_line(aes(x=year, y=tot_invest_real)) +
-xlab("") + ylab("Investments, MILL NOK, 2010 Prices")
+invest_with_oil_price<-ggplot(tot_investments_real) +
+geom_line(aes(x=year, y=tot_invest_real, color=oil_price_real)) +
+xlab("") + ylab("Investments, MILL NOK, 2010 Prices") +
+labs(color="Oil Price, 2010 Prices") +
+scale_color_continuous(low="blue", high="red")
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/invest_with_oil_price.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(invest_with_oil_price)
+dev.off()
 
 #with oil prices
 tot_investments_real$oil_price_nom<-NULL
 invest.melt<-melt(tot_investments_real, id="year")
-invest.melt$variable<-factor(invest.melt$variable, labels=c("Total Investment, Mill 2010 NOK", "Oil Price, 2010 USD/Barrell"))
+invest.melt$variable<-factor(invest.melt$variable, labels=c("Total Investment, Mill 2010 NOK", 
+		"Oil Price, 2010 USD/Barrell", "Oil Price, l1", "Oil Price, l2", "Oil Price, l3", "Oil Price, l4",
+		"Oil Price, l5", "Oil Price, L6"))
+
+
 
 ggplot(invest.melt) +
 geom_line(aes(x=year, y=value)) +
@@ -200,19 +240,30 @@ tot_investments_real<-merge(tot_investments_real, production_tot, all.x=TRUE)
 tot_investments_real$nok_per_sm3<-with(tot_investments_real, tot_invest_real/tot_year_prod)
 tot_investments_real<-tot_investments_real[-1,]
 
-ggplot(tot_investments_real) +
-geom_line(aes(x=year, y=nok_per_sm3)) +
-xlab("") + ylab("NOK Investment per sm3 of Oil Production")
+invest_per_prod<-ggplot(tot_investments_real) +
+geom_line(aes(x=year, y=nok_per_sm3, color=oil_price_real)) +
+xlab("") + ylab("NOK Investment per sm3 of Oil Production") +
+labs(color="Oil Price, 2010 Prices") +
+scale_color_continuous(low="blue", high="red")
 
-#lag, three years
+png("/Users/johannesmauritzen/Google Drive/oil/figures/invest_per_prod.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(invest_per_prod)
+dev.off()
+
+#lag, five years
 tot_investments_real$lag5_prod<-NA
 tot_investments_real$lag5_prod[1:37]<-tot_investments_real$tot_year_prod[5:41]
 tot_investments_real$nok_per_sm3_lag5<-with(tot_investments_real, tot_invest_real/lag5_prod)
 
-ggplot(tot_investments_real) +
-geom_line(aes(x=year, y=nok_per_sm3_lag5)) +
-xlab("") + ylab("NOK Investment per sm3 of Oil Production, 5 year lag")
+invest_per_prod_l5<-ggplot(tot_investments_real) +
+geom_line(aes(x=year, y=nok_per_sm3_lag5, color=oil_price_real)) +
+xlab("") + ylab("NOK Investment per sm3 of Oil Production, 5 year lag") +
+labs(color="Oil Price, 2010 Prices") +
+scale_color_continuous(low="blue", high="red")
 
+png("/Users/johannesmauritzen/Google Drive/oil/figures/invest_per_prod_l5.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(invest_per_prod_l5)
+dev.off()
 
 #Time from discovery to production *********************
 field_unique<-fields[!duplicated(fields$name),] 
@@ -227,9 +278,18 @@ xlab("") + ylab("Time between approval and production, days")
 
 #Reserves over time and investment*************************
 
-ggplot(field_unique) +
-geom_point(aes(x=producing_from, y=recoverable_oil, size=total.invest)) +
-xlab("First Production year") + ylab("Total Recoverable Oil, Sm3") + labs(size="Total Investment, Mill NOK:")
+size_vs_init_prod<-ggplot(field_unique) +
+geom_point(aes(x=producing_from, y=recoverable_oil, size=total.invest, color=oil_price_real)) +
+geom_point(aes(x=as.Date("2017-01-01"), y=recoverable_oil), data=sverdrup, shape=4, color="red") +
+geom_text(aes(x=as.Date("2017-01-01"), y=recoverable_oil-10, label="Sverdrup"), data=sverdrup) +
+xlab("First Production year") + ylab("Total Recoverable Oil, Mill Sm3") + 
+labs(color="Oil Price, 2010 Prices", size="Total Investment, Mill NOK:") +
+scale_color_continuous(low="blue", high="red")
+
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/size_vs_init_prod.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(size_vs_init_prod)
+dev.off()
 
 #investment over time by year and reserves?  IE question is where is current investment going?
 
@@ -263,7 +323,9 @@ geom_point(aes(x=year, y=year_prod, size=investmentMillNOK))
 
 field_plot<-ggplot(statfjord) +
 geom_point(aes(x=year, y=year_prod, size=investmentMillNOK*(1/deflator), color=oil_price_real)) +
-scale_color_continuous(low="black", high="red")
+scale_color_continuous(low="black", high="red") +
+labs(x="", y="Yearly Oil Production, Mill SM3", 
+	title="Statfjord Production", size="Investment, Mill NOK, 2010 Prices", Color="Oil Price, 2010 Prices")
 print(field_plot)
 
 gam_statfjord<-gam(year_prod~s(year), data=statfjord)
