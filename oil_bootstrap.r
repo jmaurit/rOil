@@ -1,5 +1,6 @@
 #oil_bootstram
 library(boot)
+library(arm)
 #with model
 #prod_gam_under<-gam(year_prod~s(time_to_peak, recoverable_oil) +  s(year), 
 #	family=Gamma(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])

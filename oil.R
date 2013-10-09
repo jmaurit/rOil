@@ -1,4 +1,5 @@
-#Cleaning of oil Production data
+#descriptive analysis of oil data
+
 
 library(ggplot2)
 library(plyr)
@@ -17,7 +18,7 @@ library(Quandl)
 library(mgcv)
 
 #run fresh data import and clean:
-#source("/Users/johannesmauritzen/Google Drive/Oil/rOil/oil_clean.r") 
+source("/Users/johannesmauritzen/Google Drive/github/rOil/oil_clean.r") 
 
 #
 
@@ -397,4 +398,19 @@ geom_point(aes(x=value, y=investmentMillNOK_real, color=variable), alpha=.3)
 
 ggplot(price_invest) +
 geom_point(aes(x=oil_price_real, y=investmentMillNOK_real))
+
+
+#reserves to production ratio (how many years left) Have to work backward on this:
+
+
+#what is the size of Johan Sverdrup:
+#1,700-3,300 million barrels
+#1sm3=6.29 barrels of oil
+#standard cubic meter
+#Temperature: 15 °C, Pressure: 1.01325 barA 
+
+
+
+
+
 

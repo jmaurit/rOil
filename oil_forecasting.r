@@ -113,6 +113,12 @@ geom_line(aes(x=year, y=year_prod, color=prediction, group="tot")) +
 geom_ribbon(aes(x=year, ymin=year_prod-1.96*est_se, ymax=year_prod+1.96*est_se), alpha=.3)
 
 
+#get uncertainty based on "prediction matrix"
+#n_nat=Xp*Beta_hat ->
+Xp_gam_under<-predict(prod_gam_under, type="lpmatrix")
+V_beta<-prod_gam_under$Vp
+
+Var_fitted<-Xp_gam_under%*%V_beta%*%t(Xp_gam_under)
 
 
 
