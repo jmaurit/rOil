@@ -68,7 +68,6 @@ facet_wrap(~name, scales="free", nrow=3)
 print(prod.plot)
 }
 
- 
 
 #plot geographic production
 #create sums for oil production and investment
@@ -136,11 +135,25 @@ dev.off()
 
 
 #create multiple lines for production fall
-production2<-fields[order(fields$year),c("name", "year", "year_prod","init_year")]
+production2<-fields[order(fields$year),c("year", "year_prod","init_year", "oil_price_real")]
 
 #first, get all production from fields that have produced at or before 1980 (but not those that started after)
 #first, tot. yearly production
-production_tot<-ddply(production2,.(year), summarize, tot_year_prod=sum(year_prod, na.rm=TRUE))
+production_tot<-ddply(production2,.(year), mutate, tot_year_prod=sum(year_prod, na.rm=TRUE))
+production_tot<-production_tot[!duplicated(production_tot$year),]
+#exclude top year
+production_tot<-production_tot[!production_tot$year==2013,]
+
+#plot total production with oil price
+oil_decline<-ggplot(production_tot) +
+geom_line(aes(x=year, y=tot_year_prod, color=oil_price_real)) +
+xlab("") + ylab("Norwegian Production of Oil, Mill SM3") +
+labs(color="Oil Price, 2010 Prices", title="The Decline of Norwegian Oil") +
+scale_color_continuous(low="blue", high="red")
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/oil_decline.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(oil_decline)
+dev.off()
 
 #direct total - check
 #production2_tot<-ddply(tot.month.prod, .(year), summarize, tot_year_prod=sum(oil_prod, na.rm=TRUE))
@@ -276,6 +289,7 @@ stat_smooth(method="lm") +
 xlab("") + ylab("Time between approval and production, days")
 
 
+
 #Reserves over time and investment*************************
 
 size_vs_init_prod<-ggplot(field_unique) +
@@ -321,19 +335,29 @@ statfjord<-fields[fields$name=="STATFJORD",]
 ggplot(statfjord) +
 geom_point(aes(x=year, y=year_prod, size=investmentMillNOK))
 
-field_plot<-ggplot(statfjord) +
+statfjord_plot<-ggplot(statfjord) +
 geom_point(aes(x=year, y=year_prod, size=investmentMillNOK*(1/deflator), color=oil_price_real)) +
 scale_color_continuous(low="black", high="red") +
 labs(x="", y="Yearly Oil Production, Mill SM3", 
 	title="Statfjord Production", size="Investment, Mill NOK, 2010 Prices", Color="Oil Price, 2010 Prices")
-print(field_plot)
+print(statfjord_plot)
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/statfjord_plot.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(statfjord_plot)
+dev.off()
 
 gam_statfjord<-gam(year_prod~s(year), data=statfjord)
 statfjord<-statfjord[!is.na(statfjord$year_prod),]
 statfjord$smooth<-gam_statfjord$fitted.values
 
-field_plot +
+statfjord_gam<-statfjord_plot %+% statfjord +
 geom_line(aes(x=year, y=smooth))
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/statfjord_gam.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(statfjord_gam)
+dev.off()
 
 gam2_statfjord<-gam(year_prod~s(year) + s(investmentMillNOK*(1/deflator)), data=statfjord)
 statfjord$smooth2<-gam2_statfjord$fitted.values
@@ -356,8 +380,8 @@ ekofisk<-ekofisk[!is.na(ekofisk$year_prod),]
 
 
 gam_ekofisk<-gam(year_prod~s(year), data=ekofisk)
-gam2_ekofisk<-gam(year_prod~s(year) + s(investmentMillNOK*(1/deflator)), data=ekofisk)
-gam3_ekofisk<-gam(year_prod~s(year) + s(oil_price_real), data=ekofisk)
+gam2_ekofisk<-gam(year_prod~s(year) + investmentMillNOK*(1/deflator), data=ekofisk)
+gam3_ekofisk<-gam(year_prod~s(year) + oil_price_real, data=ekofisk)
 
 
 ekofisk$smooth<-gam_ekofisk$fitted.values
@@ -365,8 +389,16 @@ ekofisk$smooth2<-gam2_ekofisk$fitted.values
 ekofisk$smooth3<-gam3_ekofisk$fitted.values
 
 
-field_plot%+%ekofisk +
+ekofisk_plot<-statfjord_plot %+% ekofisk +
 geom_line(aes(x=year, y=smooth)) +
+labs(title="Ekofisk Production", color="Oil Price, 2010 Prices")
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/ekofisk_plot.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(ekofisk_plot)
+dev.off()
+
+ekofisk_plot +
 geom_line(aes(x=year, y=smooth2), color="blue") +
 geom_line(aes(x=year, y=smooth3), color="red")
 
@@ -415,10 +447,15 @@ field_unique$yes_dead<-factor(field_unique$yes_dead, labels=c("no", "yes"))
 
 field_unique$field_life<-as.numeric(field_unique$field_life)
 
-ggplot(field_unique) +
+field_life<-ggplot(field_unique) +
 geom_point(aes(x=recoverable_oil, y=field_life, color=yes_dead)) +
 scale_color_manual(values=c("black", "red")) +
 labs(x="Estimated Recoverable Oil", y="Field Life, Days", color="Field is Shut Down")
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/field_life.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(field_life)
+dev.off()
 
 #create variable - time to peak
 field_unique$time_to_peak<-with(field_unique, as.Date(paste(peak_year, "01-01", sep="-"))-producing_from)
@@ -426,12 +463,16 @@ field_unique$time_to_peak<-as.numeric(field_unique$time_to_peak)
 field_unique$peak_2013<-0; field_unique$peak_2013[field_unique$peak_year==2013]<-1
 field_unique$peak_2013<-factor(field_unique$peak_2013, labels=c("no", "yes"))
 
-ggplot(field_unique, aes(x=recoverable_oil, y=time_to_peak, color=peak_2013)) +
+time_to_peak_plot<-ggplot(field_unique, aes(x=recoverable_oil, y=time_to_peak, color=peak_2013)) +
 geom_point() +
 scale_color_manual(values=c("black", "red")) +
 stat_smooth(method="lm") +
 labs(x="Estimated Recoverable Oil", y="Time to peak, Days", color="2013 is Peak Year (censored)")
 
+png("/Users/johannesmauritzen/Google Drive/oil/figures/time_to_peak_plot.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(time_to_peak_plot)
+dev.off()
 
 #differences between large and small
 
