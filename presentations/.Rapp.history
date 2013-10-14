@@ -1,0 +1,250 @@
+prod_plot +
+geom_point(aes(y=field_time_to_peak, x=max_prod))
+prod_plot<-ggplot(fields_unique, aes(max_prod)) +
+geom_histogram(binwidth=.5)
+prod_plot +
+geom_point(aes(y=field_time_to_peak, x=max_prod))
+prod_gam_under10<-gam(year_prod~s(time_to_peak, recoverable_oil), data=fields_p[fields_p$max_prod<=10,])
+prod_gam_over10<-gam(year_prod~s(time_to_peak, recoverable_oil), data=fields_p[fields_p$max_prod>10,])
+fields_p$smooth_prod4[fields_p$max_prod<=10]<-prod_gam_under10$fitted.values
+fields_p$smooth_prod4[fields_p$max_prod>10]<-prod_gam_over10$fitted.values
+gam_test<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+labs(title="Statfjord")
+gam_test
+print_all<-function(field_name)
+{
+test
+field_name="STATFJORD"
+test
+gam_test %+% fields_p[fields_p$name==field_name,] +
+labs(title=field_name)
+}
+field_names<-fields_p$name[!duplicated(fields_p$name)]
+gam_plots<-lapply(field_names, print_all)
+setwd("/Users/johannesmauritzen/Google Drive/Oil/figures")
+png("multiple-plots", height=1000, width=1500)
+grid.newpage()
+pushViewport(viewport(layout=grid.layout(2,2)))
+vplayout<-function(x,y)
+viewport(layout.pos.row=x, layout.pos.col=y)
+print(gam_plots[[1]], vp=vplayout(1,1))
+print(gam_plots[[9]], vp=vplayout(1,2))
+print(gam_plots[[12]], vp=vplayout(2,1))
+print(gam_plots[[23]], vp=vplayout(2,2))
+dev.off()
+include_fields<-c("ALBUSKJELL", "COD", "EKOFISK","GULLFAKS")
+include_fields<-c("ALBUSKJELL", "COD", "EKOFISK","GULLFAKS")
+fields_p[fields_p$name==include_fields,]]
+fields_p[fields_p$name==include_fields,]
+include_fields<-c("ALBUSKJELL", "COD", "EKOFISK","GULLFAKS")
+multi_gam_plot <- ggplot(fields_p[fields_p$name==include_fields,]) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name)
+multi_gam_plot <- ggplot(fields_p[fields_p$name==include_fields,]) +
+geom_point(aes(x=year, y=year_prod))
+fields_lim<-fields_p[fields_p$name==include_fields,]
+fields_lim
+fields_lim<-fields_p[fields_p$name=="EKOFISK", ]
+fields_lim
+?index
+?index
+?which
+include_fields<-c("ALBUSKJELL", "COD", "EKOFISK","GULLFAKS")
+fields_lim<-fields_p[which(fields_p$name==include_fields), ]
+which(fields_p$name==include_fields)
+which(fields_p$name==include_fields)
+fields_p$name==include_fields
+fields_p$name
+?subset
+?grep
+fields_lim<-subset(fields_p, name==include_fields)
+include_fields<-c("ALBUSKJELL", "COD", "EKOFISK","GULLFAKS")
+fields_lim<-subset(fields_p, name %in% include_fields)
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name)
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name)
+multi_gam_plot
+?facet_wrap
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name, free_y=TRUE)
+multi_gam_plot
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name, scales="free_y")
+multi_gam_plot
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name, scales="free")
+multi_gam_plot
+prod_gam_under10<-gam(year_prod~s(time_to_peak, recoverable_oil), data=fields_p[fields_p$max_prod<=10,])
+prod_gam_over10<-gam(year_prod~s(time_to_peak), weights=recoverable_oil, data=fields_p[fields_p$max_prod>10,])
+fields_p$smooth_prod4[fields_p$max_prod<=10]<-prod_gam_under10$fitted.values
+fields_p$smooth_prod4[fields_p$max_prod>10]<-prod_gam_over10$fitted.values
+gam_test<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+labs(title="Statfjord")
+gam_test
+print_all<-function(field_name)
+{
+test
+field_name="STATFJORD"
+test
+gam_test %+% fields_p[fields_p$name==field_name,] +
+labs(title=field_name)
+}
+field_names<-fields_p$name[!duplicated(fields_p$name)]
+gam_plots<-lapply(field_names, print_all)
+better way to show
+include_fields<-c("ALBUSKJELL", "COD", "EKOFISK","GULLFAKS")
+fields_lim<-subset(fields_p, name %in% include_fields)
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name, scales="free")
+multi_gam_plot
+prod_gam_under10<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(year), data=fields_p[fields_p$max_prod<=10,])
+prod_gam_over10<-gam(year_prod~s(time_to_peak) + s(year), weights=recoverable_oil, data=fields_p[fields_p$max_prod>10,])
+fields_p$smooth_prod4[fields_p$max_prod<=10]<-prod_gam_under10$fitted.values
+fields_p$smooth_prod4[fields_p$max_prod>10]<-prod_gam_over10$fitted.values
+test on statfjord
+gam_test<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+labs(title="Statfjord")
+gam_test
+print_all<-function(field_name)
+{
+test
+field_name="STATFJORD"
+test
+gam_test %+% fields_p[fields_p$name==field_name,] +
+labs(title=field_name)
+}
+field_names<-fields_p$name[!duplicated(fields_p$name)]
+gam_plots<-lapply(field_names, print_all)
+better way to show
+include_fields<-c("ALBUSKJELL", "COD", "EKOFISK","GULLFAKS")
+fields_lim<-subset(fields_p, name %in% include_fields)
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name, scales="free")
+multi_gam_plot
+prod_gam<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(year), data=fields_p)
+prod_gam2<-gam(year_prod~s(producing_time), weights=recoverable_oil, data=fields_p)
+prod_gam3<-gam(year_prod~s(time_to_peak), weights=recoverable_oil, data=fields_p)
+fields_p$smooth_prod<-prod_gam$fitted.values
+fields_p$smooth_prod2<-prod_gam2$fitted.values
+fields_p$smooth_prod3<-prod_gam3$fitted.values
+split into two groups - large and small over and under
+first look at sizes
+fields_unique<-fields_p[!duplicated(fields_p$name),]
+prod_plot<-ggplot(fields_unique, aes(max_prod)) +
+geom_histogram(binwidth=.5)
+prod_plot
+prod_plot +
+geom_histogram(aes(log(max_prod)))
+prod_plot +
+geom_point(aes(y=field_time_to_peak, x=max_prod))
+split into under and over 10
+prod_gam_under10<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(year), data=fields_p[fields_p$max_prod<=10,])
+prod_gam_over10<-gam(year_prod~s(time_to_peak) + s(year), weights=recoverable_oil, data=fields_p[fields_p$max_prod>10,])
+fields_p$smooth_prod4[fields_p$max_prod<=10]<-prod_gam_under10$fitted.values
+fields_p$smooth_prod4[fields_p$max_prod>10]<-prod_gam_over10$fitted.values
+test on statfjord
+gam_test<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+labs(title="Statfjord")
+gam_test
+print_all<-function(field_name)
+{
+test
+field_name="STATFJORD"
+test
+gam_test %+% fields_p[fields_p$name==field_name,] +
+labs(title=field_name)
+}
+field_names<-fields_p$name[!duplicated(fields_p$name)]
+gam_plots<-lapply(field_names, print_all)
+better way to show
+include_fields<-c("ALBUSKJELL", "COD", "EKOFISK","GULLFAKS")
+fields_lim<-subset(fields_p, name %in% include_fields)
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name, scales="free")
+multi_gam_plot
+fields_unique$name
+include_fields<-c("ALBUSKJELL","ALVE", "COD", "EKOFISK","GULLFAKS", "KRISTIN", "STATFJORD", "TROLL")
+fields_lim<-subset(fields_p, name %in% include_fields)
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name, scales="free")
+multi_gam_plot
+include_fields<-c("ALBUSKJELL","ALVE", "COD", "EKOFISK", "GIMLE","GULLFAKS", "KRISTIN", "STATFJORD", "TROLL")
+fields_lim<-subset(fields_p, name %in% include_fields)
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name, scales="free")
+multi_gam_plot
+prod_gam_under10<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(year), data=fields_p[fields_p$max_prod<=10,])
+prod_gam_over10<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(year), weights=recoverable_oil, data=fields_p[fields_p$max_prod>10,])
+fields_p$smooth_prod4[fields_p$max_prod<=10]<-prod_gam_under10$fitted.values
+fields_p$smooth_prod4[fields_p$max_prod>10]<-prod_gam_over10$fitted.values
+test on statfjord
+gam_test<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+labs(title="Statfjord")
+gam_test
+print_all<-function(field_name)
+{
+test
+field_name="STATFJORD"
+test
+gam_test %+% fields_p[fields_p$name==field_name,] +
+labs(title=field_name)
+}
+field_names<-fields_p$name[!duplicated(fields_p$name)]
+gam_plots<-lapply(field_names, print_all)
+better way to show
+include_fields<-c("ALBUSKJELL","ALVE", "COD", "EKOFISK", "GIMLE","GULLFAKS", "KRISTIN", "STATFJORD", "TROLL")
+fields_lim<-subset(fields_p, name %in% include_fields)
+multi_gam_plot <- ggplot(fields_lim) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth_prod), color="blue") +
+geom_line(aes(x=year, y=smooth_prod4), color="red") +
+facet_wrap(~name, scales="free")
+multi_gam_plot

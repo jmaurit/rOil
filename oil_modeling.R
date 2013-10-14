@@ -19,9 +19,36 @@ source("/Users/johannesmauritzen/Google Drive/github/rOil/oil_modeling_prep.r")
 
 #gam modeling*************************************************************************
 
+#compare to glm model (not correctly dealing with non-linearity)
+
+glm_comp<-glm(year_prod~time_to_peak + I(time_to_peak^2) + I(time_to_peak^3) + 
+	peak_to_end + I(peak_to_end^2) +
+	recoverable_oil + oil_price_real + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
+	family=gaussian(link=log), data=fields_p)
+
+sum_glm_com<-summary(glm_comp)
+glm_data<-data.frame(coef=sum_glm_com$coefficients)
+glm_data$variable<-row.names(glm_data)
+
+coeff_plot<-ggplot(glm_data[c(8:13),]) +
+geom_bar(aes(x=variable, y=coef.Estimate), stat="identity") +
+geom_errorbar(aes(x=variable, ymin=coef.Estimate-2*coef.Std..Error, ymax=coef.Estimate+2*coef.Std..Error ))
+
+glm_coef_plot<-coeff_plot +
+labs(y="Effect of Oil Price on Norwegian Oil Production, GLM Model")
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/glm_coef_plot.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(glm_coef_plot)
+dev.off()
+
+
 #benchmark model - uses non-parametric function on both analysis time and year
-prod_gam<-gam(year_prod~s(time_to_peak) + s(peak_to_end) + s(year) + s(recoverable_oil), 
-	family=Gamma(link=log), weights=recoverable_oil, data=fields_p)
+prod_gam<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) + s(year), 
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p)
+
+gam.check(prod_gam)
+
 
 fields_p$smooth_bench<-prod_gam$fitted.values
 
@@ -34,9 +61,9 @@ fields_p$smooth_bench<-prod_gam$fitted.values
 split<-8
 
 prod_gam_under<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) +  s(year), 
-	family=Gamma(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
 prod_gam_over<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) + s(year), 
-	family=Gamma(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
 
 
 fields_p$smooth_bench_split[fields_p$max_prod<=split]<-prod_gam_under$fitted.values
@@ -62,21 +89,32 @@ fields_p$smooth_bench_split[fields_p$max_prod>split]<-prod_gam_over$fitted.value
 
 #Now see if oil prices have an effect
 
+#Full set
+gam_price<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) +
+	oil_price_real + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p)
+
+gam_price2<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	s(oil_price_real_l4) + s(oil_price_real_l5) + s(oil_price_real_l6),
+	family=gaussian(link=log), weights=recoverable_oil,data=fields_p)
+
 
 #Have to be careful about price and effect of year dummies - remove affect of year
 gam_price_under<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) +
 	oil_price_real + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
-	family=Gamma(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
 
 gam_price_over<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) +
 	oil_price_real + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
-	family=Gamma(link=log),weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
+	family=gaussian(link=log),weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
 
-#gam_price_under2<-gam(year_prod~s(time_to_peak, oil_price_real_l5)+ s(peak_to_end, oil_price_real_l5),
-#	family=Gamma(link=log), weights=recoverable_oil,data=fields_p[fields_p$max_prod<=split,])
+gam_price_under2<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	s(oil_price_real_l4) + s(oil_price_real_l5) + s(oil_price_real_l6),
+	family=gaussian(link=log), weights=recoverable_oil,data=fields_p[fields_p$max_prod<=split,])
 
-#gam_price_over2<-gam(year_prod~s(time_to_peak, oil_price_real_l5) + s(peak_to_end, oil_price_real_l5),
-#	family=Gamma(link=log),weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
+gam_price_over2<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) +
+	+ s(oil_price_real_l4) + s(oil_price_real_l5) + s(oil_price_real_l6),
+	family=gaussian(link=log),weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
 
 fields_p$smooth_price[fields_p$max_prod<=split]<-gam_price_under$fitted.values
 fields_p$smooth_price[fields_p$max_prod>split]<-gam_price_over$fitted.values
@@ -91,45 +129,77 @@ fields_p$smooth_price[fields_p$max_prod>split]<-gam_price_over$fitted.values
 
 #compare direct price/non price comparision
 gam_under<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil),
-	family=Gamma(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
 
 gam_over<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil),
-	family=Gamma(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
 
-fields_p$smooth_split[fields_p$max_prod<=split]<-gam_price_under$fitted.values
-fields_p$smooth_split[fields_p$max_prod>split]<-gam_price_over$fitted.values
+fields_p$smooth_split[fields_p$max_prod<=split]<-gam_under$fitted.values
+fields_p$smooth_split[fields_p$max_prod>split]<-gam_over$fitted.values
 
 
 #test of coefficients on price
-coef_under<-gam_price_under$coefficients
-coef_over<-gam_price_over$coefficients
+sum_full<-summary(gam_price)
+sum_full2<-summary(gam_price2)
 
-sd_under<-sqrt(diag(gam_price_under$Ve))
-sd_over<-sqrt(diag(gam_price_over$Ve)) #variance from frequentist point of view, Vp for bayesian - better for CI
+summary_under <- summary(gam_price_under)
+summary_over <- summary(gam_price_over)
+summary_under
+summary_over
 
-coef_under[2:7]
-sd_under[2:7]
+summary_under2 <- summary(gam_price_under2)
+summary_over2 <- summary(gam_price_over2)
+summary_under2
+summary_over2
 
-coef_over[2:7]
-sd_over[2:7]
+summary_comp_under<-summary(gam_under)
+summary_comp_over<-summary(gam_over)
+summary_comp_under
+summary_comp_over
 
-#now use ridge regression option
+
+
+coef_under<-data.frame(summary_under$p.table)
+coef_under$variable<-row.names(coef_under)
+coef_under$field_type<-"small"
+coef_over<-data.frame(summary_over$p.table)
+coef_over$variable<-row.names(coef_over)
+coef_over$field_type<-"large"
+
+coef_split_price<-rbind(coef_under, coef_over)
+coef_split_price[c("Estimate", "Std..Error")]<-coef_split_price[c("Estimate", "Std..Error")]*100
+
+coeff_split_plot<-ggplot(coef_split_price[c(2:7, 9:14),]) +
+geom_bar(aes(x=variable, y=Estimate), stat="identity") +
+geom_errorbar(aes(x=variable, ymin=Estimate-2*Std..Error, ymax=Estimate+2*Std..Error )) +
+facet_wrap(~field_type) +
+labs(y="Effect of Oil Prices on Norwegian Oil Production, % per 10$")
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/coeff_split_plot.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(coeff_split_plot)
+dev.off()
+
+
+#chart in big fields. 
+
+
 	
 	
 #test on statfjord
-gam_test<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
-geom_point(aes(x=year, y=year_prod)) +
-geom_line(aes(x=year, y=smooth_bench_split), color="blue") +
+gam_statfjord<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
+geom_point(aes(x=year, y=year_prod, size=oil_price_real)) +
+geom_line(aes(x=year, y=smooth_split), color="blue") +
 geom_line(aes(x=year, y=smooth_price), color="red") +
 labs(title="Statfjord")
-gam_test 
+gam_statfjord
 
-gam_test<-ggplot(fields_p[fields_p$name=="EKOFISK",]) +
-geom_point(aes(x=year, y=year_prod)) +
-geom_line(aes(x=year, y=smooth_bench_split), color="blue") +
+gam_ekofisk<-ggplot(fields_p[fields_p$name=="EKOFISK",]) +
+geom_point(aes(x=year, y=year_prod, size=oil_price_real)) +
+geom_line(aes(x=year, y=smooth_split), color="blue") +
 geom_line(aes(x=year, y=smooth_price), color="red") +
 labs(title="Ekofisk")
-gam_test 
+gam_ekofisk
 
 
 
@@ -176,7 +246,7 @@ dev.off()
 #compare split with split price
 price_vs_non_price<-bench_vs_split %+%  
 fields_long[fields_long$smoothing_type %in% c("With Price", "Non-Price"),] +
-geom_line(aes(x=year, y=smoothed, color=smoothing_type),position="jitter") +
+geom_line(aes(x=year, y=smoothed, color=smoothing_type)) +
 scale_color_manual(values=c("orange", "green"))
 
 

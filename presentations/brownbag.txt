@@ -1,0 +1,13 @@
+Presentation text file
+
+slide 1 
+
+
+#statfjord demonstration
+-this is 
+
+slide x benchmark model
+
+-write gamma distribution. 
+-usually used for modeling waiting times
+-also used for rates
