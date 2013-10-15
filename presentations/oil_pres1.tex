@@ -60,7 +60,7 @@ Naive Modeling of Oil Field Data
 or...\\
 Naive Modeling of Oil Field Data\\[1cm]
 or...\\
-A top-dow-bottom-up multilevel non-parametric generalized additive model of oil field production in the Norwegian continental shelf\\
+A top-down-bottom-up multilevel non-parametric generalized additive model of oil field production in the Norwegian continental shelf\\
 \end{frame}
 
 \begin{frame}[plain]
@@ -96,6 +96,15 @@ Oil Price Does Not Seem to Matter (Much) for Production in Existing Fields\\
 	\end{figure}
 \end{frame}
 
+
+%--- Investment ----------------%
+
+\begin{frame}[plain]
+	\begin{figure}
+	\includegraphics[width=1\textwidth]{invest_with_oil_price.png}
+	\end{figure}
+\end{frame}
+
 %--- the presentation begins here ----------------%
 
 \begin{frame}[plain]
@@ -121,15 +130,7 @@ Oil Price Does Not Seem to Matter (Much) for Production in Existing Fields\\
 \end{frame}
 
 
-%--- the presentation begins here ----------------%
-
-\begin{frame}[plain]
-	\begin{figure}
-	\includegraphics[width=1\textwidth]{invest_with_oil_price.png}
-	\end{figure}
-\end{frame}
-
-%--- naive GLM formula ----------------%
+%--- naive GLM formula and results ----------------%
 \begin{frame}[plain]
 	\begin{multline}
 	\nonumber Log(Production_{i,t})=time\_to\_peak_{i,t} + time\_to\_peak_{i,t}^2 \\
@@ -139,24 +140,32 @@ Oil Price Does Not Seem to Matter (Much) for Production in Existing Fields\\
 	\end{multline}
 \end{frame}
 
+
+\begin{frame}[plain]
+	\begin{figure}
+	\includegraphics[width=1\textwidth]{glm_dirty_box.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[plain]
+	\begin{figure}
+	\includegraphics[width=1\textwidth]{oil_decline.png}
+	\end{figure}
+\end{frame}
+
+%--- Show Example of a Simple GAM ----------------%
+
+
 \begin{frame}[plain]
 	\begin{figure}
 	\includegraphics[width=1\textwidth]{statfjord_plot.png}
 	\end{figure}
 \end{frame}
 
-%--- the presentation begins here ----------------%
-\begin{frame}[plain]
-	\begin{figure}
-	\includegraphics[width=1\textwidth]{glm_coef_plot.png}
-	\end{figure}
-\end{frame}
-
-%--- Show Example of a Simple GAM ----------------%
 
 \begin{frame}[plain]
 	\begin{multline}
-	\nonumber Log(Production_{statfjord,t})=f(time) + \epsilon
+	\nonumber Production_{statfjord,t}=f(time) + \epsilon
 	\end{multline}
 \end{frame}
 
@@ -219,8 +228,7 @@ Oil Price Does Not Seem to Matter (Much) for Production in Existing Fields\\
 \begin{frame}[plain]
 		\begin{multline}
 	\nonumber Log(Production_{i,t})=f(time\_to\_peak_{i,t}) + f(peak\_to\_end_{i,t}) \\
-	+ f(total\_recoverable\_oil_i)
-	+ \beta_1 oil\_price + \beta_2 oil\_price\_l1 + ... +  \epsilon
+	+ f(total\_recoverable\_oil_i) +  \epsilon
 	\end{multline}
 
 		\begin{equation}
@@ -241,11 +249,6 @@ Oil Price Does Not Seem to Matter (Much) for Production in Existing Fields\\
 \end{frame}
 
 %--- Forecasting ----------------%
-\begin{frame}[plain]
-	\begin{figure}
-	\includegraphics[width=1\textwidth]{coeff_split_plot.png}
-	\end{figure}
-\end{frame}
 
 \begin{frame}[plain]
 	\begin{figure}

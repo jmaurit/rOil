@@ -10,9 +10,15 @@ fitted_year_prod<-ddply(fields_p, .(year), summarize, fitted_year_prod=sum(smoot
 actual_year_prod<-ddply(fields_p, .(year), summarize, actual_year_prod=sum(year_prod))
 year_prod<-merge(fitted_year_prod, actual_year_prod)
 
-ggplot(year_prod) +
+tot_fitted_vs_actual<-ggplot(year_prod) +
 geom_line(aes(x=year, y=actual_year_prod)) +
-geom_line(aes(x=year, y=fitted_year_prod), color="red")
+geom_line(aes(x=year, y=fitted_year_prod), color="red") +
+labs(y="Actual(black) vs Fitted (red) Oil Production, Mill SM3", x="")
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/tot_fitted_vs_actual.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(tot_fitted_vs_actual)
+dev.off()
 
 #create forecast
 #use predict.gam()
@@ -90,9 +96,15 @@ fields_lim<-subset(fields_pred, name %in% include_fields)
 multi_gam_plot <- ggplot(fields_lim) +
 facet_wrap(~name, scales="free")
 
-multi_gam_plot +
+field_lev_forecast<-multi_gam_plot +
 geom_line(aes(x=year, y=year_prod, color=prediction, group=name)) +
-geom_ribbon(aes(x=year, ymin=year_prod-1.96*est_se, ymax=year_prod+1.96*est_se), alpha=.3)
+geom_ribbon(aes(x=year, ymin=year_prod-1.96*est_se, ymax=year_prod+1.96*est_se), alpha=.3) +
+labs(y="Oil Production, Mill SM3")
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/field_lev_forecast.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(field_lev_forecast)
+dev.off()
 
 
 #sum together an dplot
@@ -108,9 +120,15 @@ tot.prod$year<-as.numeric(tot.prod$year)
 tot.prod$tot<-"tot"
 tot.prod$est_se[tot.prod$year==2012]<-0
 
-ggplot(tot.prod) +
+tot_forecast<-ggplot(tot.prod) +
 geom_line(aes(x=year, y=year_prod, color=prediction, group="tot")) +
-geom_ribbon(aes(x=year, ymin=year_prod-1.96*est_se, ymax=year_prod+1.96*est_se), alpha=.3)
+geom_ribbon(aes(x=year, ymin=year_prod-1.96*est_se, ymax=year_prod+1.96*est_se), alpha=.3) +
+labs(y="Oil Production, Mill SM3")
+
+png("/Users/johannesmauritzen/Google Drive/oil/figures/tot_forecast.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(tot_forecast)
+dev.off()
 
 
 #get uncertainty based on "prediction matrix"

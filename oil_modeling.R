@@ -7,6 +7,7 @@ library(mgcv)
 library(lubridate) 
 library(grid)
 library(boot)
+library(arm)
 
 
 
@@ -30,17 +31,37 @@ sum_glm_com<-summary(glm_comp)
 glm_data<-data.frame(coef=sum_glm_com$coefficients)
 glm_data$variable<-row.names(glm_data)
 
+#make into percent
+glm_data[c("coef.Estimate","coef.Std..Error")]<-glm_data[c("coef.Estimate","coef.Std..Error")]*100
+
 coeff_plot<-ggplot(glm_data[c(8:13),]) +
 geom_bar(aes(x=variable, y=coef.Estimate), stat="identity") +
 geom_errorbar(aes(x=variable, ymin=coef.Estimate-2*coef.Std..Error, ymax=coef.Estimate+2*coef.Std..Error ))
 
 glm_coef_plot<-coeff_plot +
-labs(y="Effect of Oil Price on Norwegian Oil Production, GLM Model")
+labs(y="Effect of Oil Price on Norwegian Oil Production % per $10, GLM Model")
 
-png("/Users/johannesmauritzen/Google Drive/oil/figures/glm_coef_plot.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/glm_coef_plot.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
 print(glm_coef_plot)
 dev.off()
+
+#using simulation for uncertainty ()
+sim_glm<-sim(glm_comp, n.sims=1000)
+price_coef_sim<-melt(sim_glm@coef[,c(8:13)],)
+price_coef_sim$Var1<-NULL
+names(price_coef_sim)<-c("coefficient", "estimate")
+
+glm_dirty_box<-ggplot(price_coef_sim, aes(x=coefficient, y=estimate)) +
+geom_boxplot() +
+geom_jitter(, alpha=.1)
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/glm_dirty_box.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(glm_dirty_box)
+dev.off()
+
+
 
 
 #benchmark model - uses non-parametric function on both analysis time and year
@@ -157,8 +178,6 @@ summary_comp_over<-summary(gam_over)
 summary_comp_under
 summary_comp_over
 
-
-
 coef_under<-data.frame(summary_under$p.table)
 coef_under$variable<-row.names(coef_under)
 coef_under$field_type<-"small"
@@ -175,12 +194,27 @@ geom_errorbar(aes(x=variable, ymin=Estimate-2*Std..Error, ymax=Estimate+2*Std..E
 facet_wrap(~field_type) +
 labs(y="Effect of Oil Prices on Norwegian Oil Production, % per 10$")
 
-png("/Users/johannesmauritzen/Google Drive/oil/figures/coeff_split_plot.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/coeff_split_plot.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
 print(coeff_split_plot)
 dev.off()
 
 
+#simulation of coefficients
+cov_beta<-gam_under$Vp
+beta_hat<-gam_under$coefficients
+sigma_hat<-sqrt(gam_under$sig2)
+n_minus_k<-gam_under$df.residual
+
+sim_gam<-function(cov_beta, beta_hat, sigma_hat, n_minus_k){
+sigma<-sigma_hat*sqrt((n_minus_k)/rchisq(1,n_minus_k))
+beta<-mvrnorm(1, beta_hat, cov_beta*sigma^2)
+return(beta=beta)
+}
+
+nsims<-1000
+#under_sims<-array(NA, dim=nsims)
+under_sims<-replicate(nsims, sim_gam(gam_under$Vp,gam_under$coefficients, sqrt(gam_under$sig2), gam_under$df.residual))
 #chart in big fields. 
 
 
@@ -228,7 +262,7 @@ geom_point(aes(x=year, y=year_prod)) +
 geom_line(aes(x=year, y=smoothed, color=smoothing_type)) +
 facet_wrap(~name, scales="free")
 
-png("/Users/johannesmauritzen/Google Drive/oil/figures/bench_vs_split.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/bench_vs_split.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
 print(bench_vs_split)
 dev.off()
@@ -238,7 +272,7 @@ bench_vs_price<-bench_vs_split %+%
 fields_long[fields_long$smoothing_type %in% c("Split Benchmark", "With Price"),] +
 scale_color_manual(values=c("red", "orange"))
 
-png("/Users/johannesmauritzen/Google Drive/oil/figures/bench_vs_price.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/bench_vs_price.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
 print(bench_vs_price)
 dev.off()
@@ -250,7 +284,7 @@ geom_line(aes(x=year, y=smoothed, color=smoothing_type)) +
 scale_color_manual(values=c("orange", "green"))
 
 
-png("/Users/johannesmauritzen/Google Drive/oil/figures/price_vs_non_price.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/price_vs_non_price.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
 print(price_vs_non_price)
 dev.off()

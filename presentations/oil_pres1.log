@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  14 OCT 2013 20:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  15 OCT 2013 19:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -919,168 +919,152 @@ Package pdftex.def Info: tot_exist_prod_cf.png used on input line 97.
  [10
 
  <./tot_exist_prod_cf.png>]
-<size_vs_init_prod.png, id=275, 3296.315pt x 2489.3pt>
-File: size_vs_init_prod.png Graphic file (type png)
-
-<use size_vs_init_prod.png>
-Package pdftex.def Info: size_vs_init_prod.png used on input line 105.
-(pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
- [11
-
- <./size_vs_init_prod.png>]
-<invest_per_prod.png, id=301, 3296.315pt x 2489.3pt>
-File: invest_per_prod.png Graphic file (type png)
- <use invest_per_prod.png>
-Package pdftex.def Info: invest_per_prod.png used on input line 113.
-(pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
-
-[12
-
- <./invest_per_prod.png>]
-<invest_per_prod_l5.png, id=327, 3296.315pt x 2489.3pt>
-File: invest_per_prod_l5.png Graphic file (type png)
-
-<use invest_per_prod_l5.png>
-Package pdftex.def Info: invest_per_prod_l5.png used on input line 121.
-(pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
- [13
-
- <./invest_per_prod_l5.png>]
-<invest_with_oil_price.png, id=355, 3296.315pt x 2489.3pt>
+<invest_with_oil_price.png, id=275, 3296.315pt x 2489.3pt>
 File: invest_with_oil_price.png Graphic file (type png)
 
 <use invest_with_oil_price.png>
-Package pdftex.def Info: invest_with_oil_price.png used on input line 130.
+Package pdftex.def Info: invest_with_oil_price.png used on input line 106.
+(pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
+ [11
+
+ <./invest_with_oil_price.png>]
+<size_vs_init_prod.png, id=301, 3296.315pt x 2489.3pt>
+File: size_vs_init_prod.png Graphic file (type png)
+
+<use size_vs_init_prod.png>
+Package pdftex.def Info: size_vs_init_prod.png used on input line 114.
+(pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
+ [12
+
+ <./size_vs_init_prod.png>]
+<invest_per_prod.png, id=327, 3296.315pt x 2489.3pt>
+File: invest_per_prod.png Graphic file (type png)
+ <use invest_per_prod.png>
+Package pdftex.def Info: invest_per_prod.png used on input line 122.
+(pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
+
+[13
+
+ <./invest_per_prod.png>]
+<invest_per_prod_l5.png, id=355, 3296.315pt x 2489.3pt>
+File: invest_per_prod_l5.png Graphic file (type png)
+
+<use invest_per_prod_l5.png>
+Package pdftex.def Info: invest_per_prod_l5.png used on input line 130.
 (pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
  [14
 
- <./invest_with_oil_price.png>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 139.
+ <./invest_per_prod_l5.png>]
+LaTeX Font Info:    Try loading font information for U+msa on input line 141.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 139.
+LaTeX Font Info:    Try loading font information for U+msb on input line 141.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Overfull \hbox (29.66794pt too wide) detected at line 139
- []$[]  \OT1/cmss/m/it/10.95 Log\OT1/cmss/m/n/10.95 (\OT1/cmss/m/it/10.95 Produ
-ction[]\OT1/cmss/m/n/10.95 ) = \OT1/cmss/m/it/10.95 time[]to[]peak[] \OT1/cmss/
-m/n/10.95 + \OT1/cmss/m/it/10.95 time[]to[]peak[] \OT1/cmss/m/n/10.95 + \OT1/cm
-ss/m/it/10.95 time[]to[]peak[]$ 
- []
+) [15
 
+]
+<glm_dirty_box.png, id=409, 3296.315pt x 2489.3pt>
+File: glm_dirty_box.png Graphic file (type png)
+ <use glm_dirty_box.png>
+Package pdftex.def Info: glm_dirty_box.png used on input line 148.
+(pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
 
-Overfull \hbox (20.40956pt too wide) detected at line 139
- []$[] \OT1/cmss/m/n/10.95 + \OT1/cmss/m/it/10.95 peak[]to[]end[] \OT1/cmss/m/n
-/10.95 + \OT1/cmss/m/it/10.95 peak[]to[]end[] \OT1/cmss/m/n/10.95 + \OT1/cmss/m
-/it/10.95 peak[]to[]end[] \OT1/cmss/m/n/10.95 + \OT1/cmss/m/it/10.95 total[]rec
-overable[]oil[]$ 
- []
+[16
 
-[15
+ <./glm_dirty_box.png>]
+File: oil_decline.png Graphic file (type png)
+ <use oil_decline.png>
+Package pdftex.def Info: oil_decline.png used on input line 154.
+(pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
+ [17
 
-] <statfjord_plot.png, id=409, 3296.315pt x 2489.3pt>
+]
+<statfjord_plot.png, id=459, 3296.315pt x 2489.3pt>
 File: statfjord_plot.png Graphic file (type png)
-
-<use statfjord_plot.png>
-Package pdftex.def Info: statfjord_plot.png used on input line 145.
+ <use statfjord_plot.png>
+Package pdftex.def Info: statfjord_plot.png used on input line 163.
 (pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
- [16
-
- <./statfjord_plot.png>]
-<glm_coef_plot.png, id=435, 3296.315pt x 2489.3pt>
-File: glm_coef_plot.png Graphic file (type png)
- <use glm_coef_plot.png>
-Package pdftex.def Info: glm_coef_plot.png used on input line 152.
-(pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
-
-[17
-
- <./glm_coef_plot.png>]
-Underfull \hbox (badness 10000) detected at line 160
- []$[]  \OT1/cmss/m/it/10.95 Log\OT1/cmss/m/n/10.95 (\OT1/cmss/m/it/10.95 Produ
-ction[]\OT1/cmss/m/n/10.95 ) = \OT1/cmss/m/it/10.95 f\OT1/cmss/m/n/10.95 (\OT1/
-cmss/m/it/10.95 time\OT1/cmss/m/n/10.95 ) + \OML/cmm/m/it/10.95 ^^O  $ 
- []
 
 [18
 
-] <statfjord_gam.png, id=486, 3296.315pt x 2489.3pt>
+ <./statfjord_plot.png>]
+Underfull \hbox (badness 10000) detected at line 170
+ []$[]  \OT1/cmss/m/it/10.95 Production[] \OT1/cmss/m/n/10.95 = \OT1/cmss/m/it/
+10.95 f\OT1/cmss/m/n/10.95 (\OT1/cmss/m/it/10.95 time\OT1/cmss/m/n/10.95 ) + \O
+ML/cmm/m/it/10.95 ^^O  $ 
+ []
+
+[19
+
+] <statfjord_gam.png, id=511, 3296.315pt x 2489.3pt>
 File: statfjord_gam.png Graphic file (type png)
 
 <use statfjord_gam.png>
-Package pdftex.def Info: statfjord_gam.png used on input line 167.
+Package pdftex.def Info: statfjord_gam.png used on input line 177.
 (pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
- [19
+ [20
 
  <./statfjord_gam.png>]
-<ekofisk_plot.png, id=513, 3296.315pt x 2489.3pt>
+<ekofisk_plot.png, id=537, 3296.315pt x 2489.3pt>
 File: ekofisk_plot.png Graphic file (type png)
  <use ekofisk_plot.png>
-Package pdftex.def Info: ekofisk_plot.png used on input line 174.
+Package pdftex.def Info: ekofisk_plot.png used on input line 184.
 (pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
 
-[20
+[21
 
- <./ekofisk_plot.png>] [21
+ <./ekofisk_plot.png>] [22
 
 ]
-<bench_vs_split.png, id=564, 3296.315pt x 2489.3pt>
+<bench_vs_split.png, id=589, 3296.315pt x 2489.3pt>
 File: bench_vs_split.png Graphic file (type png)
  <use bench_vs_split.png>
-Package pdftex.def Info: bench_vs_split.png used on input line 195.
+Package pdftex.def Info: bench_vs_split.png used on input line 205.
 (pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
 
-[22
+[23
 
- <./bench_vs_split.png>] [23
+ <./bench_vs_split.png>] [24
 
 ]
-<bench_vs_price.png, id=615, 3296.315pt x 2489.3pt>
+<bench_vs_price.png, id=639, 3296.315pt x 2489.3pt>
 File: bench_vs_price.png Graphic file (type png)
  <use bench_vs_price.png>
-Package pdftex.def Info: bench_vs_price.png used on input line 215.
+Package pdftex.def Info: bench_vs_price.png used on input line 225.
 (pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
 
-[24
+[25
 
- <./bench_vs_price.png>] [25
+ <./bench_vs_price.png>] [26
 
 ]
-<price_vs_non_price.png, id=666, 3296.315pt x 2489.3pt>
+<price_vs_non_price.png, id=691, 3296.315pt x 2489.3pt>
 File: price_vs_non_price.png Graphic file (type png)
 
 <use price_vs_non_price.png>
-Package pdftex.def Info: price_vs_non_price.png used on input line 234.
-(pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
- [26
-
- <./price_vs_non_price.png>]
-<coeff_split_plot.png, id=693, 3296.315pt x 2489.3pt>
-File: coeff_split_plot.png Graphic file (type png)
-
-<use coeff_split_plot.png>
-Package pdftex.def Info: coeff_split_plot.png used on input line 240.
+Package pdftex.def Info: price_vs_non_price.png used on input line 243.
 (pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
  [27
 
- <./coeff_split_plot.png>]
+ <./price_vs_non_price.png>]
+<coeff_split_plot.png, id=717, 3296.315pt x 2489.3pt>
 File: coeff_split_plot.png Graphic file (type png)
 
 <use coeff_split_plot.png>
-Package pdftex.def Info: coeff_split_plot.png used on input line 247.
+Package pdftex.def Info: coeff_split_plot.png used on input line 249.
 (pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
  [28
 
-]
+ <./coeff_split_plot.png>]
 <field_lev_forecast.png, id=743, 3296.315pt x 2489.3pt>
 File: field_lev_forecast.png Graphic file (type png)
 
 <use field_lev_forecast.png>
-Package pdftex.def Info: field_lev_forecast.png used on input line 253.
+Package pdftex.def Info: field_lev_forecast.png used on input line 257.
 (pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
  [29
 
@@ -1088,7 +1072,7 @@ Package pdftex.def Info: field_lev_forecast.png used on input line 253.
 <tot_forecast.png, id=768, 3296.315pt x 2489.3pt>
 File: tot_forecast.png Graphic file (type png)
  <use tot_forecast.png>
-Package pdftex.def Info: tot_forecast.png used on input line 259.
+Package pdftex.def Info: tot_forecast.png used on input line 263.
 (pdftex.def)             Requested size: 307.28987pt x 232.04187pt.
 
 [30
@@ -1103,14 +1087,14 @@ Package pdftex.def Info: tot_forecast.png used on input line 259.
 \tf@snm=\write8
 \openout8 = `oil_pres1.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 261.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 261.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 265.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 265.
  (./oil_pres1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 261.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 261.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 265.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 265.
 Package rerunfilecheck Info: File `oil_pres1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 261.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 265.
  ) 
 Here is how much of TeX's memory you used:
  15586 strings out of 493315
@@ -1129,7 +1113,7 @@ sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr
 /local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on oil_pres1.pdf (30 pages, 13198740 bytes).
+Output written on oil_pres1.pdf (30 pages, 13955955 bytes).
 PDF statistics:
  832 PDF objects out of 1000 (max. 8388607)
  738 compressed objects within 8 object streams
