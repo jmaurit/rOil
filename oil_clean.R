@@ -1,5 +1,6 @@
 #Oil clean
 
+#use function install.packages("package.name") to install missing packages
 library(ggplot2)
 library(plyr)
 library(reshape2)

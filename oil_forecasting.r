@@ -46,6 +46,7 @@ prod_predictions<-function(field_data, model_under, model_over=NA)
 	options(warn=-1)
 	if(!is.na(model_over))
 		#if model_over parameter provided - ie split into two
+		
 		{
 		ifelse(field_data$max_prod<=split,
 			pred_prod<-predict.gam(model_under, type="response", newdata=new.data, se.fit=TRUE),

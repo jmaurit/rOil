@@ -62,21 +62,11 @@ print(glm_dirty_box)
 dev.off()
 
 
-
-
 #benchmark model - uses non-parametric function on both analysis time and year
 prod_gam<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) + s(year), 
 	family=gaussian(link=log), weights=recoverable_oil, data=fields_p)
 
-gam.check(prod_gam)
-
-
 fields_p$smooth_bench<-prod_gam$fitted.values
-
-#prod_gam2<-gam(year_prod~s(time_to_peak) + s(peak_to_end) + (recoverable_oil) + year, 
-#	family=Gamma(link=log), weights=recoverable_oil, data=fields_p)
-
-#fields_p$smooth_bench_dummies<-prod_gam2$fitted.values
 
 #benchmark model split into under and over a certain limit
 split<-8
@@ -90,136 +80,11 @@ prod_gam_over<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, r
 fields_p$smooth_bench_split[fields_p$max_prod<=split]<-prod_gam_under$fitted.values
 fields_p$smooth_bench_split[fields_p$max_prod>split]<-prod_gam_over$fitted.values
 
-
-#residuals appear to be q
-#plot(prod_gam_under$residuals)
-#plot(prod_gam_over$residuals)
-
-#can we get standard errors for the prediction
-#use bootstram
-
-
-
-#benchmark with ekofisk in two
-#prod_eko_under<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(year), data=fields_eko[fields_eko$max_prod<=split,])
-#prod_eko_over<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(year), weights=recoverable_oil, data=fields_eko[fields_eko$max_prod>split,])
-
-#fields_p$smooth_eko[fields_p$max_prod<=split]<-prod_eko_under$fitted.values
-#fields_p$smooth_eko[fields_p$max_prod>split]<-prod_eko_over$fitted.values
-
-
 #Now see if oil prices have an effect
-
-#Full set
-gam_price<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) +
-	oil_price_real + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
-	family=gaussian(link=log), weights=recoverable_oil, data=fields_p)
-
-gam_price2<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
-	s(oil_price_real_l4) + s(oil_price_real_l5) + s(oil_price_real_l6),
-	family=gaussian(link=log), weights=recoverable_oil,data=fields_p)
+#produces gam estimates gam_price and predicted values smooth_price
+source("/Users/johannesmauritzen/Google Drive/github/rOil/price_modeling.r")
 
 
-#Have to be careful about price and effect of year dummies - remove affect of year
-gam_price_under<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) +
-	oil_price_real + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
-	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
-
-gam_price_over<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) +
-	oil_price_real + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
-	family=gaussian(link=log),weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
-
-gam_price_under2<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
-	s(oil_price_real_l4) + s(oil_price_real_l5) + s(oil_price_real_l6),
-	family=gaussian(link=log), weights=recoverable_oil,data=fields_p[fields_p$max_prod<=split,])
-
-gam_price_over2<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) +
-	+ s(oil_price_real_l4) + s(oil_price_real_l5) + s(oil_price_real_l6),
-	family=gaussian(link=log),weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
-
-fields_p$smooth_price[fields_p$max_prod<=split]<-gam_price_under$fitted.values
-fields_p$smooth_price[fields_p$max_prod>split]<-gam_price_over$fitted.values
-
-#fields_p$smooth_price_2[fields_p$max_prod<=split]<-gam_price_under2$fitted.values
-#fields_p$smooth_price_2[fields_p$max_prod>split]<-gam_price_over2$fitted.values
-
-
-
-#model as a logit with 1 being the peak?  0 being min.  
-
-
-#compare direct price/non price comparision
-gam_under<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil),
-	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
-
-gam_over<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil),
-	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
-
-fields_p$smooth_split[fields_p$max_prod<=split]<-gam_under$fitted.values
-fields_p$smooth_split[fields_p$max_prod>split]<-gam_over$fitted.values
-
-
-#test of coefficients on price
-sum_full<-summary(gam_price)
-sum_full2<-summary(gam_price2)
-
-summary_under <- summary(gam_price_under)
-summary_over <- summary(gam_price_over)
-summary_under
-summary_over
-
-summary_under2 <- summary(gam_price_under2)
-summary_over2 <- summary(gam_price_over2)
-summary_under2
-summary_over2
-
-summary_comp_under<-summary(gam_under)
-summary_comp_over<-summary(gam_over)
-summary_comp_under
-summary_comp_over
-
-coef_under<-data.frame(summary_under$p.table)
-coef_under$variable<-row.names(coef_under)
-coef_under$field_type<-"small"
-coef_over<-data.frame(summary_over$p.table)
-coef_over$variable<-row.names(coef_over)
-coef_over$field_type<-"large"
-
-coef_split_price<-rbind(coef_under, coef_over)
-coef_split_price[c("Estimate", "Std..Error")]<-coef_split_price[c("Estimate", "Std..Error")]*100
-
-coeff_split_plot<-ggplot(coef_split_price[c(2:7, 9:14),]) +
-geom_bar(aes(x=variable, y=Estimate), stat="identity") +
-geom_errorbar(aes(x=variable, ymin=Estimate-2*Std..Error, ymax=Estimate+2*Std..Error )) +
-facet_wrap(~field_type) +
-labs(y="Effect of Oil Prices on Norwegian Oil Production, % per 10$")
-
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/coeff_split_plot.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
-print(coeff_split_plot)
-dev.off()
-
-
-#simulation of coefficients
-cov_beta<-gam_under$Vp
-beta_hat<-gam_under$coefficients
-sigma_hat<-sqrt(gam_under$sig2)
-n_minus_k<-gam_under$df.residual
-
-sim_gam<-function(cov_beta, beta_hat, sigma_hat, n_minus_k){
-sigma<-sigma_hat*sqrt((n_minus_k)/rchisq(1,n_minus_k))
-beta<-mvrnorm(1, beta_hat, cov_beta*sigma^2)
-return(beta=beta)
-}
-
-nsims<-1000
-#under_sims<-array(NA, dim=nsims)
-under_sims<-replicate(nsims, sim_gam(gam_under$Vp,gam_under$coefficients, sqrt(gam_under$sig2), gam_under$df.residual))
-#chart in big fields. 
-
-
-	
-	
 #test on statfjord
 gam_statfjord<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
 geom_point(aes(x=year, y=year_prod, size=oil_price_real)) +
@@ -241,7 +106,7 @@ gam_ekofisk
 
 
 
-#better way to show
+#Show fit for following fits
 include_fields<-c("ALBUSKJELL","ALVE", "COD", "EKOFISK", "TROLL","GULLFAKS", "KRISTIN", "STATFJORD", "ENOCH")
 
 #function to to show field-level of data

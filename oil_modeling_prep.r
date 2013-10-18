@@ -1,5 +1,7 @@
 #oil_modeling_prep
 
+#under oil_modeling.R
+
 #modeling with price
 fields<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/oil_fields.csv")
 

@@ -133,9 +133,9 @@ Oil Price Does Not Seem to Matter (Much) for Production in Existing Fields\\
 %--- naive GLM formula and results ----------------%
 \begin{frame}[plain]
 	\begin{multline}
-	\nonumber Log(Production_{i,t})=time\_to\_peak_{i,t} + time\_to\_peak_{i,t}^2 \\
-	 + time\_to\_peak_{i,t}^3  + peak\_to\_end_{i,t} + peak\_to\_end_{i,t}^2 \\
-	 + peak\_to\_end_{i,t}^3 + total\_recoverable\_oil_i \\
+	\nonumber  Log(Production_{i,t})=\alpha_0 + \alpha_1 time\_to\_peak_{i,t} + \alpha_2 time\_to\_peak_{i,t}^2 \\
+	 + \alpha_3 time\_to\_peak_{i,t}^3  + \alpha_4 peak\_to\_end_{i,t} + \alpha_5 peak\_to\_end_{i,t}^2 \\
+	 + \alpha_6 peak\_to\_end_{i,t}^3 + \gamma total\_recoverable\_oil_i \\
 	 + \beta_1 oil\_price + \beta_2 oil\_price\_l1 + ...+ \epsilon
 	\end{multline}
 \end{frame}
