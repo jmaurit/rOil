@@ -105,7 +105,6 @@ gam_ekofisk
 #Show results Tom - Down
 
 
-
 #Show fit for following fits
 include_fields<-c("ALBUSKJELL","ALVE", "COD", "EKOFISK", "TROLL","GULLFAKS", "KRISTIN", "STATFJORD", "ENOCH")
 

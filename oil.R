@@ -18,7 +18,7 @@ library(Quandl)
 library(mgcv)
 
 #run fresh data import and clean:
-source("/Users/johannesmauritzen/Google Drive/github/rOil/oil_clean.r") 
+#source("/Users/johannesmauritzen/Google Drive/github/rOil/oil_clean.r") 
 
 #
 
@@ -39,35 +39,6 @@ ekofisk<-month.prod[month.prod$name=="EKOFISK",]
 statfjord<-month.prod[month.prod$name=="STATFJORD",]
 qplot(x=date, y=oil_prod, geom="line",data=ekofisk)
 qplot(x=date, y=oil_prod, geom="line",data=statfjord)
-
-plotProduction<-function(prod.data)
-{
-	qplot(x=date, y=oil_prod, geom="line", data=prod.data, main=unique(prod.data$name))
-}
-
-plots<-by(month.prod, month.prod$name, failwith(NA, plotProduction))
-
-field_names<-unique(month.prod$name)
-
-#plot several fields on same page
-m<-ceiling(length(field_names)/9)  #m is number of pages
-
-for(j in 0:(m-1)){
-	#test
-	#j=2
-	#test
-	from<-j*9+1
-	to <-min(from+8,length(field_names)) 
-	print(c(from,to))
-	
-month.prod.9<-month.prod[month.prod$name==field_names[from:to],]
-prod.plot<-ggplot(month.prod.9) +
-geom_line(aes(x=date, y=oil_prod)) +
-facet_wrap(~name, scales="free", nrow=3)
-
-print(prod.plot)
-}
-
 
 #plot geographic production
 #create sums for oil production and investment
@@ -130,8 +101,27 @@ dev.off()
 
 
 
+#Show production of several wells on same line
+#find largest fields
+top10<-as.character(head(tot.prod.fields$name[order(tot.prod.fields$recoverable_oil, decreasing=TRUE)],10))
+
+#function to to show field-level of data
+fields_lim<-subset(fields, name %in% top10)
+fields_lim<-fields_lim[,c("name", "year", "year_prod")]
+fields_long<-melt(fields_lim, id.vars=c("name", "year", "year_prod"))
+
+top10_production<-ggplot(fields_long, aes(x=year, y=year_prod, color=name)) +
+geom_line() +
+scale_color_grey() +
+labs(x="", y="Yearly Oil Production, Mill SM3", color="Field")
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/top10_production.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(top10_production)
+dev.off()	
+
 
 #Production Fall *************************************************************************
+
 
 
 #create multiple lines for production fall
