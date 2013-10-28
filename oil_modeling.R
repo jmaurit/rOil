@@ -82,7 +82,7 @@ fields_p$smooth_bench_split[fields_p$max_prod>split]<-prod_gam_over$fitted.value
 
 #Now see if oil prices have an effect
 #produces gam estimates gam_price and predicted values smooth_price
-source("/Users/johannesmauritzen/Google Drive/github/rOil/price_modeling.r")
+#source("/Users/johannesmauritzen/Google Drive/github/rOil/price_modeling.r")
 
 
 #test on statfjord
@@ -119,6 +119,17 @@ names(fields_long)[4]<-"smoothing_type"
 names(fields_long)[5]<-"smoothed"
 fields_long$smoothing_type<-factor(fields_long$smoothing_type, 
 	labels=c("Benchmark", "Split Benchmark", "With Price", "Non-Price"))
+
+#show fields on their own:
+field_inspection<-ggplot(fields_long) +
+geom_line(aes(x=year, y=year_prod)) +
+facet_wrap(~name, scales="free") +
+labs(x="", y="Yearly Production, Mill SM3")
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/field_inspection.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(field_inspection)
+dev.off()
 
 #compare split benchmark with non-split
 bench_vs_split <- ggplot(fields_long[fields_long$smoothing_type %in% c("Benchmark", "Split Benchmark"),]) +

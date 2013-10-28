@@ -28,18 +28,6 @@ fields<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/oil_fields.c
 #Analysis*************************************************************************************
 #fields<-read.csv("/Users/johannesmauritzen/Google Drive/Oil/cleanedData/oil_fields.csv")
 
-
-ekofisk<-month.prod[month.prod$name=="EKOFISK",]
-statfjord<-month.prod[month.prod$name=="STATFJORD",]
-
-#plot all fields individually
-
-#test a few
-ekofisk<-month.prod[month.prod$name=="EKOFISK",]
-statfjord<-month.prod[month.prod$name=="STATFJORD",]
-qplot(x=date, y=oil_prod, geom="line",data=ekofisk)
-qplot(x=date, y=oil_prod, geom="line",data=statfjord)
-
 #plot geographic production
 #create sums for oil production and investment
 fields<-ddply(fields, .(name), mutate, total.oil=sum(year_prod, na.rm=TRUE))
@@ -60,6 +48,8 @@ ggmap(norwegiansea) +
 geom_point(aes(x = lon, y = lat, size=tot.prod, color=init_year),alpha=.7, data = tot.prod.fields)+
 scale_color_continuous(low="red", high="black")
 
+barentsea<-get_map(location = c(lon = 17, lat = 73.00), zoom=5)
+ggmap(barentsea)
 
 #create label columns - to label two biggest fields
 tot.prod.fields$labels<-rep(NA, length(tot.prod.fields[,1]))
@@ -99,6 +89,11 @@ png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/norwegian_s
 print(reserves_norwegian_sea)
 dev.off()	
 
+reserves_barent_sea<-ggmap(barentsea) +
+geom_point(aes(x = lon, y = lat, size=recoverable_oil, color=init_year),alpha=.7, data = tot.prod.fields)+
+#geom_text(aes(label=labels), data=tot.prod.fields, size=3) +
+scale_color_continuous(low="red", high="black") +
+labs(color="Initial Production Year", size="Total Recoverable Oil, Mill SM3")
 
 
 #Show production of several wells on same line
@@ -201,8 +196,21 @@ png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/tot_exist_p
 print(tot_exist_prod_cf)
 dev.off()
 
-#look at money put out ******************************
+#Demonstrate use of time with just one 
+statfjord<-fields[fields$name=="STATFJORD",]
 
+statfjord_dem<-ggplot(statfjord, aes(x=year, y=year_prod)) +
+geom_point() +
+geom_vline(xintercept=1992, linetype="dashed", color="gray") +
+geom_segment(aes(x=1979, y=0, xend=1992, yend=0), arrow=arrow(length=unit(.2, "cm"))) +
+geom_segment(aes(x=1992, y=0, xend=2013, yend=0), arrow=arrow(length=unit(.2, "cm"))) +
+geom_text(aes(label="Time to peak", x=1985, y=1 )) +
+geom_text(aes(label="Time from peak", x=2000,y=1)) +
+labs(x="", y="Yearly Production from Statfjord Field, Mill SM3") 
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/statfjord_dem.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(statfjord_dem)
+dev.off()
 
 
 #***************** Look at investments**************************
@@ -341,8 +349,10 @@ gam_statfjord<-gam(year_prod~s(year), data=statfjord)
 statfjord<-statfjord[!is.na(statfjord$year_prod),]
 statfjord$smooth<-gam_statfjord$fitted.values
 
-statfjord_gam<-statfjord_plot %+% statfjord +
-geom_line(aes(x=year, y=smooth))
+statfjord_gam<-ggplot(statfjord) +
+geom_point(aes(x=year, y=year_prod)) +
+geom_line(aes(x=year, y=smooth)) +
+labs(x="", y="Statfjord Yearly Oil Production, Mill SM3")
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/statfjord_gam.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
