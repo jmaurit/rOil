@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex oil_prices"] 1382976195 "oil_prices.aux" "oil_prices.bbl" "oil_prices" 1382976208
-  "/usr/local/texlive/2013/texmf-dist/bibtex/bst/base/abbrv.bst" 1292289607 20329 b5fed53e10044d0f8112183785c759b1 ""
-  "main.bib" 0 -1 0 ""
-  "oil_prices.aux" 1382976208 663 d5460a070cb81098cf650e1edf7d70f4 ""
+["bibtex oil_prices"] 1383846155 "oil_prices.aux" "oil_prices.bbl" "oil_prices" 1383846174
+  "/usr/local/texlive/2013/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
+  "oil_prices.aux" 1383846173 3797 995f883830f60b15ca493688e911e1a9 ""
   "oil_prices.bcf" 0 -1 0 ""
+  "oil_prices.bib" 1383146346 22753 8933f60c7a8e5743bd9773ab59d4d914 ""
   (generated)
   "oil_prices.bbl"
   "oil_prices.blg"
-["pdflatex"] 1382976195 "oil_prices.tex" "oil_prices.pdf" "oil_prices" 1382976208
+["pdflatex"] 1383846156 "oil_prices.tex" "oil_prices.pdf" "oil_prices" 1383846174
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1303254447 7324 11d14f318d865f420e692d4e6c9c18c3 ""
@@ -41,19 +41,24 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty" 1335995445 7075 bd0c34fbf1ae8fd1debd2a554e41b2d5 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty" 1335995445 22417 c74ff4af6a1aa2b65d1924020edbbe11 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def" 1306616590 55368 3c8a0d99822330f2dfabc0dfb09ce897 ""
+  "/usr/local/texlive/2013/texmf-dist/tex/latex/setspace/setspace.sty" 1324344192 22913 a27d7908fc6f0385466454a966a316eb ""
   "bench_vs_split.png" 1382369997 632579 d2b8ef83183c85448f0af5a14b6fd0ab ""
   "field_inspection.png" 1382972998 538163 55e7d06058778483100b4a435c9daf66 ""
-  "gam_price_under_dirty_box.png" 1382111934 1185473 01badff1abbbf7ccac56b9bed0d6a467 ""
-  "glm_dirty_box.png" 1382971868 1195374 da2ec7d5c160934586cb8e347399e118 ""
+  "field_lev_forecast.png" 1383843989 566376 8077bc597b6b2cac0e7f853b519668fa ""
+  "gam_price_dirty_box.png" 1383046162 261053 19a24e48005f329b02d636547bd9589b ""
+  "gam_price_invest_box.png" 1383673525 1043586 10fe26182fd943530432cbac9667f872 ""
+  "glm_dirty_box.png" 1383043127 1161433 6a79590c7279224e64f4286861c8277e ""
   "north_sea_reserves.png" 1382955013 3809103 2d060f27f42714cdc22f844cc2ff9510 ""
   "norwegian_sea_reserves.png" 1382955015 3156076 f35095981376fa75b2bd983642ba48eb ""
   "oil_decline.png" 1382960868 294003 2c045cfc479235f2af23b33955995b01 ""
-  "oil_prices.aux" 1382976208 663 d5460a070cb81098cf650e1edf7d70f4 ""
-  "oil_prices.bbl" 0 -1 0 "bibtex oil_prices"
-  "oil_prices.tex" 1382976193 16957 edee147de30bdd0068628a9a5212c53d ""
+  "oil_prices.aux" 1383846173 3797 995f883830f60b15ca493688e911e1a9 ""
+  "oil_prices.bbl" 1383846156 4548 93c33e498265a61bfe01e65a182ec616 "bibtex oil_prices"
+  "oil_prices.tex" 1383846134 29329 7423bd48a46bf720c42a215f63ef28b8 ""
+  "price_scenario.png" 1383845123 364435 66015723bde74847894a99f80406dd00 ""
   "statfjord_dem.png" 1382717535 224602 48c7a2078c44100215ca801b8c151c48 ""
   "statfjord_gam.png" 1382962612 293313 6bad11a5180679e829f71f45c5d3e8e6 ""
   "top10_production.png" 1382626084 583948 ade9ecdc5fc9a7301c6c1aca8e117d3e ""
+  "tot_forecast.png" 1383841250 307267 6c2f8dcb6ea2594a267cac0c4cfe1113 ""
   (generated)
   "oil_prices.log"
   "oil_prices.aux"

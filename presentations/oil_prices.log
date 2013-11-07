@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  28 OCT 2013 17:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  7 NOV 2013 18:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -93,7 +93,10 @@ Package typearea Info: These are the values describing the layout:
 \c@figure=\count86
 \c@table=\count87
 \bibindent=\dimen102
-) (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
@@ -192,18 +195,18 @@ Package: syntonly 1999/09/17 v2.1e Standard LaTeX2e package
 (./oil_prices.aux)
 \openout1 = `oil_prices.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -266,6 +269,10 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+[1
+
+
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -276,69 +283,62 @@ Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
 
-[1
-
-
-{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2]
 Missing character: There is no ¬ in font cmr12!
 Missing character: There is no ¥ in font cmr12!
-
-<oil_decline.png, id=9, 3296.315pt x 2489.3pt>
-File: oil_decline.png Graphic file (type png)
- <use oil_decline.png>
-Package pdftex.def Info: oil_decline.png used on input line 50.
-(pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
-
-<top10_production.png, id=11, 3296.315pt x 2489.3pt>
+ <top10_production.png, id=12, 3296.315pt x 2489.3pt>
 File: top10_production.png Graphic file (type png)
 
 <use top10_production.png>
-Package pdftex.def Info: top10_production.png used on input line 54.
+Package pdftex.def Info: top10_production.png used on input line 57.
 (pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
+ <oil_decline.png, id=14, 3296.315pt x 2489.3pt>
+File: oil_decline.png Graphic file (type png)
 
+<use oil_decline.png>
+Package pdftex.def Info: oil_decline.png used on input line 63.
+(pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
+ [3 <./top10_production.png>]
 
-Package natbib Warning: Citation `tsibriani1990' on page 2 undefined on input l
-ine 57.
+Package natbib Warning: Citation `krautkraemer_nonrenewable_1998' on page 4 und
+efined on input line 71.
 
-
-Package natbib Warning: Citation `hotelling31' on page 2 undefined on input lin
-e 60.
-
-[2] [3 <./oil_decline.png> <./top10_production.png>]
-<north_sea_reserves.png, id=21, 3296.315pt x 2489.3pt>
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ∏ in font cmr12!
+[4 <./oil_decline.png>] <north_sea_reserves.png, id=24, 3296.315pt x 2489.3pt>
 File: north_sea_reserves.png Graphic file (type png)
 
 <use north_sea_reserves.png>
-Package pdftex.def Info: north_sea_reserves.png used on input line 66.
+Package pdftex.def Info: north_sea_reserves.png used on input line 83.
 (pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
-
-<norwegian_sea_reserves.png, id=22, 3296.315pt x 2489.3pt>
+ [5]
+<norwegian_sea_reserves.png, id=31, 3296.315pt x 2489.3pt>
 File: norwegian_sea_reserves.png Graphic file (type png)
 
 <use norwegian_sea_reserves.png>
-Package pdftex.def Info: norwegian_sea_reserves.png used on input line 71.
+Package pdftex.def Info: norwegian_sea_reserves.png used on input line 91.
 (pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
 Missing character: There is no √ in font cmr12!
 Missing character: There is no ∏ in font cmr12!
- [4 <./north_sea_reserves.png>] [5 <./norwegian_sea_reserves.png>] <statfjord_d
-em.png, id=34, 3296.315pt x 2489.3pt>
+ [6 <./north_sea_reserves.png>] [7 <./norwegian_sea_reserves.png>] <statfjord_d
+em.png, id=41, 3296.315pt x 2489.3pt>
 File: statfjord_dem.png Graphic file (type png)
 
 <use statfjord_dem.png>
-Package pdftex.def Info: statfjord_dem.png used on input line 97.
+Package pdftex.def Info: statfjord_dem.png used on input line 120.
 (pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
- <glm_dirty_box.png, id=35, 3296.315pt x 2489.3pt>
+ <glm_dirty_box.png, id=42, 3296.315pt x 2489.3pt>
 File: glm_dirty_box.png Graphic file (type png)
 
 <use glm_dirty_box.png>
-Package pdftex.def Info: glm_dirty_box.png used on input line 103.
+Package pdftex.def Info: glm_dirty_box.png used on input line 128.
 (pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
- [6 <./statfjord_dem.png>]
-<statfjord_gam.png, id=42, 3296.315pt x 2489.3pt>
+ [8 <./statfjord_dem.png>]
+<statfjord_gam.png, id=49, 3296.315pt x 2489.3pt>
 File: statfjord_gam.png Graphic file (type png)
  <use statfjord_gam.png>
-Package pdftex.def Info: statfjord_gam.png used on input line 117.
-(pdftex.def)             Requested size: 448.13095pt x 338.39598pt.
+Package pdftex.def Info: statfjord_gam.png used on input line 145.
+(pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -346,70 +346,176 @@ Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
 
-
-Package natbib Warning: Citation `tsibriani90' on page 7 undefined on input lin
-e 122.
-
-
-Package natbib Warning: Citation `wood04' on page 7 undefined on input line 122
-.
-
-[7 <./glm_dirty_box.png>] [8 <./statfjord_gam.png>]
-
-Package natbib Warning: Citation `wood04' on page 9 undefined on input line 134
-.
-
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ¶ in font cmr12!
-<field_inspection.png, id=52, 3296.315pt x 2489.3pt>
+[9 <./glm_dirty_box.png>] [10 <./statfjord_gam.png>]
+<field_inspection.png, id=58, 3296.315pt x 2489.3pt>
 File: field_inspection.png Graphic file (type png)
 
 <use field_inspection.png>
-Package pdftex.def Info: field_inspection.png used on input line 140.
-(pdftex.def)             Requested size: 448.13095pt x 338.39598pt.
- <bench_vs_split.png, id=53, 3296.315pt x 2489.3pt>
+Package pdftex.def Info: field_inspection.png used on input line 170.
+(pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
+ <bench_vs_split.png, id=59, 3296.315pt x 2489.3pt>
 File: bench_vs_split.png Graphic file (type png)
 
 <use bench_vs_split.png>
-Package pdftex.def Info: bench_vs_split.png used on input line 146.
-(pdftex.def)             Requested size: 448.13095pt x 338.39598pt.
+Package pdftex.def Info: bench_vs_split.png used on input line 178.
+(pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
+ [11] [12 <./field_inspection.png> <./bench_vs_split.png>] <gam_price_dirty_box
+.png, id=68, 3296.315pt x 2489.3pt>
+File: gam_price_dirty_box.png Graphic file (type png)
 
-<gam_price_under_dirty_box.png, id=54, 3296.315pt x 2489.3pt>
-File: gam_price_under_dirty_box.png Graphic file (type png)
+<use gam_price_dirty_box.png>
+Package pdftex.def Info: gam_price_dirty_box.png used on input line 192.
+(pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
+ [13 <./gam_price_dirty_box.png>]
 
-<use gam_price_under_dirty_box.png>
-Package pdftex.def Info: gam_price_under_dirty_box.png used on input line 156.
-(pdftex.def)             Requested size: 448.13095pt x 338.39598pt.
- [9] [10 <./field_inspection.png>] [11 <./bench_vs_split.png>] [12 <./gam_price
-_under_dirty_box.png>]
-No file oil_prices.bbl.
+Package natbib Warning: Citation `npd' on page 14 undefined on input line 201.
+
+[14]
+
+LaTeX Warning: Reference `gam__price_invest_box' on page 15 undefined on input 
+line 220.
+
+<gam_price_invest_box.png, id=77, 3296.315pt x 2489.3pt>
+File: gam_price_invest_box.png Graphic file (type png)
+
+<use gam_price_invest_box.png>
+Package pdftex.def Info: gam_price_invest_box.png used on input line 223.
+(pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
+ [15 <./gam_price_invest_box.png>]
+<field_lev_forecast.png, id=82, 3296.315pt x 2489.3pt>
+File: field_lev_forecast.png Graphic file (type png)
+
+<use field_lev_forecast.png>
+Package pdftex.def Info: field_lev_forecast.png used on input line 233.
+(pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
+ <tot_forecast.png, id=83, 3296.315pt x 2489.3pt>
+File: tot_forecast.png Graphic file (type png)
+
+<use tot_forecast.png>
+Package pdftex.def Info: tot_forecast.png used on input line 239.
+(pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
+ <price_scenario.png, id=84, 3296.315pt x 2489.3pt>
+File: price_scenario.png Graphic file (type png)
+
+<use price_scenario.png>
+Package pdftex.def Info: price_scenario.png used on input line 245.
+(pdftex.def)             Requested size: 358.50612pt x 270.7092pt.
+ [16 <./field_lev_forecast.png>] [17 <./tot_forecast.png> <./price_scenario.png
+>] (./oil_prices.bbl
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ∏ in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ì in font cmr12!
+
+Underfull \hbox (badness 2080) in paragraph at lines 28--35
+[]\OT1/cmr/m/n/12 Y.H. Farzin.  The im-pact of oil price on ad-di-tions to US p
+roven re-serves.
+ []
+
+
+Underfull \hbox (badness 1953) in paragraph at lines 28--35
+\OT1/cmr/m/n/12 23:271--292.  ISSN 0928-7655.  doi: 10.1016/S0928-7655(01)00040
+-9.  URL
+ []
+
+Missing character: There is no ¬ in font cmr12!
+Missing character: There is no © in font cmr12!
+[18]
+Missing character: There is no ¬ in font cmr12!
+Missing character: There is no © in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--80
+[]\OT1/cmr/m/n/12 Klaus Mohn.  Ef-forts and ef-fi-ciency in oil ex-plo-ration: 
+A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--80
+\OT1/cmr/m/n/12 vec-tor error-correction ap-proach.  Vol-ume 29:53--78.  URL
+ []
+
+
+Underfull \hbox (badness 2600) in paragraph at lines 82--90
+[]\OT1/cmr/m/n/12 Klaus Mohn and Pet-ter Os-mund-sen.  Ex-plo-ration eco-nomics
+ in a reg-u-lated
+ []
+
+
+Underfull \hbox (badness 4441) in paragraph at lines 82--90
+\OT1/cmr/m/n/12 petroleum province: The case of the nor-we-gian con-ti-nen-tal 
+shelf.  30:
+ []
+
+
+Underfull \hbox (badness 7344) in paragraph at lines 82--90
+\OT1/cmr/m/n/12 303--320.  ISSN 0140-9883.  doi: 10.1016/j.eneco.2006.10.011.  
+URL
+ []
+
+Missing character: There is no √ in font cmr12!
+Missing character: There is no • in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+[]\OT1/cmr/m/n/12 Petter Os-mund-sen, Kristin He-len Roll, and Rag-nar Tvet-ers
+.  Ex-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+\OT1/cmr/m/n/12 plo-ration drilling pro-duc-tiv-ity at the nor-we-gian shelf.  
+73:122--
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--100
+\OT1/cmr/m/n/12 128.  ISSN 0920-4105.  doi: 10.1016/j.petrol.2010.05.015.  URL
+ []
+
+
+Underfull \hbox (badness 2662) in paragraph at lines 102--110
+[]\OT1/cmr/m/n/12 Harri Ram-char-ran.  Oil pro-duc-tion re-sponses to price cha
+nges: an em-pir-i-
+ []
+
+
+Underfull \hbox (badness 2556) in paragraph at lines 102--110
+\OT1/cmr/m/n/12 24:97--106.  ISSN 0140-9883.  doi: 10.1016/S0140-9883(01)00091-
+3.  URL
+ []
+
+)
 
 Package natbib Warning: There were undefined citations.
 
-[13] (./oil_prices.aux) ) 
+[19] (./oil_prices.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3585 strings out of 493315
- 52365 string characters out of 6137903
- 141518 words of memory out of 5000000
- 6994 multiletter control sequences out of 15000+600000
- 10458 words of font info for 39 fonts, out of 8000000 for 9000
+ 3709 strings out of 493315
+ 54999 string characters out of 6137903
+ 141313 words of memory out of 5000000
+ 7106 multiletter control sequences out of 15000+600000
+ 10974 words of font info for 41 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 47i,18n,37p,754b,229s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr17.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-sbx10.pfb>
-Output written on oil_prices.pdf (13 pages, 10990814 bytes).
+ 47i,18n,37p,1183b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
+/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
+xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/t
+exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/te
+xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on oil_prices.pdf (19 pages, 12017694 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 139 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

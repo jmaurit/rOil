@@ -1,0 +1,118 @@
+\begin{thebibliography}{13}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Black and {LaFrance}()]{black_is_1998}
+Geoffrey Black and Jeffrey~T {LaFrance}.
+\newblock Is hotelling's rule relevant to domestic oil production?
+\newblock 36:\penalty0 149--169.
+\newblock ISSN 0095-0696.
+\newblock \doi{10.1006/jeem.1998.1042}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0095069698910427}.
+
+\bibitem[Boyce and Nøstbakken()]{boyce_exploration_2011}
+John~R. Boyce and Linda Nøstbakken.
+\newblock Exploration and development of {U.S.} oil and gas fields,
+  1955–2002.
+\newblock 35:\penalty0 891--908.
+\newblock ISSN 0165-1889.
+\newblock \doi{10.1016/j.jedc.2010.12.010}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0165188910002812}.
+
+\bibitem[Farzin()]{farzin_impact_2001}
+{Y.H.} Farzin.
+\newblock The impact of oil price on additions to {US} proven reserves.
+\newblock 23:\penalty0 271--292.
+\newblock ISSN 0928-7655.
+\newblock \doi{10.1016/S0928-7655(01)00040-9}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0928765501000409}.
+
+\bibitem[Hamilton()]{hamilton_oil_2012}
+James~D. Hamilton.
+\newblock Oil prices, exhaustible resources, and economic growth.
+\newblock URL \url{http://ideas.repec.org/p/nbr/nberwo/17759.html}.
+
+\bibitem[Hastie and Tibshirani()]{hastie_generalized_1990}
+T.~J. Hastie and R.~J. Tibshirani.
+\newblock \emph{Generalized Additive Models (Chapman \& {Hall/CRC} Monographs
+  on Statistics \& Applied Probability)}.
+\newblock Chapman and {Hall/CRC}, 1 edition edition.
+\newblock ISBN 0412343908.
+
+\bibitem[Hotelling()]{hotelling_economics_1931}
+Harold Hotelling.
+\newblock The economics of exhaustible resources.
+\newblock 39:\penalty0 137--175.
+\newblock ISSN 0022-3808.
+\newblock URL \url{http://www.jstor.org/stable/1822328}.
+\newblock {ArticleType:} research-article / Full publication date: Apr., 1931 /
+  Copyright © 1931 The University of Chicago Press.
+
+\bibitem[Hurn and Wright()]{hurn_geology_1994}
+A.~S. Hurn and Robert~E. Wright.
+\newblock Geology or economics? testing models of irreversible investment using
+  north sea oil data.
+\newblock 104:\penalty0 363--371.
+\newblock ISSN 0013-0133.
+\newblock \doi{10.2307/2234756}.
+\newblock URL \url{http://www.jstor.org/stable/2234756}.
+\newblock {ArticleType:} research-article / Full publication date: Mar., 1994 /
+  Copyright © 1994 Royal Economic Society.
+
+\bibitem[Kellogg()]{kellogg_effect_2010}
+Ryan Kellogg.
+\newblock The effect of uncertainty on investment: Evidence from texas oil
+  drilling.
+\newblock URL \url{http://www.nber.org/papers/w16541}.
+
+\bibitem[Mohn()]{mohn_efforts_2008}
+Klaus Mohn.
+\newblock Efforts and efficiency in oil exploration: A vector error-correction
+  approach.
+\newblock Volume 29:\penalty0 53--78.
+\newblock URL \url{http://ideas.repec.org/a/aen/journl/2008v29-04-a03.html}.
+
+\bibitem[Mohn and Osmundsen()]{mohn_exploration_2008}
+Klaus Mohn and Petter Osmundsen.
+\newblock Exploration economics in a regulated petroleum province: The case of
+  the norwegian continental shelf.
+\newblock 30:\penalty0 303--320.
+\newblock ISSN 0140-9883.
+\newblock \doi{10.1016/j.eneco.2006.10.011}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0140988306001277}.
+
+\bibitem[Osmundsen et~al.()Osmundsen, Roll, and
+  Tveterås]{osmundsen_exploration_2010}
+Petter Osmundsen, Kristin~Helen Roll, and Ragnar Tveterås.
+\newblock Exploration drilling productivity at the norwegian shelf.
+\newblock 73:\penalty0 122--128.
+\newblock ISSN 0920-4105.
+\newblock \doi{10.1016/j.petrol.2010.05.015}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0920410510001129}.
+
+\bibitem[Ramcharran()]{ramcharran_oil_2002}
+Harri Ramcharran.
+\newblock Oil production responses to price changes: an empirical application
+  of the competitive model to {OPEC} and non-{OPEC} countries.
+\newblock 24:\penalty0 97--106.
+\newblock ISSN 0140-9883.
+\newblock \doi{10.1016/S0140-9883(01)00091-3}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0140988301000913}.
+
+\bibitem[Wood()]{wood_generalized_2006}
+Simon Wood.
+\newblock \emph{Generalized Additive Models: An Introduction with R (Chapman \&
+  {Hall/CRC} Texts in Statistical Science)}.
+\newblock Chapman and {Hall/CRC}, 1 edition edition.
+\newblock ISBN 1584884746.
+
+\end{thebibliography}

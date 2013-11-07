@@ -9,7 +9,8 @@ library(grid)
 library(boot)
 library(arm)
 
-
+#clear workspace
+rm(list = ls())
 
 #run fresh data import and clean:
 #source("/Users/johannesmauritzen/Google Drive/Oil/rOil/oil_clean.r") 
@@ -88,7 +89,7 @@ fields_p$smooth_bench_split[fields_p$max_prod>split]<-prod_gam_over$fitted.value
 #test on statfjord
 gam_statfjord<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
 geom_point(aes(x=year, y=year_prod, size=oil_price_real)) +
-geom_line(aes(x=year, y=smooth_split), color="blue") +
+geom_line(aes(x=year, y=smooth_bench_split), color="blue") +
 geom_line(aes(x=year, y=smooth_price), color="red") +
 labs(title="Statfjord")
 gam_statfjord
