@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex oil_prices"] 1383846155 "oil_prices.aux" "oil_prices.bbl" "oil_prices" 1383846174
+["bibtex oil_prices"] 1384874476 "oil_prices.aux" "oil_prices.bbl" "oil_prices" 1384874519
   "/usr/local/texlive/2013/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "oil_prices.aux" 1383846173 3797 995f883830f60b15ca493688e911e1a9 ""
+  "oil_prices.aux" 1384874519 5144 9c70d3099f9ebc9527ea3a0e32830add ""
   "oil_prices.bcf" 0 -1 0 ""
-  "oil_prices.bib" 1383146346 22753 8933f60c7a8e5743bd9773ab59d4d914 ""
+  "oil_prices.bib" 1384874304 94003 d890a3636326a8f621bdf60faac65d3f ""
   (generated)
   "oil_prices.bbl"
   "oil_prices.blg"
-["pdflatex"] 1383846156 "oil_prices.tex" "oil_prices.pdf" "oil_prices" 1383846174
+["pdflatex"] 1384874496 "oil_prices.tex" "oil_prices.pdf" "oil_prices" 1384874519
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1303254447 7324 11d14f318d865f420e692d4e6c9c18c3 ""
@@ -23,6 +23,7 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsopn.sty" 1362954379 4082 502152465aedb8f6a3c4b0b7c0fa8ae5 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amstext.sty" 1362954379 2637 846ebe982d3549c7ede7ce135456f54a ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/base/syntonly.sty" 1254151887 3583 584bbf661e62456e055d6e75d88e9171 ""
+  "/usr/local/texlive/2013/texmf-dist/tex/latex/esdiff/esdiff.sty" 1214842699 6725 81b0356953596a27e8aae3837fdac30d ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty" 1254151804 14183 42a8fc761b806986eef292369afc2988 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty" 1156702488 7882 3bd78469d444e8d494e27cfd7ca92719 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty" 1156702488 2266 7054435e4584a41cf53b0a7ca624d0cb ""
@@ -42,6 +43,7 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty" 1335995445 22417 c74ff4af6a1aa2b65d1924020edbbe11 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def" 1306616590 55368 3c8a0d99822330f2dfabc0dfb09ce897 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/setspace/setspace.sty" 1324344192 22913 a27d7908fc6f0385466454a966a316eb ""
+  "/usr/local/texlive/2013/texmf-dist/tex/latex/url/url.sty" 1264379145 21932 e3a9cf32ee9b853b42be14c2f25b873c ""
   "bench_vs_split.png" 1382369997 632579 d2b8ef83183c85448f0af5a14b6fd0ab ""
   "field_inspection.png" 1382972998 538163 55e7d06058778483100b4a435c9daf66 ""
   "field_lev_forecast.png" 1383843989 566376 8077bc597b6b2cac0e7f853b519668fa ""
@@ -51,9 +53,9 @@
   "north_sea_reserves.png" 1382955013 3809103 2d060f27f42714cdc22f844cc2ff9510 ""
   "norwegian_sea_reserves.png" 1382955015 3156076 f35095981376fa75b2bd983642ba48eb ""
   "oil_decline.png" 1382960868 294003 2c045cfc479235f2af23b33955995b01 ""
-  "oil_prices.aux" 1383846173 3797 995f883830f60b15ca493688e911e1a9 ""
-  "oil_prices.bbl" 1383846156 4548 93c33e498265a61bfe01e65a182ec616 "bibtex oil_prices"
-  "oil_prices.tex" 1383846134 29329 7423bd48a46bf720c42a215f63ef28b8 ""
+  "oil_prices.aux" 1384874519 5144 9c70d3099f9ebc9527ea3a0e32830add ""
+  "oil_prices.bbl" 1384874476 9487 c675b6e6176cabedc057499383b93911 "bibtex oil_prices"
+  "oil_prices.tex" 1384874491 40162 661bcf7c1f772b0029d7ee5144862214 ""
   "price_scenario.png" 1383845123 364435 66015723bde74847894a99f80406dd00 ""
   "statfjord_dem.png" 1382717535 224602 48c7a2078c44100215ca801b8c151c48 ""
   "statfjord_gam.png" 1382962612 293313 6bad11a5180679e829f71f45c5d3e8e6 ""

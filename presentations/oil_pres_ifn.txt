@@ -1,0 +1,100 @@
+oil_pres_ifn.txt
+
+notes on ifn presentation
+
+Slide 1
+
+Huge litterature on oil production, optimal extraction
+	-from both geo-engineering and economics litterature. 
+	-But there is a big gap and it is especially important now.  
+	-The effect of oil prices on production from existing fields
+		-In mature areas, like Norway most production is coming from existing fields
+
+slide 2
+Empirical litterature you have several papers estimating the effect of drilling and reserve replacement
+	- finding 
+	- especially for Norwegian data.  
+
+Studies of aggregate production also exist - 
+	- some from curve-fitting/simulation
+	- Hubberts peak type modesl.  Can generate decent forecasts, but are not particularily informative. 
+	- Some econometric models also exist of total production 
+	- but these do not tell you much about where the change in price is coming from.  
+	- In addition a lot of the modeling is questionable.  Ramcharran - revenue targeting by opec producers.  
+
+
+1. Challenge have been two-fold, 
+	-lack of available data 
+	-lack of a flexible enough model.  Production profile over time is a highly non-linear and not well approximated by standard parametric models.  
+
+But I have gotten around these two challenges.
+1. I use detailed Norwegian data on field-level production from all 77 oil-producing fields in Norway
+2. I use a semi-parametric model within the Generalized Additive Model framework.  
+	-here I use a 2 dimensional non-parametric function to control for the shape of oil fields and estimate the effect of price parametrically.  
+Warn you, I wont go into 
+
+Main results is to say that oil price has only a modest effect on field level production
+- It has no signficant concurrent effect
+- only a slight lagged effect, on the magnitude of a 2- 4 % increase for a 10 $ increase in prices
+- Shows is that oil producers are not using production to be strategic - they are pumping the full amount given their current capacity and using storage or more likely financial markets to hedge price movements. 
+- A sustained change in prices effects only production by way of lifting constraints and leading to more investment - which I also have evidence for. 
+- None of this is probably that surprising - it is extremely expensive to be operating out in the north sea - you are not keeping spare capacity just sitting out there. 
+
+
+
+Slide  Oil fields in north sea
+Here you can clearly see what is called creaming - the biggest fields are found first. 
+- one notable exception, which I have added to the data here is the Johan Sverdrup oil field which was recently found and is still under development
+
+
+Slide Oil fields in norwegian sea
+The Norwegian sea was opened up to exploration later, and there were quite high expectations when it did, but it has generally been a dissapointment with few finds.  
+
+
+
+Slide Total oil production
+-Shows total norwegian oil production
+-See the top was in the year 2000, coincidentally that was the time with some of the lowest prices.
+This is a problem - as you can see oil prices are autocorrelated, and as you can see from this slide, so is oil field production - the production profiles tend to be correlated - here the 10 largest oil fields in Norway.  
+
+This means, it is really easy to get some spurious inference, even with standard methods like differencing and with differencing you are also throwing away a lot of your data.  
+
+
+Slide x
+-I just took the largest 10 Norwegian fields in terms of total production, and here I show one of the problems with estimating the effect of price.  
+- production profiles are correlated between fields and so you get a bell-shaped total production field - which is what these early geo-engineering studies made use of to predict total production.  
+-you can get spurious correlation because both production and oil prices are autocorrelated.  
+
+Slide 4.  
+I can demonstrate the danger here by running a regular GLM model like this where I try to model the production profile by cubic functions for up to the peak and from the peak on.  I control for size of the find and I throw in price and its lags
+
+slide statfjord
+taking the example of the field Statfjord (though keep in mind Im not modeling them independently but all the fields simultaneously trying to get a general shape)
+
+Slide: result negative result
+
+Slide: instead we need a more flexible approach - that is where our generalized additive model comes in.  
+
+Slide:  
+-split up and estimate a series of linear models in each section - a cubic is common, then tie them together at places appropriately called knots and then in addition you adjust the smoother by adding a penalty function - a second derivative of the estimated function to controll for smoothness. 
+
+Slide: Estimate model
+
+Slide: Use of thin plate spline
+
+slide: splitting up in small and large fields - but also helps interpretation
+
+slide: Only slight lagged effects - consistent with the idea that they are not producing strategically, but instead you can see a price rise as a loosening of production constraint - they will invest more to increase production - either to shift the time profile of production or to increase the the total resource.   
+
+slide:  One implication of this is you would expect to see an effect on investment at the oil field levels.  This I have data for and can check.
+
+As a concluding idea, and at this point only for illustration
+
+
+
+
+
+
+
+
+

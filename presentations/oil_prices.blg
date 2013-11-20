@@ -3,84 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: oil_prices.aux
 The style file: plainnat.bst
 Database file #1: oil_prices.bib
-Warning--entry type for "hamilton_oil_2012" isn't style-file defined
---line 203 of file oil_prices.bib
-Warning--entry type for "kellogg_effect_2010" isn't style-file defined
---line 250 of file oil_prices.bib
-Warning--I didn't find a database entry for "krautkraemer_nonrenewable_1998"
-Warning--I didn't find a database entry for "npd"
-Warning--empty journal in black_is_1998
-Warning--empty year in black_is_1998
-Warning--empty year in black_is_1998
-Warning--empty journal in boyce_exploration_2011
-Warning--empty year in boyce_exploration_2011
-Warning--empty year in boyce_exploration_2011
-Warning--empty journal in farzin_impact_2001
-Warning--empty year in farzin_impact_2001
-Warning--empty year in farzin_impact_2001
-Warning--empty year in hamilton_oil_2012
-Warning--empty year in hastie_generalized_1990
-Warning--empty year in hastie_generalized_1990
-Warning--empty journal in hotelling_economics_1931
-Warning--empty year in hotelling_economics_1931
-Warning--empty year in hotelling_economics_1931
-Warning--empty journal in hurn_geology_1994
-Warning--empty year in hurn_geology_1994
-Warning--empty year in hurn_geology_1994
-Warning--empty year in kellogg_effect_2010
-Warning--empty journal in mohn_efforts_2008
-Warning--empty year in mohn_efforts_2008
-Warning--empty year in mohn_efforts_2008
-Warning--empty journal in mohn_exploration_2008
-Warning--empty year in mohn_exploration_2008
-Warning--empty year in mohn_exploration_2008
-Warning--empty journal in osmundsen_exploration_2010
-Warning--empty year in osmundsen_exploration_2010
-Warning--empty year in osmundsen_exploration_2010
-Warning--empty journal in ramcharran_oil_2002
-Warning--empty year in ramcharran_oil_2002
-Warning--empty year in ramcharran_oil_2002
-Warning--empty year in wood_generalized_2006
-Warning--empty year in wood_generalized_2006
-You've used 13 entries,
+Warning--empty publisher in kahle_ggmap:_2013
+Warning--empty publisher in team_r:_2013
+You've used 26 entries,
             2773 wiz_defined-function locations,
-            687 strings with 7791 characters,
-and the built_in function-call counts, 5429 in all, are:
-= -- 510
-> -- 205
-< -- 12
-+ -- 73
-- -- 60
-* -- 422
-:= -- 840
-add.period$ -- 67
-call.type$ -- 13
-change.case$ -- 59
-chr.to.int$ -- 13
-cite$ -- 59
-duplicate$ -- 251
-empty$ -- 478
-format.name$ -- 83
-if$ -- 1130
+            793 strings with 10464 characters,
+and the built_in function-call counts, 10398 in all, are:
+= -- 1029
+> -- 366
+< -- 28
++ -- 134
+- -- 108
+* -- 807
+:= -- 1668
+add.period$ -- 130
+call.type$ -- 26
+change.case$ -- 111
+chr.to.int$ -- 26
+cite$ -- 54
+duplicate$ -- 501
+empty$ -- 920
+format.name$ -- 146
+if$ -- 2163
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 13
-newline$ -- 101
-num.names$ -- 52
-pop$ -- 154
+missing$ -- 27
+newline$ -- 190
+num.names$ -- 104
+pop$ -- 172
 preamble$ -- 1
-purify$ -- 46
+purify$ -- 88
 quote$ -- 0
-skip$ -- 153
+skip$ -- 332
 stack$ -- 0
-substring$ -- 206
-swap$ -- 4
-text.length$ -- 0
+substring$ -- 414
+swap$ -- 41
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 133
-warning$ -- 33
-while$ -- 48
+type$ -- 256
+warning$ -- 2
+while$ -- 104
 width$ -- 0
-write$ -- 208
-(There were 37 warnings)
+write$ -- 444
+(There were 2 warnings)
