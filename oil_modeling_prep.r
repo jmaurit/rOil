@@ -13,6 +13,11 @@ fields$oil_price_real_l3<-fields$oil_price_real_l3/10
 fields$oil_price_real_l4<-fields$oil_price_real_l4/10
 fields$oil_price_real_l5<-fields$oil_price_real_l5/10
 fields$oil_price_real_l6<-fields$oil_price_real_l6/10
+fields$oil_price_real_l7<-fields$oil_price_real_l7/10
+fields$oil_price_real_l8<-fields$oil_price_real_l8/10
+
+fields$diff_oil_price<-fields$diff_oil_price/10
+fields$diff_oil_price<-fields$diff_oil_price_3y/10
 
 #weed out fields where oil is not produced
 fields_p<-fields[fields$tot.prod>0,]
@@ -72,4 +77,4 @@ fields_p$time_to_peak[fields_p$time_to_peak<0]<-0
 #source("/Users/johannesmauritzen/Google Drive/Oil/rOil/oil_modeling_eko.r")
 
 #get rid of all 2013 data (only want full year)
-fields_p<-fields_p[!fields_p$year==2013,]
+fields_p<-fields_p[!fields_p$year==2014,]

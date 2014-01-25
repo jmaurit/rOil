@@ -42,8 +42,13 @@ geom_errorbar(aes(x=variable, ymin=coef.Estimate-2*coef.Std..Error, ymax=coef.Es
 glm_coef_plot<-coeff_plot +
 labs(y="Effect of Oil Price on Norwegian Oil Production % per $10, GLM Model")
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/glm_coef_plot.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/glm_coef_plot.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(glm_coef_plot)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/glm_coef_plot_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
 print(glm_coef_plot)
 dev.off()
 
@@ -57,11 +62,15 @@ glm_dirty_box<-ggplot(price_coef_sim, aes(x=coefficient, y=estimate)) +
 geom_boxplot() +
 geom_jitter(, alpha=.1)
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/glm_dirty_box.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/glm_dirty_box.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
 print(glm_dirty_box)
 dev.off()
 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/glm_dirty_box_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(glm_dirty_box)
+dev.off()
 
 #benchmark model - uses non-parametric function on both analysis time and year
 prod_gam<-gam(year_prod~s(time_to_peak, recoverable_oil) + s(peak_to_end, recoverable_oil) + s(year), 
@@ -90,20 +99,18 @@ fields_p$smooth_bench_split[fields_p$max_prod>split]<-prod_gam_over$fitted.value
 gam_statfjord<-ggplot(fields_p[fields_p$name=="STATFJORD",]) +
 geom_point(aes(x=year, y=year_prod, size=oil_price_real)) +
 geom_line(aes(x=year, y=smooth_bench_split), color="blue") +
-geom_line(aes(x=year, y=smooth_price), color="red") +
 labs(title="Statfjord")
 gam_statfjord
 
 gam_ekofisk<-ggplot(fields_p[fields_p$name=="EKOFISK",]) +
 geom_point(aes(x=year, y=year_prod, size=oil_price_real)) +
-geom_line(aes(x=year, y=smooth_split), color="blue") +
-geom_line(aes(x=year, y=smooth_price), color="red") +
+geom_line(aes(x=year, y=smooth_bench_split), color="blue") +
 labs(title="Ekofisk")
 gam_ekofisk
 
 
 
-#Show results Tom - Down
+#Show results Top - Down
 
 
 #Show fit for following fits
@@ -113,13 +120,13 @@ include_fields<-c("ALBUSKJELL","ALVE", "COD", "EKOFISK", "TROLL","GULLFAKS", "KR
 fields_lim<-subset(fields_p, name %in% include_fields)
 
 fields_lim<-fields_lim[,c("name", "year", "year_prod", "smooth_bench", 
-	"smooth_bench_split", "smooth_price", "smooth_split")]
+	"smooth_bench_split")]
 
 fields_long<-melt(fields_lim, id.vars=c("name", "year", "year_prod"))
 names(fields_long)[4]<-"smoothing_type"
 names(fields_long)[5]<-"smoothed"
 fields_long$smoothing_type<-factor(fields_long$smoothing_type, 
-	labels=c("Benchmark", "Split Benchmark", "With Price", "Non-Price"))
+	labels=c("Benchmark", "Split Benchmark"))
 
 #show fields on their own:
 field_inspection<-ggplot(fields_long) +
@@ -127,8 +134,15 @@ geom_line(aes(x=year, y=year_prod)) +
 facet_wrap(~name, scales="free") +
 labs(x="", y="Yearly Production, Mill SM3")
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/field_inspection.png", 
+field_inspection
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/field_inspection.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(field_inspection)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/field_inspection_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
 print(field_inspection)
 dev.off()
 
@@ -138,8 +152,15 @@ geom_point(aes(x=year, y=year_prod)) +
 geom_line(aes(x=year, y=smoothed, color=smoothing_type)) +
 facet_wrap(~name, scales="free")
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/bench_vs_split.png", 
+bench_vs_split
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/bench_vs_split.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(bench_vs_split)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/bench_vs_split_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
 print(bench_vs_split)
 dev.off()
 
@@ -170,6 +191,8 @@ dev.off()
 #geom_line(aes(x=year, y=smooth_eko), color="orange")
 
 
+
+#Changes in the oil price - negative, positive
 
 
 

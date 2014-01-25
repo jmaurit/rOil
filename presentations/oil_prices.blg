@@ -3,11 +3,13 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: oil_prices.aux
 The style file: plainnat.bst
 Database file #1: oil_prices.bib
+Warning--I didn't find a database entry for "bp_2013"
+Warning--I didn't find a database entry for "leifeld_texreg:_2013"
 Warning--empty publisher in kahle_ggmap:_2013
 Warning--empty publisher in team_r:_2013
 You've used 26 entries,
             2773 wiz_defined-function locations,
-            793 strings with 10464 characters,
+            795 strings with 10491 characters,
 and the built_in function-call counts, 10398 in all, are:
 = -- 1029
 > -- 366
@@ -46,4 +48,4 @@ warning$ -- 2
 while$ -- 104
 width$ -- 0
 write$ -- 444
-(There were 2 warnings)
+(There were 4 warnings)

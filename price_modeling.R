@@ -1,22 +1,480 @@
 library(ggplot2)
 library(plyr)
 library(reshape2)
-library(mgcv)
+library(mgcv) #for generalized additive models
 library(lubridate) 
 library(grid)
 library(boot)
 library(arm)
-
+library(gamm4) # for mixed models
+library(texreg)
+#library(lmer) not available for 3.02
 
 #clear workspace
 rm(list = ls())
+
 #Price part of modeling
 #price_modeling.R
 # under oil_modeling.R
 source("/Users/johannesmauritzen/Google Drive/github/rOil/oil_modeling_prep.r") 
 
 split<-8
+fields_p$after_peak<-ifelse(fields_p$time_to_peak==0,1,0)
+fields_p$large_field<-as.factor(ifelse(fields_p$max_prod>split, "large","small"))
+
 #preferred models for effect on price
+gam_price_under_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
+	oil_price_real_l5 +oil_price_real_l6,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+
+gam_price_over_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
+	oil_price_real_l5 +oil_price_real_l6,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
+
+summary_under_2d<-summary(gam_price_under_2d)
+summary_over_2d<-summary(gam_price_over_2d)
+summary_under_2d
+summary_over_2d
+
+#use 8 lags
+gam_price_under_2d_8<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
+	oil_price_real_l5 +oil_price_real_l6 + oil_price_real_l7 + oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+
+gam_price_over_2d_8<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
+	oil_price_real_l5 +oil_price_real_l6 + oil_price_real_l7 + oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
+
+summary(gam_price_under_2d_8)
+summary(gam_price_over_2d_8)
+
+# Short: get rid of concurrent price and first 3 lags
+
+gam_price_under_2d_short<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real_l4 + 
+	oil_price_real_l5 +oil_price_real_l6 + oil_price_real_l7 + oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+
+gam_price_over_2d_short<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real_l4 + 
+	oil_price_real_l5 +oil_price_real_l6 + oil_price_real_l7 + oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
+
+summary(gam_price_under_2d_short)
+summary(gam_price_over_2d_short)
+
+
+#Table of results
+texreg(list(gam_price_under_2d, gam_price_over_2d, gam_price_under_2d_8, gam_price_over_2d_8,
+	gam_price_under_2d_short, gam_price_under_2d_short))
+
+#Charts of resutls with simulated uncertainty
+
+## simulate replicate beta vectors from posterior...
+coef(gam_price_under_2d_8)
+#with 8 lags
+sim_gam<-function(model, start=1, stop=length(coef(model))){
+	#test
+	#model<-gam_price_under_2d_8
+	#start<-2
+	#stop<-10
+	#
+
+	beta<-coef(model)
+	Vb<-vcov(model)
+	## simulate replicate beta vectors from posterior...
+	Cv <- chol(Vb)  #cholesky decomposition the equivalent of taking square root in a single variance to get SD?
+	n.rep=1000
+	nb <- length(beta)
+	br <- t(Cv) %*% matrix(rnorm(n.rep*nb),nb,n.rep) + beta  
+
+	#chart replicate beta vectors
+	out_data<-t(br[c(start:stop),])
+	out_data_long<-data.frame(melt(out_data))
+	names(out_data_long)<-c("id", "Variable", "Coef_Estimate")
+	return(out_data_long)
+	}
+
+
+#combined over and under on one plot
+
+
+#chart 6 lags
+chart_under_6<-sim_gam(model=gam_price_under_2d,start=2,stop=8)
+chart_over_6<-sim_gam(gam_price_over_2d,2,8)
+
+
+chart_under_6$type<-"under"
+chart_over_6$type<-"over"
+chart_6_long<-rbind(chart_under_6, chart_over_6)
+
+gam_price_6<-ggplot(chart_6_long, aes(x=Variable, y=Coef_Estimate, color=factor(type))) +
+geom_boxplot(position="dodge") +
+#geom_jitter(, alpha=.1) +
+scale_color_grey() +
+geom_hline(yintercept=0) +
+labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size Threshhold") 
+
+gam_price_6
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_6_pres.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_price_6)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_6_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_price_6)
+dev.off()
+
+
+#chart 8 lags
+chart_under_8<-sim_gam(model=gam_price_under_2d_8,start=2,stop=10)
+chart_over_8<-sim_gam(gam_price_over_2d_8,2,10)
+
+
+chart_under_8$type<-"under"
+chart_over_8$type<-"over"
+chart_8_long<-rbind(chart_under_8, chart_over_8)
+
+gam_price_8<-ggplot(chart_8_long, aes(x=Variable, y=Coef_Estimate, color=factor(type))) +
+geom_boxplot(position="dodge") +
+#geom_jitter(, alpha=.1) +
+scale_color_grey() +
+geom_hline(yintercept=0) +
+labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size Threshhold") 
+
+gam_price_8
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_8_pres.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_price_8)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_8_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_price_8)
+dev.off()
+
+#chart short lags
+#coef(gam_price_under_2d_short)
+
+chart_under_short<-sim_gam(model=gam_price_under_2d_short,start=2,stop=6)
+chart_over_short<-sim_gam(gam_price_over_2d_short,2,6)
+
+
+chart_under_short$type<-"under"
+chart_over_short$type<-"over"
+chart_short_long<-rbind(chart_under_short, chart_over_short)
+
+gam_price_short<-ggplot(chart_short_long, aes(x=Variable, y=Coef_Estimate, color=factor(type))) +
+geom_boxplot(position="dodge") +
+#geom_jitter(, alpha=.1) +
+scale_color_grey() +
+geom_hline(yintercept=0) +
+labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size Threshhold") 
+
+gam_price_short
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_short_pres.png", 
+	width = 27.8, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_price_short)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_short_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_price_short)
+dev.off()
+
+#***********
+
+
+
+#Pooled data: interaction with small/large fields
+#only interaction on the 6th lag was significant
+gam_price_2d<-gam(year_prod~ + s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real*large_field +
+	oil_price_real_l1*large_field + 
+	oil_price_real_l2*large_field + 
+	oil_price_real_l3*large_field + 
+	oil_price_real_l4*large_field + 
+	oil_price_real_l5*large_field + 
+	oil_price_real_l6*large_field +
+	oil_price_real_l7*large_field +
+	oil_price_real_l8*large_field,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p)
+
+summary(gam_price_2d)
+coef(gam_price_2d)
+
+
+
+#only interaction on the 6th lag was significant, remove first lags
+#when we remove interactions, then significance of l1 disappears
+
+gam_price_2d_short<-gam(year_prod~ + s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	large_field + 
+	oil_price_real_l4+ 
+	oil_price_real_l5+ 
+	oil_price_real_l6+
+	oil_price_real_l7+
+	oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p)
+
+summary(gam_price_2d_short)
+
+
+
+
+#create table
+texreg(list(gam_price_2d, gam_price_2d_short))
+
+#create charts
+chart_pooled<-sim_gam(model=gam_price_2d,start=2,stop=11)
+chart_pooled$Variable<-as.character(chart_pooled$Variable)
+chart_pooled<-chart_pooled[chart_pooled$Variable!="large_fieldsmall",]
+
+gam_price_pooled<-ggplot(chart_pooled, aes(x=Variable, y=Coef_Estimate)) +
+geom_boxplot(position="dodge") +
+#geom_jitter(, alpha=.1) +
+scale_color_grey() +
+geom_hline(yintercept=0) +
+labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size Threshhold") 
+
+gam_price_pooled
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_pooled.png", 
+	width = 27.8, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_price_pooled)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_pooled_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_price_pooled)
+dev.off()
+
+
+#Look at pre and post data
+
+#Post Peak
+#split with just after peak: excluded data where less than 5 years old
+fields_old<-fields_p[fields_p$init_year<2005,]
+#from 1131 to 1062 points
+#small
+gam_postpeak_small<-gam(year_prod~ s(peak_to_end, max_prod) +
+	oil_price_real +
+	oil_price_real_l1 +
+	oil_price_real_l2 +
+	oil_price_real_l3 +
+	oil_price_real_l4 +
+	oil_price_real_l5 +
+	oil_price_real_l6 + 
+	oil_price_real_l7 +
+	oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, 
+	data=fields_old[fields_old$after_peak==1 & fields_old$large_field=="small",])
+
+#large
+gam_postpeak_large<-gam(year_prod~ s(peak_to_end, max_prod) +
+	oil_price_real +
+	oil_price_real_l1 +
+	oil_price_real_l2 +
+	oil_price_real_l3 +
+	oil_price_real_l4 +
+	oil_price_real_l5 +
+	oil_price_real_l6 +
+	oil_price_real_l7 +
+	oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, 
+	data=fields_old[fields_old$after_peak==1 & fields_old$large_field=="large",])
+
+#pooled
+
+gam_postpeak_pooled<-gam(year_prod~ s(peak_to_end, max_prod) +
+	large_field +
+	oil_price_real  +
+	oil_price_real_l1 +
+	oil_price_real_l2 + 
+	oil_price_real_l3 + 
+	oil_price_real_l4+ 
+	oil_price_real_l5+ 
+	oil_price_real_l6 +
+	oil_price_real_l7 +
+	oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, 
+	data=fields_old[fields_old$after_peak==1,])
+
+summary(gam_postpeak_pooled)
+summary(gam_postpeak_small)
+summary(gam_postpeak_large)
+
+#table
+texreg(list(gam_postpeak_small, gam_postpeak_large, gam_postpeak_pooled))
+
+#charts
+coef(gam_postpeak_small)
+chart_postpeak_small<-sim_gam(model=gam_postpeak_small,start=2,stop=9)
+chart_postpeak_large<-sim_gam(gam_postpeak_large,2,9)
+
+
+chart_postpeak_small$type<-"under"
+chart_postpeak_large$type<-"over"
+chart_postpeak<-rbind(chart_postpeak_small, chart_postpeak_large)
+
+gam_postpeak<-ggplot(chart_postpeak, aes(x=Variable, y=Coef_Estimate, color=factor(type))) +
+geom_boxplot(position="dodge") +
+#geom_jitter(, alpha=.1) +
+scale_color_grey() +
+geom_hline(yintercept=0) +
+labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size Threshhold") 
+
+gam_postpeak
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_postpeak_pres.png", 
+	width = 27.8, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_postpeak)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_postpeak_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_postpeak)
+dev.off()
+
+#Pre peak****************  #
+gam_prepeak_small<-gam(year_prod~ s(time_to_peak, recoverable_oil) +
+	oil_price_real +
+	oil_price_real_l1+
+	oil_price_real_l2 +
+	oil_price_real_l3 +
+	oil_price_real_l4 +
+	oil_price_real_l5 +
+	oil_price_real_l6 +
+	oil_price_real_l7 +
+	oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, 
+	data=fields_p[fields_p$after_peak==0 & fields_p$large_field=="small",])
+
+
+gam_prepeak_large<-gam(year_prod~ s(time_to_peak, recoverable_oil) +
+	oil_price_real +
+	oil_price_real_l1+
+	oil_price_real_l2 +
+	oil_price_real_l3+
+	oil_price_real_l4+
+	oil_price_real_l5+
+	oil_price_real_l6 +
+	oil_price_real_l7+
+	oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, 
+	data=fields_p[fields_p$after_peak==0 & fields_p$large_field=="large" & fields_p$name!="EKOFISK",])
+
+
+
+
+#pooled
+gam_prepeak_pooled<-gam(year_prod~ s(time_to_peak, recoverable_oil) +
+	oil_price_real +
+	oil_price_real_l1 + 
+	oil_price_real_l2 + 
+	oil_price_real_l3 + 
+	oil_price_real_l4 + 
+	oil_price_real_l5 + 
+	oil_price_real_l6 +
+	oil_price_real_l7 +
+	oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, 
+	data=fields_p[fields_p$after_peak==0 & fields_p$name!="EKOFISK",])
+
+gam_prepeak_pooled_2<-gam(year_prod~ s(time_to_peak, max_prod) +
+	oil_price_real +
+	oil_price_real_l1 + 
+	oil_price_real_l2 + 
+	oil_price_real_l3 + 
+	oil_price_real_l4 + 
+	oil_price_real_l5 + 
+	oil_price_real_l6 +
+	oil_price_real_l7 +
+	oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, 
+	data=fields_p[fields_p$after_peak==0 & fields_p$name!="EKOFISK",])
+
+gam_prepeak_pooled_3<-gam(year_prod~ s(time_to_peak) +
+	max_prod +
+	oil_price_real +
+	oil_price_real_l1 + 
+	oil_price_real_l2 + 
+	oil_price_real_l3 + 
+	oil_price_real_l4 + 
+	oil_price_real_l5 + 
+	oil_price_real_l6 +
+	oil_price_real_l7 +
+	oil_price_real_l8,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, 
+	data=fields_p[fields_p$after_peak==0 & fields_p$name!="EKOFISK",])
+
+
+summary(gam_prepeak_small)
+summary(gam_prepeak_large)
+summary(gam_prepeak_pooled)
+summary(gam_prepeak_pooled_2) #not good
+summary(gam_prepeak_pooled_3) # not good
+
+#make table
+
+texreg(list(gam_prepeak_small, gam_prepeak_large, gam_prepeak_pooled))
+
+#robustness checks******************************************************
+gam.check(gam_price_under_2d)
+gam.check(gam_price_over_2d)
+
+#check with gamma
+gam_price_under_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
+	family=Gamma(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+
+gam_price_over_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
+	family=Gamma(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
+
+summary(gam_price_under_2d)
+summary(gam_price_over_2d)
+gam.check(gam_price_under_2d)
+gam.check(gam_price_over_2d)
+
+
+#perhaps getting overfitting, change gamma to 1.4
+gam_price_under_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
+	oil_price_real_l5 +oil_price_real_l6,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,], gamma=1.4)
+
+gam_price_over_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,], gamma=1.4)
+summary(gam_price_under_2d)
+summary(gam_price_over_2d)
+
+#do not include ekofisk
+gam_price_under_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split & fields_p$name!="EKOFISK",])
+
+gam_price_over_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
+	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod>split & fields_p$name!="EKOFISK",])
+summary(gam_price_under_2d)
+summary(gam_price_over_2d)
+
+#created fitted data
+fields_p$smooth_price[fields_p$max_prod<=split]<-gam_price_under_2d$fitted.values
+fields_p$smooth_price[fields_p$max_prod>split]<-gam_price_over_2d$fitted.values
+
+
+#compare to gamma distribution
 gam_price_under_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
 	oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
 	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
@@ -25,23 +483,6 @@ gam_price_over_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end
 	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
 	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
 
-
-summary_under_2d<-summary(gam_price_under_2d)
-summary_over_2d<-summary(gam_price_over_2d)
-summary_under_2d
-summary_over_2d
-
-#created fitted data
-
-fields_p$smooth_price[fields_p$max_prod<=split]<-gam_price_under_2d$fitted.values
-fields_p$smooth_price[fields_p$max_prod>split]<-gam_price_over_2d$fitted.values
-
-
-
-
-
-
-#Ridge regression
 
 
 
@@ -54,63 +495,68 @@ fields_p$smooth_price[fields_p$max_prod>split]<-gam_price_over_2d$fitted.values
 #effect of oil prices on investments:*********************
 
 gam_price_invest_under<-gam(investmentMillNOK_real~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
-	year_prod + oil_price_real + oil_price_real_l2 + oil_price_real_l3,
+	year_prod + oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 +
+	oil_price_real_l5 + oil_price_real_l6+ oil_price_real_l7 + oil_price_real_l8,
 	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
 
 gam_price_invest_over<-gam(investmentMillNOK_real~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
-	year_prod + oil_price_real + oil_price_real_l2 + oil_price_real_l3,
+	year_prod + oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 +
+	oil_price_real_l5 + oil_price_real_l6+ oil_price_real_l7 + oil_price_real_l8,
 	family=gaussian(link=log),weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
 
 gam_price_invest<-gam(investmentMillNOK_real~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
-	year_prod + oil_price_real + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5,
+	year_prod +
+	oil_price_real*large_field + 
+	oil_price_real_l1*large_field  + 
+	oil_price_real_l2*large_field  + 
+	oil_price_real_l3*large_field  + 
+	oil_price_real_l4+ 
+	oil_price_real_l5+ 
+	oil_price_real_l6+ 
+	oil_price_real_l7+ 
+	oil_price_real_l8,
 	family=gaussian(link=log),weights=recoverable_oil, data=fields_p)
 
-sum_price_invest<-summary(gam_price_invest)
-sum_price_invest
+summary(gam_price_invest_under)
+summary(gam_price_invest_over)
+summary(gam_price_invest)
 
-sum_price_invest_under<-summary(gam_price_invest_under)
-sum_price_invest_over<-summary(gam_price_invest_over)
-sum_price_invest_under
-sum_price_invest_over
+#make table of investment regressions
+texreg(list(gam_price_invest, gam_price_invest_under, gam_price_invest_over))
 
-#display results with simulated uncertainty
+#make chart of ivvestment regressions
+chart_invest<-sim_gam(model=gam_price_invest,start=3, stop=12)
+chart_invest$Variable<-as.character(chart_invest$Variable)
+chart_invest<-chart_invest[chart_invest$Variable!="large_fieldsmall",]
 
-## simulate replicate beta vectors from posterior...
+invest_pooled<-ggplot(chart_invest, aes(x=Variable, y=Coef_Estimate)) +
+geom_boxplot(position="dodge") +
+#geom_jitter(, alpha=.1) +
+scale_color_grey() +
+geom_hline(yintercept=0) +
+labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size Threshhold") 
 
-#create function for this:
-param_box<-function(beta, Vb, coef_first=1, coef_last=length(beta)){
-#test
+invest_pooled
 
-Cv <- chol(Vb)  #cholesky decomposition the equivalent of taking square root in a single variance to get SD?
-n.rep=1000
-nb <- length(beta)
-br <- t(Cv) %*% matrix(rnorm(n.rep*nb),nb,n.rep) + beta  
-
-#chart replicate beta vectors
-price_br_over<-t(br[c(coef_first:coef_last),]) # this needs to change according to files
-price_br_over_long<-data.frame(melt(price_br_over))
-names(price_br_over_long)<-c("id", "variable", "estimate")
-
-coef_box<-ggplot(price_br_over_long, aes(x=variable, y=estimate)) +
-geom_boxplot() +
-geom_jitter(, alpha=.1)
-
-return(coef_box)
-}
-
-beta<-coef(gam_price_invest)
-Vb<-vcov(gam_price_invest)
-
-gam_price_invest_box<-param_box(beta, Vb, 3, 7)
-
-gam_price_invest_box<-gam_price_invest_box + 
-scale_y_continuous(limits=c(-.05, .15)) +
-labs(x="", y="Estimated Coefficient")
-
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/gam_price_invest_box.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
-print(gam_price_invest_box)
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/invest_pooled.png", 
+	width = 27.8, height = 21, units = "cm", res=300, pointsize=10)
+print(invest_pooled)
 dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/invest_pooled_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(invest_pooled)
+dev.off()
+
+
+#what about - on the decline. 
+
+gam_invest_decline<-gam(investmentMillNOK_real~s(time_to_peak, recoverable_oil) +
+	year_prod + oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
+	oil_price_real_l5 + oil_price_real_l6 + oil_price_real_l7,
+	family=gaussian(link=log),weights=recoverable_oil, data=fields_p[fields_p$after_peak==0,])
+
+summary(gam_invest_decline)
 
 
 #***********************************
@@ -244,31 +690,27 @@ dev.off()
 
 #simulation of coefficients****************************************
 #from Gelman ARM
-cov_beta<-gam_under$Vp
-beta_hat<-gam_under$coefficients
-sigma_hat<-sqrt(gam_under$sig2)
-n_minus_k<-gam_under$df.residual
+# cov_beta<-gam_under$Vp
+# beta_hat<-gam_under$coefficients
+# sigma_hat<-sqrt(gam_under$sig2)
+# n_minus_k<-gam_under$df.residual
 
-sim_gam<-function(cov_beta, beta_hat, sigma_hat, n_minus_k){
-sigma<-sigma_hat*sqrt((n_minus_k)/rchisq(1,n_minus_k))
-beta<-mvrnorm(1, beta_hat, cov_beta*sigma^2)
-return(beta=beta)
-}
+# sim_gam<-function(cov_beta, beta_hat, sigma_hat, n_minus_k){
+# sigma<-sigma_hat*sqrt((n_minus_k)/rchisq(1,n_minus_k))
+# beta<-mvrnorm(1, beta_hat, cov_beta*sigma^2)
+# return(beta=beta)
+# }
 
-nsims<-1000
-#under_sims<-array(NA, dim=nsims)
-under_sims<-replicate(nsims, sim_gam(gam_under$Vp,gam_under$coefficients, sqrt(gam_under$sig2), gam_under$df.residual))
-#chart in big fields. 
-
-
-
-
+# nsims<-1000
+# #under_sims<-array(NA, dim=nsims)
+# under_sims<-replicate(nsims, sim_gam(gam_under$Vp,gam_under$coefficients, sqrt(gam_under$sig2), gam_under$df.residual))
+# #chart in big fields. 
 
 #instructions from ARM
-sim_gam_price<-sim(gam_price_over_2d, n.sims=1000)
-price_coef_sim<-melt(sim_gam_price@coef[,c(8:13)],)
-price_coef_sim$Var1<-NULL
-names(price_coef_sim)<-c("coefficient", "estimate")
+# sim_gam_price<-sim(gam_price_over_2d, n.sims=1000)
+# price_coef_sim<-melt(sim_gam_price@coef[,c(8:13)],)
+# price_coef_sim$Var1<-NULL
+# names(price_coef_sim)<-c("coefficient", "estimate")
 
 #from instructions GAM with R
 
@@ -283,19 +725,27 @@ nb <- length(beta)
 br <- t(Cv) %*% matrix(rnorm(n.rep*nb),nb,n.rep) + beta  
 
 #chart replicate beta vectors
-price_br_over<-t(br[c(2:7),])
+price_br_over<-t(br[c(2:8),])
 price_br_over_long<-data.frame(melt(price_br_over))
-names(price_br_over_long)<-c("id", "variable", "estimate")
+names(price_br_over_long)<-c("id", "Variable", "Coef_Estimate")
 
-gam_price_over_dirty_box<-ggplot(price_br_over_long, aes(x=variable, y=estimate)) +
+gam_price_over_dirty_box<-ggplot(price_br_over_long, aes(x=Variable, y=Coef_Estimate)) +
 geom_boxplot() +
+geom_hline(yintercept=0) +
 geom_jitter(, alpha=.1)
+gam_price_over_dirty_box
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/gam_price_over_dirty_box.png", 
+#presentation version
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_over_dirty_box_pres.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
 print(gam_price_over_dirty_box)
 dev.off()
 
+#print version
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_over_dirty_box_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_price_over_dirty_box)
+dev.off()
 
 #gam price under
 beta<-coef(gam_price_under_2d)
@@ -308,13 +758,16 @@ nb <- length(beta)
 br <- t(Cv) %*% matrix(rnorm(n.rep*nb),nb,n.rep) + beta  
 
 #chart replicate beta vectors
-price_br_under<-t(br[c(2:7),])
+price_br_under<-t(br[c(2:8),])
 price_br_under_long<-data.frame(melt(price_br_under))
-names(price_br_under_long)<-c("id", "variable", "estimate")
+names(price_br_under_long)<-c("id", "Variable", "Coef_Estimate")
 
-gam_price_under_dirty_box<-ggplot(price_br_under_long, aes(x=variable, y=estimate)) +
+gam_price_under_dirty_box<-ggplot(price_br_under_long, aes(x=Variable, y=Coef_Estimate)) +
 geom_boxplot() +
-geom_jitter(, alpha=.1)
+geom_jitter(, alpha=.1) +
+geom_hline(yintercept=0)
+print(gam_price_under_dirty_box)
+
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/gam_price_under_dirty_box.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
@@ -326,15 +779,64 @@ price_br_under_long$type<-"under"
 price_br_over_long$type<-"over"
 price_br_long<-rbind(price_br_under_long, price_br_over_long)
 
-gam_price_dirty_box<-ggplot(price_br_long, aes(x=variable, y=estimate, color=factor(type))) +
+gam_price_dirty_box<-ggplot(price_br_long, aes(x=Variable, y=Coef_Estimate, color=factor(type))) +
 geom_boxplot(position="dodge") +
 #geom_jitter(, alpha=.1) +
 scale_color_grey() +
+geom_hline(yintercept=0) +
 labs(x="", y="Estimated Coefficients on Oil Price Variable", color="Field Size Threshhold") 
+gam_price_dirty_box
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/gam_price_dirty_box.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_pres.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
 print(gam_price_dirty_box)
 dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_price_dirty_box)
+dev.off()
+
+coef(gam_price_under_2d_8)
+#with 8 lags
+sim_gam<-function(model, start=1, stop=length(coef(model))){
+	#test
+	#model<-gam_price_under_2d_8
+	#start<-2
+	#stop<-10
+	#
+
+	beta<-coef(model)
+	Vb<-vcov(model)
+	## simulate replicate beta vectors from posterior...
+	Cv <- chol(Vb)  #cholesky decomposition the equivalent of taking square root in a single variance to get SD?
+	n.rep=1000
+	nb <- length(beta)
+	br <- t(Cv) %*% matrix(rnorm(n.rep*nb),nb,n.rep) + beta  
+
+	#chart replicate beta vectors
+	out_data<-t(br[c(start:stop),])
+	out_data_long<-data.frame(melt(out_data))
+	names(out_data_long)<-c("id", "Variable", "Coef_Estimate")
+	return(out_data_long)
+	}
+
+chart_under_8<-sim_gam(model=gam_price_under_2d_8,start=2,stop=10)
+chart_over_8<-sim_gam(gam_price_over_2d_8,2,10)
+
+gam_price_under_8<-ggplot(chart_under_8, aes(x=Variable, y=Coef_Estimate)) +
+geom_boxplot() +
+geom_jitter(, alpha=.1) +
+geom_hline(yintercept=0)
+gam_price_under_8
+
+gam_price_over_8<-ggplot(chart_over_8, aes(x=Variable, y=Coef_Estimate)) +
+geom_boxplot() +
+geom_jitter(, alpha=.1) +
+geom_hline(yintercept=0)
+gam_price_over_8
+
+
+
 
 

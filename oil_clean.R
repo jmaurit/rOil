@@ -44,6 +44,14 @@ investment_deflator$Date<-NULL
 names(investment_deflator)[1]<-"deflator"
 
 
+#Merrill Lynch US Corporate Bonds Total Return Index
+corp_bonds<-read.csv('http://www.quandl.com/api/v1/datasets/ML/TRI.csv?&trim_start=1973-05-31&trim_end=2014-01-09&collapse=annual&sort_order=desc')
+corp_bonds$bond_index<-corp_bonds$Value
+corp_bonds$year<-year(as.Date(as.character(corp_bonds$Date)))
+corp_bonds$Date<-NULL
+corp_bonds$Value<-NULL
+
+#from npd
 overview<-read.csv("http://factpages.npd.no/ReportServer?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=158.37.94.112&CultureCode=en", stringsAsFactors=FALSE)
 
 month.prod<-read.csv("http://factpages.npd.no/ReportServer?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=158.37.94.56&CultureCode=nb-no", stringsAsFactors=FALSE)
@@ -141,7 +149,7 @@ fields<-merge(year_prod_cum, investments, by=c("name", "year"), all=TRUE)
 fields<-merge(fields, field.geo, by="name", all=TRUE)
 
 #merge with reserves data
-reserves<-rename(reserves, replace=c("X.fldName"="name", "fldRecoverableOil"="recoverable_oil", "fldRemainingOil"="remaining_oil"))
+reserves<-rename(reserves, replace=c("fldName"="name", "fldRecoverableOil"="recoverable_oil", "fldRemainingOil"="remaining_oil"))
 oil_reserves<-reserves[,c("name", "recoverable_oil", "remaining_oil")]
 fields<-merge(fields, oil_reserves, by="name", all=TRUE)
 
@@ -175,7 +183,32 @@ oil_long$oil_price_real_l3<-manual_lag(oil_long$oil_price_real, 3)
 oil_long$oil_price_real_l4<-manual_lag(oil_long$oil_price_real, 4)
 oil_long$oil_price_real_l5<-manual_lag(oil_long$oil_price_real, 5)
 oil_long$oil_price_real_l6<-manual_lag(oil_long$oil_price_real, 6)
+oil_long$oil_price_real_l7<-manual_lag(oil_long$oil_price_real, 7)
+oil_long$oil_price_real_l8<-manual_lag(oil_long$oil_price_real, 8)
 
+
+#create oil price differences and lags
+oil_long$diff_oil_price<-c(NA, diff(oil_long$oil_price_real))
+oil_long$pos_price_diff<-ifelse(oil_long$diff_oil_price>0, oil_long$diff_oil_price,      0.0000001)
+oil_long$neg_price_diff<-ifelse(oil_long$diff_oil_price<0, abs(oil_long$diff_oil_price), 0.0000001)
+
+#oil_long$pos_dif_l1<-manual_lag(oil_long$pos_price_diff, 1)
+#oil_long$pos_dif_l2<-manual_lag(oil_long$pos_price_diff, 2)
+#oil_long$pos_dif_l3<-manual_lag(oil_long$pos_price_diff, 3)
+#oil_long$pos_dif_l4<-manual_lag(oil_long$pos_price_diff, 4)
+#oil_long$pos_dif_l5<-manual_lag(oil_long$pos_price_diff, 5)
+#oil_long$pos_dif_l6<-manual_lag(oil_long$pos_price_diff, 6)
+
+#oil_long$neg_dif_l1<-manual_lag(oil_long$neg_price_diff, 1)
+#oil_long$neg_dif_l2<-manual_lag(oil_long$neg_price_diff, 2)
+#oil_long$neg_dif_l3<-manual_lag(oil_long$neg_price_diff, 3)
+#oil_long$neg_dif_l4<-manual_lag(oil_long$neg_price_diff, 4)
+#oil_long$neg_dif_l5<-manual_lag(oil_long$neg_price_diff, 5)
+#oil_long$neg_dif_l6<-manual_lag(oil_long$neg_price_diff, 6)
+
+oil_long$diff_oil_price_3yr<-c(rep(NA, 3), diff(oil_long$oil_price_real,3))
+oil_long$pos_diff_3yr<-ifelse(oil_long$diff_oil_price_3yr>0, oil_long$diff_oil_price_3yr,      0.000001)
+oil_long$neg_diff_3yr<-ifelse(oil_long$diff_oil_price_3yr<0, abs(oil_long$diff_oil_price_3yr), 0.000001)
 
 #merge prices with field
 fields$year<-as.numeric(fields$year)
@@ -186,6 +219,9 @@ fields<-fields[order(fields$name, fields$year), ]
 
 #merge with deflator
 fields<-merge(fields, investment_deflator, all.x=TRUE)
+
+#merge total return corporate bond index
+fields<-merge(fields, corp_bonds, all.x=TRUE)
 
 #find initial year of production
 fields<-ddply(fields, .(name), mutate, init_year=min(year, na.rm=TRUE))

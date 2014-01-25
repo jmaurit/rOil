@@ -1,0 +1,10 @@
+oil_todo.txt
+
+To do list
+-asymmetric change in oil price - change to 
+-adaptive expectations - klaus mohn
+
+-add tables - texreg
+-reword introduction
+-add figure text
+
