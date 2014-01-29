@@ -38,23 +38,23 @@ fields<-ddply(fields, .(name), mutate, total.invest=sum(investmentMillNOK, na.rm
 tot.prod.fields<-fields[!duplicated(fields$name),] 
 
 #maps of total production in North and Norwegian Sea
-northsea<-get_map(location = c(lon = 2.74, lat = 59.00), zoom=6)
+northsea<-get_map(location = c(lon = 2.74, lat = 59.00), zoom=6, maptype="satellite")
 ggmap(northsea) +
 geom_point(aes(x = lon, y = lat, size=tot.prod, color=init_year),alpha=.7, data = tot.prod.fields)+
 scale_color_continuous(low="red", high="black")
 
-norwegiansea<-get_map(location = c(lon = 7, lat = 65.00), zoom=6)
+norwegiansea<-get_map(location = c(lon = 7, lat = 65.00), zoom=6, maptype="satellite")
 ggmap(norwegiansea) +
 geom_point(aes(x = lon, y = lat, size=tot.prod, color=init_year),alpha=.7, data = tot.prod.fields)+
 scale_color_continuous(low="red", high="black")
 
-barentsea<-get_map(location = c(lon = 17, lat = 73.00), zoom=5)
+barentsea<-get_map(location = c(lon = 17, lat = 73.00), zoom=5, maptype="satellite")
 ggmap(barentsea)
 
 #create label columns - to label two biggest fields
 tot.prod.fields$labels<-rep(NA, length(tot.prod.fields[,1]))
-tot.prod.fields$labels[tot.prod.fields$name=="EKOFISK"]<-tot.prod.fields$name[tot.prod.fields$name=="EKOFISK"]
-tot.prod.fields$labels[tot.prod.fields$name=="STATFJORD"]<-tot.prod.fields$name[tot.prod.fields$name=="STATFJORD"]
+tot.prod.fields$labels[tot.prod.fields$name=="EKOFISK"]<-"EKOFISK"
+tot.prod.fields$labels[tot.prod.fields$name=="STATFJORD"]<-"STATFJORD"
 
 #add data for Johan Sverdrup
 #what is the size of Johan Sverdrup:
@@ -101,7 +101,7 @@ dev.off()
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/norwegian_sea_reserves_print.png", 
 	width = 35, height = 21, units = "cm", res=300, pointsize=10)
 print(reserves_norwegian_sea)
-dev.off()	
+dev.off()
 
 reserves_barent_sea<-ggmap(barentsea) +
 geom_point(aes(x = lon, y = lat, size=recoverable_oil, color=init_year),alpha=.7, data = tot.prod.fields)+
@@ -395,7 +395,7 @@ png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/sta
 print(statfjord_gam)
 dev.off()
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/statfjord_gam.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/statfjord_gam_print.png", 
 	width = 35, height = 21, units = "cm", res=300, pointsize=10)
 print(statfjord_gam)
 dev.off()

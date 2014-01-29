@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  22 JAN 2014 14:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  28 JAN 2014 16:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -209,18 +209,37 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ∂ in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
 
 
-Package natbib Warning: Citation `bp_2013' on page 1 undefined on input line 38
-.
+Package natbib Warning: Citation `british_petroleum_statistical_2013' on page 1
+ undefined on input line 38.
 
 [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3]
+
+Package natbib Warning: Citation `rao_taxation_2010' on page 2 undefined on inp
+ut line 40.
+
+[2]
+
+Package natbib Warning: Citation `hotelling_economics_1931' on page 3 undefined
+ on input line 44.
+
+
+Package natbib Warning: Citation `krautkraemer_nonrenewable_1998' on page 3 und
+efined on input line 44.
+
+[3]
+
+Package natbib Warning: Citation `mohn_efforts_2008' on page 4 undefined on inp
+ut line 48.
+
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -230,679 +249,251 @@ Missing character: There is no ù in font cmr12!
 Missing character: There is no √ in font cmr10!
 Missing character: There is no § in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
 [][]\OT1/cmr/m/n/10 See for ex-am-ple the economist ar-ti-cle ti-tled Su-per-ma
 -jord-m-merung
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
 \OT1/cmr/m/n/10 from Au-gust 3rd, 2013: $\OT1/cmtt/m/n/10 http : / / www . econ
 omist . com / news / briefing /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+[][]\OT1/cmr/m/n/10 see http://www.regjeringen.no/en/sub/eiti---extractive-indu
+stries-
  []
 
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
-[4]
+
+Overfull \hbox (9.88335pt too wide) in paragraph at lines 54--55
+[]\OT1/cmr/m/n/12 However, over the last few years, a move-ment to-wards mak-in
+g the petroleum
+ []
+
+[4] [5]
 Missing character: There is no ¬ in font cmr12!
 Missing character: There is no ¥ in font cmr12!
- [5] <figures/top10_production_print.png, id=27, 4148.49875pt x 2489.3pt>
+ <figures/top10_production_print.png, id=27, 4148.49875pt x 2489.3pt>
 File: figures/top10_production_print.png Graphic file (type png)
 
 <use figures/top10_production_print.png>
 Package pdftex.def Info: figures/top10_production_print.png used on input line 
-65.
-(pdftex.def)             Requested size: 312.00119pt x 187.18323pt.
+69.
+(pdftex.def)             Requested size: 390.0pt x 234.01703pt.
 
 <figures/oil_decline_print.png, id=29, 4148.49875pt x 2489.3pt>
 File: figures/oil_decline_print.png Graphic file (type png)
 
 <use figures/oil_decline_print.png>
-Package pdftex.def Info: figures/oil_decline_print.png used on input line 71.
-(pdftex.def)             Requested size: 312.00119pt x 187.18323pt.
- [6 <./figures/top10_production_print.png>]
-Overfull \hbox (1.16678pt too wide) in paragraph at lines 81--82
-[]\OT1/cmr/m/n/12 For mod-el-ing ag-gre-gate oil pro-duc-tion, shape-fitting mo
-d-els, no-tably Hub-
- []
+Package pdftex.def Info: figures/oil_decline_print.png used on input line 75.
+(pdftex.def)             Requested size: 390.0pt x 234.01703pt.
 
-[7 <./figures/oil_decline_print.png>] [8]
+
+Package natbib Warning: Citation `hastie_generalized_1990' on page 6 undefined 
+on input line 80.
+
+[6]
+
+Package natbib Warning: Citation `krautkraemer_nonrenewable_1998' on page 7 und
+efined on input line 83.
+
+[7 <./figures/top10_production_print.png>] [8 <./figures/oil_decline_print.png>
+]
+
+Package natbib Warning: Citation `hubbert_energy_1962' on page 9 undefined on i
+nput line 85.
+
+
+Package natbib Warning: Citation `deffeyes_hubberts_2001' on page 9 undefined o
+n input line 85.
+
+
+Package natbib Warning: Citation `boyce_prediction_2013' on page 9 undefined on
+ input line 85.
+
+
+Package natbib Warning: Citation `brandt_review_2010' on page 9 undefined on in
+put line 85.
+
+
+Package natbib Warning: Citation `farzin_impact_2001' on page 9 undefined on in
+put line 87.
+
+
+Package natbib Warning: Citation `ramcharran_oil_2002' on page 9 undefined on i
+nput line 87.
+
+[9]
+
+Package natbib Warning: Citation `kellogg_effect_2010' on page 10 undefined on 
+input line 89.
+
+
+Package natbib Warning: Citation `hurn_geology_1994' on page 10 undefined on in
+put line 89.
+
+
+Package natbib Warning: Citation `black_is_1998' on page 10 undefined on input 
+line 91.
+
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [9]
-<figures/north_sea_reserves_print.png, id=45, 4148.49875pt x 2489.3pt>
+[10]
+
+Package natbib Warning: Citation `rao_taxation_2010' on page 11 undefined on in
+put line 93.
+
+
+Package natbib Warning: Citation `mohn_exploration_2008' on page 11 undefined o
+n input line 95.
+
+
+Package natbib Warning: Citation `osmundsen_exploration_2010' on page 11 undefi
+ned on input line 95.
+
+
+Package natbib Warning: Citation `mohn_efforts_2008' on page 11 undefined on in
+put line 95.
+
+[11] <figures/north_sea_reserves_print.png, id=51, 4148.49875pt x 2489.3pt>
 File: figures/north_sea_reserves_print.png Graphic file (type png)
 
 <use figures/north_sea_reserves_print.png>
 Package pdftex.def Info: figures/north_sea_reserves_print.png used on input lin
-e 95.
-(pdftex.def)             Requested size: 390.0pt x 234.01703pt.
+e 101.
+(pdftex.def)             Requested size: 467.99881pt x 280.81284pt.
+
+Overfull \hbox (77.99881pt too wide) in paragraph at lines 101--102
+[][] 
+ []
+
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
-
-<figures/norwegian_sea_reserves_print.png, id=46, 4148.49875pt x 2489.3pt>
+<figures/norwegian_sea_reserves_print.png, id=52, 4148.49875pt x 2489.3pt>
 File: figures/norwegian_sea_reserves_print.png Graphic file (type png)
 
 <use figures/norwegian_sea_reserves_print.png>
 Package pdftex.def Info: figures/norwegian_sea_reserves_print.png used on input
- line 103.
-(pdftex.def)             Requested size: 312.00119pt x 187.18323pt.
- [10] [11 <./figures/north_sea_reserves_print.png> <./figures/norwegian_sea_res
-erves_print.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 112--112
+ line 109.
+(pdftex.def)             Requested size: 467.99881pt x 280.81284pt.
+
+Overfull \hbox (77.99881pt too wide) in paragraph at lines 109--110
+[][] 
+ []
+
+[12] [13 <./figures/north_sea_reserves_print.png>] [14 <./figures/norwegian_sea
+_reserves_print.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 118--118
 [][]$\OT1/cmtt/m/n/10 http : / / www . regjeringen . no / en / dep / fin / Sele
 cted-[]topics / taxes-[]and-[]duties /
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
 [][]$\OT1/cmtt/m/n/10 http : / / www . npd . no / en / Topics / Production-[]li
 cences / Theme-[]articles /
  []
 
-[13] [14]
-Overfull \hbox (13.04367pt too wide) in paragraph at lines 138--138
-[] 
- []
+[16]
 
-[15] <figures/statfjord_dem_print.png, id=69, 3296.315pt x 2489.3pt>
-File: figures/statfjord_dem_print.png Graphic file (type png)
-
-<use figures/statfjord_dem_print.png>
-Package pdftex.def Info: figures/statfjord_dem_print.png used on input line 143
-.
-(pdftex.def)             Requested size: 312.00119pt x 235.61234pt.
+Package natbib Warning: Citation `hamilton_understanding_2008' on page 17 undef
+ined on input line 129.
 
 
-LaTeX Warning: Reference `glm_dirty_box' on page 16 undefined on input line 148
-.
-
-<figures/glm_dirty_box_print.png, id=70, 4148.49875pt x 2489.3pt>
-File: figures/glm_dirty_box_print.png Graphic file (type png)
-
-<use figures/glm_dirty_box_print.png>
-Package pdftex.def Info: figures/glm_dirty_box_print.png used on input line 151
-.
-(pdftex.def)             Requested size: 312.00119pt x 187.18323pt.
- [16] [17 <./figures/statfjord_dem_print.png> <./figures/glm_dirty_box_print.pn
-g>]
-Overfull \hbox (2.0501pt too wide) in paragraph at lines 165--166
-[]\OT1/cmr/m/n/12 Again con-sid-er-ing the pro-duc-tion pro-file for the Stat-f
-jord field, a smoothed
- []
+Package natbib Warning: Citation `alquist_what_2010' on page 17 undefined on in
+put line 129.
 
 
-LaTeX Warning: File `figures/statfjord_gam_print.png' not found on input line 1
-68.
+Package natbib Warning: Citation `chinn_predictive_2005' on page 17 undefined o
+n input line 129.
 
 
-! Package pdftex.def Error: File `figures/statfjord_gam_print.png' not found.
+Package natbib Warning: Citation `mohn_investment_2008' on page 17 undefined on
+ input line 129.
 
-See the pdftex.def package documentation for explanation.
+
+Package natbib Warning: Citation `pesaran_econometric_1990' on page 17 undefine
+d on input line 129.
+
+
+Package natbib Warning: Citation `farzin_impact_2001' on page 17 undefined on i
+nput line 129.
+
+[17]
+! Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.131 ...his article \citep{r\_core\_team_r:_2013}
+                                                  .  I use the R packages gg...
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   c
+l.131 ...his article \citep{r\_core\_team_r:_2013}
+                                                  .  I use the R packages gg...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   t
+l.131 ...his article \citep{r\_core\_team_r:_2013}
+                                                  .  I use the R packages gg...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.131 ...his article \citep{r\_core\_team_r:_2013}
+                                                  .  I use the R packages gg...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra \endcsname.
+\@ifundefined ...dafter \ifx \csname #1\endcsname 
+                                                  \relax \expandafter \@firs...
+l.131 ...his article \citep{r\_core\_team_r:_2013}
+                                                  .  I use the R packages gg...
+I'm ignoring this, since I wasn't doing a \csname.
+
+
+! LaTeX Error: Command \bfseries invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.168 ...xtwidth]{figures/statfjord_gam_print.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+l.131 ...his article \citep{r\_core\_team_r:_2013}
+                                                  .  I use the R packages gg...
 
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
-[18] [19]
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-
-Overfull \hbox (26.4739pt too wide) in paragraph at lines 182--183
-\OT1/cmr/m/n/12 rep-re-sents a vec-tor of $\OML/cmm/m/it/12 y[]$\OT1/cmr/m/n/12
- s and $\OML/cmm/m/it/12 boldsymbolf \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 f\OT1/
-cmr/m/n/12 (\OML/cmm/m/it/12 boldsymbol[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; f\
-OT1/cmr/m/n/12 (\OML/cmm/m/it/12 boldsymbol[]\OT1/cmr/m/n/12 ))[]$. 
- []
-
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
-[20] [21] <figures/field_inspection_print.png, id=97, 4148.49875pt x 2489.3pt>
-File: figures/field_inspection_print.png Graphic file (type png)
-
-<use figures/field_inspection_print.png>
-Package pdftex.def Info: figures/field_inspection_print.png used on input line 
-218.
-(pdftex.def)             Requested size: 312.00119pt x 187.18323pt.
- [22]
-<figures/bench_vs_split_print.png, id=101, 4148.49875pt x 2489.3pt>
-File: figures/bench_vs_split_print.png Graphic file (type png)
-
-<use figures/bench_vs_split_print.png>
-Package pdftex.def Info: figures/bench_vs_split_print.png used on input line 22
-6.
-(pdftex.def)             Requested size: 312.00119pt x 187.18323pt.
- [23 <./figures/field_inspection_print.png>]
-
-Package natbib Warning: Citation `leifeld_texreg:_2013' on page 24 undefined on
- input line 239.
-
-[24 <./figures/bench_vs_split_print.png>]
-<figures/gam_price_6_print.png, id=110, 4148.49875pt x 2489.3pt>
-File: figures/gam_price_6_print.png Graphic file (type png)
-
-<use figures/gam_price_6_print.png>
-Package pdftex.def Info: figures/gam_price_6_print.png used on input line 242.
-(pdftex.def)             Requested size: 312.00119pt x 187.18323pt.
- [25 <./figures/gam_price_6_print.png>]
-<figures/gam_price_8_print.png, id=116, 4148.49875pt x 2489.3pt>
-File: figures/gam_price_8_print.png Graphic file (type png)
-
-<use figures/gam_price_8_print.png>
-Package pdftex.def Info: figures/gam_price_8_print.png used on input line 256.
-(pdftex.def)             Requested size: 312.00119pt x 187.18323pt.
- [26]
-<figures/gam_price_short_print.png, id=120, 4148.49875pt x 2489.3pt>
-File: figures/gam_price_short_print.png Graphic file (type png)
-
-<use figures/gam_price_short_print.png>
-Package pdftex.def Info: figures/gam_price_short_print.png used on input line 2
-66.
-(pdftex.def)             Requested size: 390.0pt x 234.01703pt.
- [27 <./figures/gam_price_8_print.png>]
-! Extra alignment tab has been changed to \cr.
-<template> }$\hfill \endtemplate 
-                                 
-l.281 \end{split}
-                 
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<template> }$\hfill \endtemplate 
-                                 
-l.281 \end{split}
-                 
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
+Please use the math alphabet \mathbf instead of the \bfseries command. 
 
 
-Overfull \hbox (43.06204pt too wide) in paragraph at lines 283--283
-[] 
- []
-
-[28 <./figures/gam_price_short_print.png>] [29]
-
-LaTeX Warning: File `gam_price_invest_box.png' not found on input line 304.
-
-
-! Package pdftex.def Error: File `gam_price_invest_box.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.304 ...h=.8\textwidth]{gam_price_invest_box.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[30] [31]
-
-LaTeX Warning: File `field_lev_forecast.png' not found on input line 314.
-
-
-! Package pdftex.def Error: File `field_lev_forecast.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.314 ...dth=.8\textwidth]{field_lev_forecast.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<tot_forecast.png, id=139, 3296.315pt x 2489.3pt>
-File: tot_forecast.png Graphic file (type png)
- <use tot_forecast.png>
-Package pdftex.def Info: tot_forecast.png used on input line 320.
-(pdftex.def)             Requested size: 312.00119pt x 235.61234pt.
-
-<price_scenario.png, id=140, 3296.315pt x 2489.3pt>
-File: price_scenario.png Graphic file (type png)
- <use price_scenario.png>
-Package pdftex.def Info: price_scenario.png used on input line 326.
-(pdftex.def)             Requested size: 312.00119pt x 235.61234pt.
-
-[32] [33 <./tot_forecast.png> <./price_scenario.png>] [34] [35]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.354 oil_
-          price_real                       & $0.00$        & $-0.02$       &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.354 oil_price_real                       &
-                                             $0.00$        & $-0.02$       &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+Package natbib Warning: Citation `r\global\let \OT1\textunderscore \unhbox \voi
+db@x \kern .06em\vbox {\hrule width.3em}\OT1\textunderscore core\global\let \OT
+1\textunderscore \unhbox \voidb@x \kern .06em\vbox {\hrule width.3em}\OT1\textu
+nderscore team_r:_2013' on page 18 undefined on input line 131.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.354 oil_price_real                       &
-                                             $0.00$        & $-0.02$       &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.354 oil_price_real                       &
-                                             $0.00$        & $-0.02$       &...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.356 oil_
-          price_real_l1                    & $0.01$        & $-0.01$       &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.356 oil_price_real_l1                    &
-                                             $0.01$        & $-0.01$       &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.356 oil_price_real_l1                    &
-                                             $0.01$        & $-0.01$       &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.356 oil_price_real_l1                    &
-                                             $0.01$        & $-0.01$       &...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.358 oil_
-          price_real_l2                    & $-0.02$       & $0.01$        &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.358 oil_price_real_l2                    &
-                                             $-0.02$       & $0.01$        &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.358 oil_price_real_l2                    &
-                                             $-0.02$       & $0.01$        &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.358 oil_price_real_l2                    &
-                                             $-0.02$       & $0.01$        &...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.360 oil_
-          price_real_l3                    & $-0.02$       & $0.01$        &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.360 oil_price_real_l3                    &
-                                             $-0.02$       & $0.01$        &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.360 oil_price_real_l3                    &
-                                             $-0.02$       & $0.01$        &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.360 oil_price_real_l3                    &
-                                             $-0.02$       & $0.01$        &...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.362 oil_
-          price_real_l4                    & $0.00$        & $0.03^{*}$    &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.362 oil_price_real_l4                    &
-                                             $0.00$        & $0.03^{*}$    &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.362 oil_price_real_l4                    &
-                                             $0.00$        & $0.03^{*}$    &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.362 oil_price_real_l4                    &
-                                             $0.00$        & $0.03^{*}$    &...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.364 oil_
-          price_real_l5                    & $-0.01$       & $0.01$        &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.364 oil_price_real_l5                    &
-                                             $-0.01$       & $0.01$        &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.364 oil_price_real_l5                    &
-                                             $-0.01$       & $0.01$        &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.364 oil_price_real_l5                    &
-                                             $-0.01$       & $0.01$        &...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.366 oil_
-          price_real_l6                    & $0.02^{*}$    & $0.03^{*}$    &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.366 oil_price_real_l6                    &
-                                             $0.02^{*}$    & $0.03^{*}$    &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.366 oil_price_real_l6                    &
-                                             $0.02^{*}$    & $0.03^{*}$    &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.366 oil_price_real_l6                    &
-                                             $0.02^{*}$    & $0.03^{*}$    &...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.368 EDF: s(time_
-                  to_peak,recoverable_oil) & $28.92^{***}$ & $26.89^{***}$ &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.368 EDF: s(time_to_peak,recoverable_oil) &
-                                             $28.92^{***}$ & $26.89^{***}$ &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.368 EDF: s(time_to_peak,recoverable_oil) &
-                                             $28.92^{***}$ & $26.89^{***}$ &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.368 EDF: s(time_to_peak,recoverable_oil) &
-                                             $28.92^{***}$ & $26.89^{***}$ &...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.370 EDF: s(peak_
-                  to_end,recoverable_oil)  & $17.75^{***}$ & $10.71^{***}$ &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.370 EDF: s(peak_to_end,recoverable_oil)  &
-                                             $17.75^{***}$ & $10.71^{***}$ &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.370 EDF: s(peak_to_end,recoverable_oil)  &
-                                             $17.75^{***}$ & $10.71^{***}$ &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.370 EDF: s(peak_to_end,recoverable_oil)  &
-                                             $17.75^{***}$ & $10.71^{***}$ &...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.372 oil_
-          price_real_l7                    &               &               &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.372 oil_price_real_l7                    &
-                                                           &               &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.372 oil_price_real_l7                    &
-                                                           &               &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.372 oil_price_real_l7                    &
-                                                           &               &...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.374 oil_
-          price_real_l8                    &               &               &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.374 oil_price_real_l8                    &
-                                                           &               &...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.374 oil_price_real_l8                    &
-                                                           &               &...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.374 oil_price_real_l8                    &
-                                                           &               &...
+l.131 ...his article \citep{r\_core\_team_r:_2013}
+                                                  .  I use the R packages gg...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -910,914 +501,933 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (149.61052pt too wide) in paragraph at lines 348--392
- [] 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.392 \caption{Un_pooled model}
-                               
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-\sbox ...hbox {\color@setgroup #2\color@endgroup }
-                                                  
-l.392 \caption{Un_pooled model}
-                               
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.392 \caption{Un_pooled model}
-                               
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.392 \caption{Un_pooled model}
-                               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.408 oil_
-          price_real                       & $-0.01$          &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.408 oil_price_real                       &
-                                             $-0.01$          &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.408 oil_price_real                       &
-                                             $-0.01$          &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.408 oil_price_real                       &
-                                             $-0.01$          &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.410 large_
-            fieldsmall                     & $-2.32^{***}$    & $-1.19^{***}...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.410 large_fieldsmall                     &
-                                             $-2.32^{***}$    & $-1.19^{***}...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.410 large_fieldsmall                     &
-                                             $-2.32^{***}$    & $-1.19^{***}...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.410 large_fieldsmall                     &
-                                             $-2.32^{***}$    & $-1.19^{***}...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.412 oil_
-          price_real_l1                    & $0.02^{*}$       &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.412 oil_price_real_l1                    &
-                                             $0.02^{*}$       &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.412 oil_price_real_l1                    &
-                                             $0.02^{*}$       &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.412 oil_price_real_l1                    &
-                                             $0.02^{*}$       &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.414 oil_
-          price_real_l2                    & $0.01$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.414 oil_price_real_l2                    &
-                                             $0.01$           &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.414 oil_price_real_l2                    &
-                                             $0.01$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.414 oil_price_real_l2                    &
-                                             $0.01$           &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.416 oil_
-          price_real_l3                    & $0.00$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.416 oil_price_real_l3                    &
-                                             $0.00$           &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.416 oil_price_real_l3                    &
-                                             $0.00$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.416 oil_price_real_l3                    &
-                                             $0.00$           &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.418 oil_
-          price_real_l4                    & $0.03^{***}$     & $0.03^{***}$...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.418 oil_price_real_l4                    &
-                                             $0.03^{***}$     & $0.03^{***}$...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.418 oil_price_real_l4                    &
-                                             $0.03^{***}$     & $0.03^{***}$...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.418 oil_price_real_l4                    &
-                                             $0.03^{***}$     & $0.03^{***}$...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.420 oil_
-          price_real_l5                    & $0.01$           & $0.01$      ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.420 oil_price_real_l5                    &
-                                             $0.01$           & $0.01$      ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.420 oil_price_real_l5                    &
-                                             $0.01$           & $0.01$      ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.420 oil_price_real_l5                    &
-                                             $0.01$           & $0.01$      ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.422 oil_
-          price_real_l6                    & $0.02^{***}$     & $0.03^{***}$...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.422 oil_price_real_l6                    &
-                                             $0.02^{***}$     & $0.03^{***}$...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.422 oil_price_real_l6                    &
-                                             $0.02^{***}$     & $0.03^{***}$...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.422 oil_price_real_l6                    &
-                                             $0.02^{***}$     & $0.03^{***}$...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.424 oil_
-          price_real_l7                    & $0.02^{**}$      & $0.02^{***}$...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.424 oil_price_real_l7                    &
-                                             $0.02^{**}$      & $0.02^{***}$...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.424 oil_price_real_l7                    &
-                                             $0.02^{**}$      & $0.02^{***}$...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.424 oil_price_real_l7                    &
-                                             $0.02^{**}$      & $0.02^{***}$...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.426 oil_
-          price_real_l8                    & $0.03^{***}$     & $0.03^{***}$...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.426 oil_price_real_l8                    &
-                                             $0.03^{***}$     & $0.03^{***}$...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.426 oil_price_real_l8                    &
-                                             $0.03^{***}$     & $0.03^{***}$...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.426 oil_price_real_l8                    &
-                                             $0.03^{***}$     & $0.03^{***}$...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.428 oil_
-          price_real:large_fieldsmall      & $-0.03$          &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.428 oil_price_real:large_fieldsmall      &
-                                             $-0.03$          &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.428 oil_price_real:large_fieldsmall      &
-                                             $-0.03$          &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.428 oil_price_real:large_fieldsmall      &
-                                             $-0.03$          &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.430 large_
-            fieldsmall:oil_price_real_l1   & $0.03$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.430 large_fieldsmall:oil_price_real_l1   &
-                                             $0.03$           &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.430 large_fieldsmall:oil_price_real_l1   &
-                                             $0.03$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.430 large_fieldsmall:oil_price_real_l1   &
-                                             $0.03$           &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.432 large_
-            fieldsmall:oil_price_real_l2   & $-0.05$          &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.432 large_fieldsmall:oil_price_real_l2   &
-                                             $-0.05$          &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.432 large_fieldsmall:oil_price_real_l2   &
-                                             $-0.05$          &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.432 large_fieldsmall:oil_price_real_l2   &
-                                             $-0.05$          &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.434 large_
-            fieldsmall:oil_price_real_l3   & $0.03$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.434 large_fieldsmall:oil_price_real_l3   &
-                                             $0.03$           &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.434 large_fieldsmall:oil_price_real_l3   &
-                                             $0.03$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.434 large_fieldsmall:oil_price_real_l3   &
-                                             $0.03$           &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.436 large_
-            fieldsmall:oil_price_real_l4   & $0.03$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.436 large_fieldsmall:oil_price_real_l4   &
-                                             $0.03$           &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.436 large_fieldsmall:oil_price_real_l4   &
-                                             $0.03$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.436 large_fieldsmall:oil_price_real_l4   &
-                                             $0.03$           &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.438 large_
-            fieldsmall:oil_price_real_l5   & $0.04$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.438 large_fieldsmall:oil_price_real_l5   &
-                                             $0.04$           &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.438 large_fieldsmall:oil_price_real_l5   &
-                                             $0.04$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.438 large_fieldsmall:oil_price_real_l5   &
-                                             $0.04$           &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.440 large_
-            fieldsmall:oil_price_real_l6   & $0.18^{*}$       &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.440 large_fieldsmall:oil_price_real_l6   &
-                                             $0.18^{*}$       &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.440 large_fieldsmall:oil_price_real_l6   &
-                                             $0.18^{*}$       &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.440 large_fieldsmall:oil_price_real_l6   &
-                                             $0.18^{*}$       &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.442 large_
-            fieldsmall:oil_price_real_l7   & $0.06$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.442 large_fieldsmall:oil_price_real_l7   &
-                                             $0.06$           &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.442 large_fieldsmall:oil_price_real_l7   &
-                                             $0.06$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.442 large_fieldsmall:oil_price_real_l7   &
-                                             $0.06$           &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.444 large_
-            fieldsmall:oil_price_real_l8   & $0.07$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.444 large_fieldsmall:oil_price_real_l8   &
-                                             $0.07$           &             ...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.444 large_fieldsmall:oil_price_real_l8   &
-                                             $0.07$           &             ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.444 large_fieldsmall:oil_price_real_l8   &
-                                             $0.07$           &             ...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.446 EDF: s(time_
-                  to_peak,recoverable_oil) & $28.99^{***}$    & $28.99^{***}...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.446 EDF: s(time_to_peak,recoverable_oil) &
-                                             $28.99^{***}$    & $28.99^{***}...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.446 EDF: s(time_to_peak,recoverable_oil) &
-                                             $28.99^{***}$    & $28.99^{***}...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.446 EDF: s(time_to_peak,recoverable_oil) &
-                                             $28.99^{***}$    & $28.99^{***}...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.448 EDF: s(peak_
-                  to_end,recoverable_oil)  & $27.98^{***}$    & $26.99^{***}...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.448 EDF: s(peak_to_end,recoverable_oil)  &
-                                             $27.98^{***}$    & $26.99^{***}...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.448 EDF: s(peak_to_end,recoverable_oil)  &
-                                             $27.98^{***}$    & $26.99^{***}...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.448 EDF: s(peak_to_end,recoverable_oil)  &
-                                             $27.98^{***}$    & $26.99^{***}...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-LaTeX Warning: Float too large for page by 297.43243pt on input line 469.
-
-(./oil_prices.bbl
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ì in font cmr12!
- [36] [37] [38] [39]
-Missing character: There is no ¬ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no ¬ in font cmr12!
-Missing character: There is no © in font cmr12!
- [40]
-Missing character: There is no ¬ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no √ in font cmr12!
-Missing character: There is no • in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ì in font cmr12!
- [41]
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ì in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ì in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ì in font cmr12!
- [42])
-
-Package natbib Warning: There were undefined citations.
-
-[43] (./oil_prices.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+Package natbib Warning: Citation `wickham_ggplot2:_2009' on page 18 undefined o
+n input line 131.
+
+
+Package natbib Warning: Citation `kahle_ggmap:_2013' on page 18 undefined on in
+put line 131.
+
+
+Package natbib Warning: Citation `wickham_split-apply-combine_2011' on page 18 
+undefined on input line 131.
+
+
+Package natbib Warning: Citation `leifeld_texreg:_2013' on page 18 undefined on
+ input line 131.
+
+
+Package natbib Warning: Citation `wood_fast_2011' on page 18 undefined on input
+ line 131.
+
+
+LaTeX Warning: Reference `glm_eqn' on page 18 undefined on input line 134.
+
+[18]
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.142 	\end{split}
+                  
+(That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 2795 strings out of 493315
- 39769 string characters out of 6137903
- 122336 words of memory out of 5000000
- 6189 multiletter control sequences out of 15000+600000
- 13941 words of font info for 51 fonts, out of 8000000 for 9000
+ 2649 strings out of 493315
+ 36145 string characters out of 6137903
+ 99345 words of memory out of 5000000
+ 6068 multiletter control sequences out of 15000+600000
+ 11479 words of font info for 43 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,18n,24p,1254b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
-b></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></u
-sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
-ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
-al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
-texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
-live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
-013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/20
-13/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/201
-3/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on oil_prices.pdf (43 pages, 6795573 bytes).
-PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38i,17n,24p,1335b,245s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+!  ==> Fatal error occurred, no output PDF file produced!

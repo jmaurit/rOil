@@ -140,8 +140,13 @@ geom_line(aes(x=year, y=year_prod, color=prediction)) +
 #geom_ribbon(aes(x=year, ymin=year_prod-1.96*est_se, ymax=year_prod+1.96*est_se), alpha=.3) +
 labs(y="Oil Production, Mill SM3")
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/field_lev_forecast.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/field_lev_forecast.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(field_lev_forecast)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/field_lev_forecast_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
 print(field_lev_forecast)
 dev.off()
 
@@ -157,17 +162,22 @@ names(tot.prod)[4]<-"est_se"
 
 tot.prod$year<-as.numeric(tot.prod$year)
 tot.prod$tot<-"tot"
-tot.prod$est_se[tot.prod$year==2012]<-0
-prod_2012<-tot.prod$year_prod[tot.prod$year==2012 & tot.prod$prediction=="actual"]
-tot.prod$year_prod[tot.prod$year==2012]<-prod_2012
+tot.prod$est_se[tot.prod$year==2013]<-0
+prod_2013<-tot.prod$year_prod[tot.prod$year==2013 & tot.prod$prediction=="actual"]
+tot.prod$year_prod[tot.prod$year==2013]<-prod_2013
 
 tot_forecast<-ggplot(tot.prod) +
 geom_line(aes(x=year, y=year_prod, color=prediction)) +
 #geom_ribbon(aes(x=year, ymin=year_prod-1.96*est_se, ymax=year_prod+1.96*est_se), alpha=.3) +
 labs(y="Oil Production, Mill SM3", x="", color="2022 Oil Price, $10")
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/tot_forecast.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/tot_forecast.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(tot_forecast)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/tot_forecast_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
 print(tot_forecast)
 dev.off()
 
@@ -187,7 +197,12 @@ price_scenario<-ggplot(price_forecast_long, aes(x=years, y=value, color=variable
 geom_line() +
 labs(x="", y="Oil Price", color="Scenario")
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/price_scenario.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/price_scenario.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(price_scenario)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/price_scenario_print.png", 
 	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
 print(price_scenario)
 dev.off()

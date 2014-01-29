@@ -113,7 +113,7 @@ gam_ekofisk
 #Show results Top - Down
 
 
-#Show fit for following fits
+#Show fit for following fields
 include_fields<-c("ALBUSKJELL","ALVE", "COD", "EKOFISK", "TROLL","GULLFAKS", "KRISTIN", "STATFJORD", "ENOCH")
 
 #function to to show field-level of data

@@ -139,7 +139,7 @@
 			"file": "oil_modeling.R",
 			"settings":
 			{
-				"buffer_size": 7112,
+				"buffer_size": 7114,
 				"line_ending": "Unix"
 			}
 		},
@@ -147,7 +147,39 @@
 			"file": "oil_descriptives.R",
 			"settings":
 			{
-				"buffer_size": 21040,
+				"buffer_size": 21020,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "oil_forecasting.r",
+			"settings":
+			{
+				"buffer_size": 8536,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "price_modeling.R",
+			"settings":
+			{
+				"buffer_size": 37492,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "presentations/oil_prices.tex",
+			"settings":
+			{
+				"buffer_size": 79100,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "oil_prices.bib",
+			"settings":
+			{
+				"buffer_size": 94740,
 				"line_ending": "Unix"
 			}
 		}
@@ -228,6 +260,8 @@
 	},
 	"file_history":
 	[
+		"/Users/johannesmauritzen/Google Drive/github/rOil/oil_prices.bib",
+		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/oil_prices.bib",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/oil_prices.tex",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/price_modeling.R",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/oil_descriptives.R",
@@ -290,6 +324,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mohn		",
+			"fields_p",
+			"time_to_peak",
+			"build_out",
+			"postpeak",
 			"gam_price_short",
 			"gam_price_chart",
 			"chart_over_short",
@@ -313,11 +352,15 @@
 			"fields_p"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"fields_old",
+			"peak_to_end",
+			"decline",
+			"prepeak",
 			"gam_postpeak",
 			"gam_postpeak_chart",
 			"chart_postpeak_large",
@@ -347,7 +390,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -355,42 +398,15 @@
 					"file": "oil_modeling.R",
 					"settings":
 					{
-						"buffer_size": 7112,
+						"buffer_size": 7114,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2586,
-								3449
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/R/R.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3095.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "oil_descriptives.R",
-					"settings":
-					{
-						"buffer_size": 21040,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								4304,
+								4304
 							]
 						],
 						"settings":
@@ -400,6 +416,141 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "oil_descriptives.R",
+					"settings":
+					{
+						"buffer_size": 21020,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								323,
+								323
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/R/R.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "oil_forecasting.r",
+					"settings":
+					{
+						"buffer_size": 8536,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7326,
+								6937
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/R/R.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "price_modeling.R",
+					"settings":
+					{
+						"buffer_size": 37492,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								206,
+								206
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/R/R.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "presentations/oil_prices.tex",
+					"settings":
+					{
+						"buffer_size": 79100,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								33757,
+								33757
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8816.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "oil_prices.bib",
+					"settings":
+					{
+						"buffer_size": 94740,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								75945,
+								75925
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 24664.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
