@@ -1,4 +1,4 @@
-\begin{thebibliography}{26}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -41,6 +41,13 @@ Adam~R. Brandt.
 \newblock \doi{10.1016/j.energy.2010.04.045}.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/S0360544210002537}.
+
+\bibitem[{British Petroleum}(2013)]{british_petroleum_statistical_2013}
+{British Petroleum}.
+\newblock Statistical review of world energy 2013.
+\newblock Technical report, 2013.
+\newblock URL
+  \url{http://www.bp.com/content/dam/bp/pdf/statistical-review/statistical_review_of_world_energy_2013.pdf}.
 
 \bibitem[Chinn et~al.(2005)Chinn, {LeBlanc}, and
   Coibion]{chinn_predictive_2005}
@@ -141,13 +148,26 @@ Jeffrey~A. Krautkraemer.
 \newblock {ArticleType:} research-article / Full publication date: Dec., 1998 /
   Copyright © 1998 American Economic Association.
 
-\bibitem[Mohn(2008)]{mohn_efforts_2008}
+\bibitem[Leifeld(2013)]{leifeld_texreg:_2013}
+Philip Leifeld.
+\newblock texreg: Conversion of statistical model output in r to {LATEX} and
+  {HTML} tables.
+\newblock \emph{Journal of Statistical Software}, 55\penalty0 (8), November
+  2013.
+
+\bibitem[Mohn(2008{\natexlab{a}})]{mohn_efforts_2008}
 Klaus Mohn.
 \newblock Efforts and efficiency in oil exploration: A vector error-correction
   approach.
 \newblock \emph{The Energy Journal}, Volume 29\penalty0 (Number 4):\penalty0
-  53--78, 2008.
+  53--78, 2008{\natexlab{a}}.
 \newblock URL \url{http://ideas.repec.org/a/aen/journl/2008v29-04-a03.html}.
+
+\bibitem[Mohn(2008{\natexlab{b}})]{mohn_investment_2008}
+Klaus Mohn.
+\newblock \emph{Investment Behaviour in the International Oil and Gas
+  Industry}.
+\newblock {Ph.D} Dissertation. University of Stavanger, 2008{\natexlab{b}}.
 
 \bibitem[Mohn and Osmundsen(2008)]{mohn_exploration_2008}
 Klaus Mohn and Petter Osmundsen.
@@ -171,6 +191,24 @@ Petter Osmundsen, Kristin~Helen Roll, and Ragnar Tveterås.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/S0920410510001129}.
 
+\bibitem[Pesaran(1990)]{pesaran_econometric_1990}
+M.~Hashem Pesaran.
+\newblock An econometric analysis of exploration and extraction of oil in the
+  {U.K.} continental shelf.
+\newblock \emph{The Economic Journal}, 100\penalty0 (401):\penalty0 367--390,
+  June 1990.
+\newblock ISSN 0013-0133.
+\newblock \doi{10.2307/2234130}.
+\newblock URL \url{http://www.jstor.org/stable/2234130}.
+\newblock {ArticleType:} research-article / Full publication date: Jun., 1990 /
+  Copyright © 1990 Royal Economic Society.
+
+\bibitem[{R Core Team}(2013)]{r_core_team_r:_2013}
+{R Core Team}.
+\newblock \emph{R: A Language and Environment for Statistical Computing}.
+\newblock Vienna, Austria, 2013.
+\newblock URL \url{http://www.R-project.org/}.
+
 \bibitem[Ramcharran(2002)]{ramcharran_oil_2002}
 Harri Ramcharran.
 \newblock Oil production responses to price changes: an empirical application
@@ -182,11 +220,12 @@ Harri Ramcharran.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/S0140988301000913}.
 
-\bibitem[Team(2013)]{team_r:_2013}
-R.~Core Team.
-\newblock \emph{R: A Language and Environment for Statistical Computing}.
-\newblock Vienna, Austria, 2013.
-\newblock URL \url{http://www.R-project.org/}.
+\bibitem[Rao(2010)]{rao_taxation_2010}
+Nirupama~S. Rao.
+\newblock Taxation and the extraction of exhaustible resources: Evidence from
+  california oil production.
+\newblock \emph{{MIT} Center for Energy and Environmental Policy}, 2010.
+\newblock URL \url{http://dspace.mit.edu/handle/1721.1/54781}.
 
 \bibitem[Wickham(2009)]{wickham_ggplot2:_2009}
 Hadley Wickham.

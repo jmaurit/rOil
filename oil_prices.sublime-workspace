@@ -163,7 +163,7 @@
 			"file": "price_modeling.R",
 			"settings":
 			{
-				"buffer_size": 37492,
+				"buffer_size": 38284,
 				"line_ending": "Unix"
 			}
 		},
@@ -171,15 +171,7 @@
 			"file": "presentations/oil_prices.tex",
 			"settings":
 			{
-				"buffer_size": 79100,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "oil_prices.bib",
-			"settings":
-			{
-				"buffer_size": 94740,
+				"buffer_size": 85356,
 				"line_ending": "Unix"
 			}
 		}
@@ -260,9 +252,9 @@
 	},
 	"file_history":
 	[
-		"/Users/johannesmauritzen/Google Drive/github/rOil/oil_prices.bib",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/oil_prices.bib",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/oil_prices.tex",
+		"/Users/johannesmauritzen/Google Drive/github/rOil/oil_prices.bib",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/price_modeling.R",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/oil_descriptives.R",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/price_modeling_alt.r",
@@ -324,6 +316,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_",
+			"nirupama_s._rao",
+			"_",
+			"\\_",
+			"multiline",
+			"percent",
+			"\\_",
 			"mohn		",
 			"fields_p",
 			"time_to_peak",
@@ -352,11 +351,17 @@
 			"fields_p"
 		],
 		"highlight": true,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"",
+			"rao",
+			"",
+			"multline",
+			"\\%",
+			"",
 			"fields_old",
 			"peak_to_end",
 			"decline",
@@ -479,15 +484,15 @@
 					"file": "price_modeling.R",
 					"settings":
 					{
-						"buffer_size": 37492,
+						"buffer_size": 38284,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								206,
-								206
+								1463,
+								1503
 							]
 						],
 						"settings":
@@ -496,7 +501,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 428.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -506,15 +511,15 @@
 					"file": "presentations/oil_prices.tex",
 					"settings":
 					{
-						"buffer_size": 79100,
+						"buffer_size": 85356,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								33757,
-								33757
+								358,
+								358
 							]
 						],
 						"settings":
@@ -523,34 +528,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 8816.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "oil_prices.bib",
-					"settings":
-					{
-						"buffer_size": 94740,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								75945,
-								75925
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 24664.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

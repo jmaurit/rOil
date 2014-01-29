@@ -37,6 +37,14 @@ summary_under_2d<-summary(gam_price_under_2d)
 summary_over_2d<-summary(gam_price_over_2d)
 summary_under_2d
 summary_over_2d
+gam.check(gam_price_under_2d)
+gam_check<-gam.check(gam_price_over_2d)
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_check.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(gam_check)
+dev.off()
+
 
 #use 8 lags
 gam_price_under_2d_8<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
@@ -573,26 +581,41 @@ png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam
 print(gam_prepeak)
 dev.off()
 
-#Show pooled
 
-#split 
-#robustness checks******************************************************
+
+
+
+
+
+ 
+#robustness checks***********************************************************************
 gam.check(gam_price_under_2d)
 gam.check(gam_price_over_2d)
 
 #check with gamma
-gam_price_under_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+gam_price_under_2d_gamma<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
 	oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
 	family=Gamma(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
 
-gam_price_over_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+gam_price_over_2d_gamma<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
 	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
 	family=Gamma(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
 
-summary(gam_price_under_2d)
-summary(gam_price_over_2d)
-gam.check(gam_price_under_2d)
-gam.check(gam_price_over_2d)
+summary(gam_price_under_2d_gamma)
+summary(gam_price_over_2d_gamma)
+gamma_check_under<-gam.check(gam_price_under_2d_gamma)
+gamma_check_over<-gam.check(gam_price_over_2d_gamma)
+
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gamma_check_under.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(gamma_check_under)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gamma_check_under.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(gamma_check_over)
+dev.off()
 
 
 #perhaps getting overfitting, change gamma (the parameter, not the distribution) to 1.4
@@ -602,10 +625,16 @@ gam_price_under_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_en
 	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,], gamma=1.4)
 
 gam_price_over_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
-	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + oil_price_real_l5 +oil_price_real_l6,
+	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
+	oil_price_real_l5 +oil_price_real_l6,
 	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,], gamma=1.4)
+
 summary(gam_price_under_2d)
 summary(gam_price_over_2d)
+
+
+
+texreg(list(gam_price_under_2d, gam_price_over_2d))
 
 #do not include ekofisk
 gam_price_under_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +

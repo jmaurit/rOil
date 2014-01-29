@@ -3,52 +3,48 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: oil_prices.aux
 The style file: plainnat.bst
 Database file #1: oil_prices.bib
-Warning--I didn't find a database entry for "bp_2013"
-Warning--I didn't find a database entry for "rao_taxation_2010"
-Warning--I didn't find a database entry for "mohn_investment_2008"
-Warning--I didn't find a database entry for "pesaran_econometric_1990"
-Warning--I didn't find a database entry for "leifeld_texreg:_2013"
+Warning--empty institution in british_petroleum_statistical_2013
 Warning--empty publisher in kahle_ggmap:_2013
-Warning--empty publisher in team_r:_2013
-You've used 26 entries,
+Warning--empty publisher in r_core_team_r:_2013
+You've used 31 entries,
             2773 wiz_defined-function locations,
-            798 strings with 10552 characters,
-and the built_in function-call counts, 10398 in all, are:
-= -- 1029
-> -- 366
-< -- 28
-+ -- 134
-- -- 108
-* -- 807
-:= -- 1668
-add.period$ -- 130
-call.type$ -- 26
-change.case$ -- 111
-chr.to.int$ -- 26
-cite$ -- 54
-duplicate$ -- 501
-empty$ -- 920
-format.name$ -- 146
-if$ -- 2163
-int.to.chr$ -- 1
+            820 strings with 11427 characters,
+and the built_in function-call counts, 12061 in all, are:
+= -- 1189
+> -- 416
+< -- 33
++ -- 155
+- -- 123
+* -- 919
+:= -- 1943
+add.period$ -- 152
+call.type$ -- 31
+change.case$ -- 131
+chr.to.int$ -- 30
+cite$ -- 65
+duplicate$ -- 594
+empty$ -- 1076
+format.name$ -- 166
+if$ -- 2507
+int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 27
-newline$ -- 190
-num.names$ -- 104
-pop$ -- 172
+missing$ -- 32
+newline$ -- 221
+num.names$ -- 124
+pop$ -- 206
 preamble$ -- 1
-purify$ -- 88
+purify$ -- 103
 quote$ -- 0
-skip$ -- 332
+skip$ -- 390
 stack$ -- 0
-substring$ -- 414
-swap$ -- 41
+substring$ -- 449
+swap$ -- 49
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 256
-warning$ -- 2
-while$ -- 104
+type$ -- 306
+warning$ -- 3
+while$ -- 121
 width$ -- 0
-write$ -- 444
-(There were 7 warnings)
+write$ -- 519
+(There were 3 warnings)
