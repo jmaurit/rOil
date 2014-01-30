@@ -43,7 +43,7 @@
 \citation{wood_fast_2011}
 \@writefile{toc}{\contentsline {section}{\numberline {5}A generalized additive model of oil field production}{19}}
 \newlabel{glm_eqn}{{1}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The production profile can be modeled in two phases - time-to-peak, representing the build-out phase of the oil field and from-from-peak, representing the period of depletion. The is illustrated with data from the Statfjord field.}}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The production profile can be modeled in two phases - time-to-peak, representing the build-out phase of the oil field and time-from-peak, representing the period of depletion. The is illustrated with data from the Statfjord field.}}{20}}
 \newlabel{statfjord_dem}{{5}{20}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces A generalized linear model generates a negative estimate of the coefficient on price in a regression on production. This result is spurious, caused by a failure to properly control for the production profiles of the fields.}}{21}}
 \newlabel{glm_dirty_box}{{6}{21}}
@@ -90,31 +90,11 @@
 \newlabel{tot_forecast}{{19}{46}}
 \citation{hamilton_oil_2012}
 \citation{hamilton_oil_2012}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Full results for model of field production with price, seperate estimation of small and large fields.}}{49}}
-\newlabel{table:unpooled}{{1}{49}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Full results for pooled model of field production with price terms.}}{50}}
-\newlabel{table:pooled}{{2}{50}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Full results for model of field investment with price terms.}}{51}}
-\newlabel{table:investment}{{3}{51}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Full results for model of field production with price terms in depletion phase. Using both estimate of total recoverable oil and max production to control for field size}}{52}}
-\newlabel{table:postpeak}{{4}{52}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Full results for model of field production with price terms in depletion phase.}}{53}}
-\newlabel{table:prepeak}{{5}{53}}
 \bibstyle{plainnat}
 \bibdata{oil_prices}
 \bibcite{alquist_what_2010}{{1}{2010}{{Alquist and Kilian}}{{}}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Statistical models}}{54}}
-\newlabel{table:gamma_check}{{6}{54}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Appendix 1: Tables}{54}}
-\@writefile{toc}{\contentsline {section}{\numberline {10}Apendix 2: Model Robustness checks}{54}}
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces }}{55}}
-\newlabel{chart:Max_prod_vs_TRO_print}{{20}{55}}
-\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces }}{56}}
-\newlabel{chart:Max_prod_vs_TRO_print}{{21}{56}}
 \bibcite{black_is_1998}{{2}{1998}{{Black and {LaFrance}}}{{}}}
 \bibcite{boyce_prediction_2013}{{3}{2013}{{Boyce}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces }}{57}}
-\newlabel{chart:Max_prod_vs_TRO_print}{{22}{57}}
 \bibcite{brandt_review_2010}{{4}{2010}{{Brandt}}{{}}}
 \bibcite{british_petroleum_statistical_2013}{{5}{2013}{{British Petroleum}}{{}}}
 \bibcite{chinn_predictive_2005}{{6}{2005}{{Chinn et~al.}}{{Chinn, {LeBlanc}, and Coibion}}}
@@ -143,3 +123,33 @@
 \bibcite{wood_generalized_2006}{{29}{2006}{{Wood}}{{}}}
 \bibcite{wood_thin_2003}{{30}{2003}{{Wood}}{{}}}
 \bibcite{wood_fast_2011}{{31}{2011}{{Wood}}{{}}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Full results for model of field production with price, seperate estimation of small and large fields.}}{55}}
+\newlabel{table:unpooled}{{1}{55}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Full results for pooled model of field production with price terms.}}{56}}
+\newlabel{table:pooled}{{2}{56}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Full results for model of field investment with price terms.}}{57}}
+\newlabel{table:investment}{{3}{57}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Full results for model of field production with price terms in depletion phase. Using both estimate of total recoverable oil and max production to control for field size}}{58}}
+\newlabel{table:postpeak}{{4}{58}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Full results for model of field production with price terms in depletion phase.}}{59}}
+\newlabel{table:prepeak}{{5}{59}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Plot of estimated function of the production profile of small fields, time-to-peak.}}{60}}
+\newlabel{chart:gam_under_2d_plot_1}{{20}{60}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Plot of estimated function of the production profile of small fields, peak-to-end.}}{61}}
+\newlabel{chart:gam_under_2d_plot_2}{{21}{61}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Plot of estimated function of the production profile of large fields, time-to-peak.}}{62}}
+\newlabel{chart:gam_over_2d_plot_1}{{22}{62}}
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Plot of estimated function of the production profile of large fields, peak-to-end.}}{63}}
+\newlabel{chart:gam_over_2d_plot_2}{{23}{63}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces QQplot of model residuals against theoretical quantiles of normal distribution. A Gaussian distribution appears to be adequate.}}{64}}
+\newlabel{chart:qqplot}{{24}{64}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces QQplot of model residuals against theoretical quantiles of gamma distribution. The Gaussian distribution provides a substantially better approximation.}}{65}}
+\newlabel{chart:qqplot\_gamma}{{25}{65}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Fitted verses actual production for small fields.}}{65}}
+\newlabel{chart:under_fitted}{{26}{65}}
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces Fitted verses actual production for larger fields.}}{65}}
+\newlabel{chart:under_fitted}{{27}{65}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Results when changing the $\gamma $ parameter that controls smoothness to 1.4 in case of overfitting, though this does not signficantly change results}}{66}}
+\newlabel{table:gamma_check}{{6}{66}}
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Comparison of fits between using max production and estimate of total reserves to control for field size.}}{67}}
+\newlabel{chart:Max_prod_vs_TRO_print}{{28}{67}}

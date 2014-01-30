@@ -6,7 +6,6 @@
 \usepackage{syntonly}
 \usepackage{esdiff} %for writing partial derivatives
 \usepackage{url} %for inserting urls
-\usepackage{rotating} %for using horizontal page layout for tables
 %\syntaxonly for quickly checking document
 
 %set document settings
@@ -133,7 +132,7 @@ In addition to data on field-level production, I also make use of data on estima
 
 I use yearly data from the US Energy Information Agency on the real price of Brent-traded oil in 2010 dollars.The Brent benchmark oil price is likely the best oil price measure for Norwegian production as it is based on light sweet crude oil sourced from the North Sea.  
 
-An argument can be made that expectations of future oil prices can be equally if not even more important for production decisions as the current oil price.  Forecasts for future oil prices are available from, among others, the International Energy Agency, but these have tended to be notoriously inaccurate and it is unlikely oil companies use these projections for their investment decisions.  On the other hand, given the size and liquidity of oil spot markets, it is a fair assumption that the current oil prices do a good job of incorporating much of the available information about crude oil markets and that future price movements are generally difficult to predict \citet{hamilton_understanding_2008}.  An active futures market does exist, but several studies have found that current oil prices are in general better than prices on futures contracts at predicting future oil prices \citep{alquist_what_2010, chinn_predictive_2005}.  \citet{mohn_investment_2008} as well as \citet{pesaran_econometric_1990} and \citet{farzin_impact_2001} find evidence for adaptive expectations, where expectations of future prices is based on a weighted average of current and past prices.  I take account of this by including several years of price lags in my regression equations.  
+An argument can be made that expectations of future oil prices can be equally if not even more important for production decisions as the current oil price.  Forecasts for future oil prices are available from, among others, the International Energy Agency, but these have tended to be notoriously inaccurate and it is unlikely oil companies use these projections for their investment decisions.  On the other hand, given the size and liquidity of oil spot markets, it is a fair assumption that the current oil prices do a good job of incorporating much of the available information about crude oil markets and that future price movements are generally difficult to predict \citep{hamilton_understanding_2008}.  An active futures market does exist, but several studies have found that current oil prices are in general better than prices on futures contracts at predicting future oil prices \citep{alquist_what_2010, chinn_predictive_2005}.  \citet{mohn_investment_2008} as well as \citet{pesaran_econometric_1990} and \citet{farzin_impact_2001} find evidence for adaptive expectations, where expectations of future prices is based on a weighted average of current and past prices.  I take account of this by including several years of price lags in my regression equations.  
 
 A cleaned data set and the full code for the analysis can be found at my website \url{jmaurit.github.io# oil_prices}. I use the R statistical programming package for all the analysis in this article \citep{r_core_team_r:_2013}.  I use the R packages ggplot2 and ggmap for plotting \citep{wickham_ggplot2:_2009, kahle_ggmap:_2013}, plyr for data manipulation and cleaning \citep{wickham_split-apply-combine_2011}, texreg for table formatting \citep{leifeld_texreg:_2013} and mgcv for implementation of the Generalized Additive Models \citep{wood_fast_2011}.
 
@@ -152,7 +151,7 @@ Here the left hand side variable is yearly production in year $t$ for field $i$.
 
 \begin{figure}
 \includegraphics[width=1\textwidth]{figures/statfjord_dem_print.png}
-\caption{The production profile can be modeled in two phases - time-to-peak, representing the build-out phase of the oil field and from-from-peak, representing the period of depletion. The is illustrated with data from the Statfjord field.}
+\caption{The production profile can be modeled in two phases - time-to-peak, representing the build-out phase of the oil field and time-from-peak, representing the period of depletion. The is illustrated with data from the Statfjord field.}
 \label{statfjord_dem}
 \end{figure}
 
@@ -183,7 +182,7 @@ Again considering the production profile for the Statfjord field, a smoothed fun
 
 In principle any number of well-behaved smoothers could be used to estimate the function, for example a Loess or a kernel smoother.  In practice regression splines are most commonly used.  With a regression spline the data points for the function to be estimated are broken into bins.  For each bin of data a local linear regression is estimated.  For functions of one variable, a cubic parameterization is often used.  These regressions are then essentially tied together at what are called “knots” and the smoothness of the overall function is controlled by a penalty function that consists of the second derivative of the estimated function.
 
-In my regression, I find it helpful to represent the production profile of fields as a two-dimensional function.  This can not be accomplished with a standard cubic regression spline, but I can instead use a Thin Plate (Regression) Spline \citet{wood_thin_2003}.  Though the full details of the implementation are beyond the scope of this paper, for the basic idea consider equation \ref{thin_plate_1}.  
+In my regression, I find it helpful to represent the production profile of fields as a two-dimensional function.  This can not be accomplished with a standard cubic regression spline, but I can instead use a Thin Plate (Regression) Spline \citep{wood_thin_2003}.  Though the full details of the implementation are beyond the scope of this paper, for the basic idea consider equation \ref{thin_plate_1}.  
 
 	\begin{equation}
 	y_i = g(x_1, x_2)
@@ -204,7 +203,7 @@ $J_{22}$ represents the penalty function for the smoothness of the function whic
 \label{thin_plate_3}
 	\end{equation}
 
-In short, a function of $x_1$ and $x_2$ is found that is minimizing errors in the sense of minimizing euclidian distance subject to a penalty function of “wiggiliness”.  The actual implementation is somewhat more involved in order to increase the computational efficiency of the estimation.  For further details I again refer to \citet{wood_thin_2003}.
+In short, a function of $x_1$ and $x_2$ is found that is minimizing errors in the sense of minimizing Euclidean distance subject to a penalty function of “wiggiliness”.  The actual implementation is somewhat more involved in order to increase the computational efficiency of the estimation.  For further details I again refer to \citet{wood_thin_2003}.
 
 The advantage to using splines over other smoothing methods is that it can be represented in a linear form.  Thus estimation of the model can be done using standard and efficient matrix algebra algorithms. For further details I refer to the discussion in \citet{hastie_generalized_1990} and \citet{wood_generalized_2006}.  The latter is a particularly useful reference for implementing generalized additive models in R.
 
@@ -236,6 +235,8 @@ Even with a smoothed function that is allowed to vary by field-size, a substanti
 	\caption{A benchmarking model shows that a substantially better fit can be achieved by splitting the analysis into small and large fields, where a somewhat arbitrary maximum yearly production of 8 million SMU is used as the separating value.}
 	\label{bench_vs_split}
 \end{figure}
+
+Plots of the estimated smoothed functions in the model are not directly informative about the effects of price and so I do not include them in the main text.  However they can be helpful in gaining a intuition behind the estimation procedure so I have included them appendix 2 along with other model diagnostics and robustness checks.  
 
 \section{The Effect of Oil Price on Field Production}
 
@@ -397,7 +398,10 @@ Overall, the forecast is likely to be somewhat downward biased, even taking into
 
 The forecasting results of this model are presented in this article for illustrative purposes and a good deal more work would need to be done, especially in estimating an appropriate measure of uncertainty for the forecasts.  Nonetheless, the results of the model provide a striking contrast to the much more optimistic projections of oil production from the Norwegian Petroleum Directorate even when accounting for projected production from existing fields. \footnote{\url{http://www.npd.no/Templates/OD/Article.aspx?id=4648&epslanguage=en}}
 
-\section{Appendix 1: Tables}
+\bibliographystyle{plainnat}
+\bibliography{oil_prices}
+
+\appendix
 
 \begin{table}
 \begin{center}
@@ -701,10 +705,59 @@ Num. smooth terms                    & 1             & 1             & 1        
 
 
 
- \section{Apendix 2: Model Robustness checks}
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/gam_under_2d_plot_1.png}
+	\caption{Plot of estimated function of the production profile of small fields, time-to-peak.}
+	\label{chart:gam_under_2d_plot_1}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/gam_under_2d_plot_2.png}
+	\caption{Plot of estimated function of the production profile of small fields, peak-to-end.}
+	\label{chart:gam_under_2d_plot_2}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/gam_over_2d_plot_1.png}
+	\caption{Plot of estimated function of the production profile of large fields, time-to-peak.}
+	\label{chart:gam_over_2d_plot_1}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/gam_over_2d_plot_2.png}
+	\caption{Plot of estimated function of the production profile of large fields, peak-to-end.}
+	\label{chart:gam_over_2d_plot_2}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/qq_gam_price_over_2d.png}
+	\caption{QQplot of model residuals against theoretical quantiles of normal distribution.  A Gaussian distribution appears to be adequate.}
+	\label{chart:qqplot}
+\end{figure}
+
+% qqplot with gamma distribution
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/qq_gam_price_under_2d_gamma.png}
+	\caption{QQplot of model residuals against theoretical quantiles of gamma distribution.  The Gaussian distribution provides a substantially better approximation.}
+	\label{chart:qqplot\_gamma}
+\end{figure}
+
+%Fitted vs. residuals
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/under_fitted.png.png}
+	\caption{Fitted verses actual production for small fields.}
+	\label{chart:under_fitted}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/over_fitted.png.png}
+	\caption{Fitted verses actual production for larger fields.}
+	\label{chart:under_fitted}
+\end{figure}
 
 % Check to see if overfitting of model - change gamma parameter to 1.4
-\begin{table}[h]
+\begin{table}
 \begin{center}
 \begin{tabular}{l c c }
 \hline
@@ -746,38 +799,19 @@ Num. smooth terms                    & 2             & 2             \\
   \textsuperscript{**}$p<0.01$, 
   \textsuperscript{*}$p<0.05$}}
 \end{tabular}
-\caption{Statistical models}
+\caption{Results when changing the $\gamma$ parameter that controls smoothness to 1.4 in case of overfitting, though this does not signficantly change results}
 \label{table:gamma_check}
 \end{center}
 \end{table}
 
-
-% Compare gaussian vs. gamma models - Gamma models worse
-% gamma check under
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/gamma_check_under.png}
-	\caption{}
-	\label{chart:Max_prod_vs_TRO_print}
-\end{figure}
-
-% gamma check over
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/gamma_check_over.png}
-	\caption{}
-	\label{chart:Max_prod_vs_TRO_print}
-\end{figure}
-
-gamma_check_under.png
-
 % max production vs. total fields
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Max_prod_vs_TRO_print.png}
-	\caption{}
+	\caption{Comparison of fits between using max production and estimate of total reserves to control for field size.}
 	\label{chart:Max_prod_vs_TRO_print}
 \end{figure}
 
-\bibliographystyle{plainnat}
-\bibliography{oil_prices}
+
 
 \end{document}
 This is never printed

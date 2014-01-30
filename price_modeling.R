@@ -26,24 +26,70 @@ fields_p$large_field<-as.factor(ifelse(fields_p$max_prod>split, "large","small")
 gam_price_under_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
 	oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
 	oil_price_real_l5 +oil_price_real_l6,
-	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
 
 gam_price_over_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
 	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
 	oil_price_real_l5 +oil_price_real_l6,
-	family=gaussian(link=log), select=TRUE, weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
 
 summary_under_2d<-summary(gam_price_under_2d)
 summary_over_2d<-summary(gam_price_over_2d)
 summary_under_2d
 summary_over_2d
-gam.check(gam_price_under_2d)
-gam_check<-gam.check(gam_price_over_2d)
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_check.png", 
+plot(gam_price_under_2d, select=1)
+plot(gam_price_under_2d, select=2)
+
+plot(gam_price_over_2d, select=1)
+plot(gam_price_over_2d, select=2)
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_under_2d_plot_1.png", 
 	width = 35, height = 21, units = "cm", res=300, pointsize=10)
-print(gam_check)
+plot(gam_price_under_2d, select=1)
 dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_under_2d_plot_1.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+plot(gam_price_under_2d, select=2)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_over_2d_plot_1.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+plot(gam_price_over_2d, select=1)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_over_2d_plot_2.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+plot(gam_price_over_2d, select=2)
+dev.off()
+
+
+#qq-plot
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/qq_gam_price_under_2d.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+qq.gam(gam_price_under_2d) 
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/qq_gam_price_over_2d.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+qq.gam(gam_price_over_2d) 
+dev.off()
+
+#fitted vs. predicted
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/over_fitted.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+plot(fitted(gam_price_over_2d), napredict(gam_price_over_2d$na.action, gam_price_over_2d$y), xlab = "Fitted Values", 
+        ylab = "Response", main = "Response vs. Fitted Values")  #  fitted vs. reside
+dev.off()
+
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/under_fitted.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+plot(fitted(gam_price_under_2d), napredict(gam_price_under_2d$na.action, gam_price_under_2d$y), xlab = "Fitted Values", 
+        ylab = "Response", main = "Response vs. Fitted Values") 
+dev.off()
+
 
 
 #use 8 lags
@@ -603,19 +649,12 @@ gam_price_over_2d_gamma<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_
 
 summary(gam_price_under_2d_gamma)
 summary(gam_price_over_2d_gamma)
-gamma_check_under<-gam.check(gam_price_under_2d_gamma)
-gamma_check_over<-gam.check(gam_price_over_2d_gamma)
 
-
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gamma_check_under.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/qq_gam_price_under_2d_gamma.png", 
 	width = 35, height = 21, units = "cm", res=300, pointsize=10)
-print(gamma_check_under)
+qq.gam(gam_price_over_2d_gamma) 
 dev.off()
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gamma_check_under.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
-print(gamma_check_over)
-dev.off()
 
 
 #perhaps getting overfitting, change gamma (the parameter, not the distribution) to 1.4
