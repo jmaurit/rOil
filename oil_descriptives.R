@@ -1,6 +1,5 @@
 #descriptive analysis of oil data
 
-
 library(ggplot2)
 library(plyr)
 library(reshape2)
@@ -16,11 +15,32 @@ library(gdata) #for reading xls
 library(lubridate) #for date manipulation
 library(Quandl)
 library(mgcv)
+library(zoo)
 
 #run fresh data import and clean:
 #source("/Users/johannesmauritzen/Google Drive/github/rOil/oil_clean.r") 
 
-#
+#look at oil price
+
+#oil prices brent
+brent_price<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/brent_price.csv")
+qplot(year, oil_price_real, data=brent_price[brent_price, geom="line")
+
+#post 1960
+qplot(year, oil_price_real, data=brent_price[brent_price$year>1960,], geom="line")
+acf(brent_price$oil_price_real)
+pacf(brent_price$oil_price_real)
+
+oil_price_real_short<-zoo(brent_price$oil_price_real[brent_price$year>1960], 
+	order.by=brent_price$year[brent_price$year>1960])
+
+adf.test(oil_price_real_short)
+#stationary series
+
+arima(brent_price$oil_price_real, order=c(3,0,0))
+arima_model<-arima(brent_price$oil_price_real, order=c(1,0,1))
+acf(arima_model$residuals)
+
 
 #import last saved file
 fields<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/oil_fields.csv")
@@ -36,6 +56,12 @@ fields<-ddply(fields, .(name), mutate, total.invest=sum(investmentMillNOK, na.rm
 
 #limit to one entry per field
 tot.prod.fields<-fields[!duplicated(fields$name),] 
+write.csv(tot.prod.fields, "/Users/johannesmauritzen/Google Drive/github/rOil/unique_oil_fields.csv")
+# tot.prod.fields<-tot.prod.fields[c("name", "lon", "lat", "recoverable_oil", "remaining_oil", "producing_from", "total.invest")]
+
+# write.csv(tot.prod.fields, "/Users/johannesmauritzen/Google Drive/github/rOil/oil_fields_cross.csv")
+# write.csv(tot.prod.fields, "/Users/johannesmauritzen/Google Drive/Teaching/Env_econ_instruments/oil_fields_cross.csv")
+
 
 #maps of total production in North and Norwegian Sea
 northsea<-get_map(location = c(lon = 2.74, lat = 59.00), zoom=6, maptype="satellite")
@@ -555,6 +581,65 @@ geom_point(aes(x=oil_price_real, y=investmentMillNOK_real))
 
 
 
+
+
+
+
+#February 2014: Average time to completion************************************************
+
+source("/Users/johannesmauritzen/Google Drive/github/rOil/oil_modeling_prep.r") 
+
+tot.prod.fields_p<-fields_p[!duplicated(fields_p$name),]
+tot.prod.fields_p$approved_at<-as.Date(as.character(tot.prod.fields_p$approved_at), format="%Y-%m-%d")
+tot.prod.fields_p$producing_from<-as.Date(as.character(tot.prod.fields_p$producing_from), format="%Y-%m-%d")
+tot.prod.fields_p$peak_year<-as.Date(paste(as.character(tot.prod.fields_p$peak_year),"01-01", sep="-"), 
+	format="%Y-%m-%d")
+tot.prod.fields_p$total_time_to_peak<- tot.prod.fields_p$peak_year- tot.prod.fields_p$approved_at
+
+#special for ekofisk
+qplot(x=year, y=year_prod, geom="line", data=fields_p[fields_p$name=="EKOFISK",])
+qplot(x=year, y=year_prod, geom="line", data=fields_p[fields_p$name=="VALHALL",])
+qplot(x=year, y=year_prod, geom="line", data=fields_p[fields_p$name=="SNORRE",])
+
+
+ekofisk_start<-tot.prod.fields_p$producing_from[tot.prod.fields_p$name=="EKOFISK"]
+ekofisk_pdo<-tot.prod.fields_p$approved_at[tot.prod.fields_p$name=="EKOFISK"]
+tot.prod.fields_p$field_time_to_peak[tot.prod.fields_p$name=="EKOFISK"]<-
+	as.Date("1976-01-01")-ekofisk_start
+
+tot.prod.fields_p$total_time_to_peak[tot.prod.fields_p$name=="EKOFISK"]<-
+	as.Date("1976-01-01")-ekofisk_pdo
+
+<-qplot(as.numeric(x=tot.prod.fields_p$field_time_to_peak)/365, binwdith=1)
+
+tot.prod.fields_p$field_size<-factor(ifelse(tot.prod.fields_p$max_prod<=8,"small", "large"))
+
+field_time_to_peak_plot<-ggplot(tot.prod.fields_p) +
+geom_histogram(aes(x=field_time_to_peak/365, fill=field_size)) +
+labs(x="Producing Time to Peak Production, years", fill="Field Size") +
+scale_fill_grey()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/field_time_to_peak_pres.png", 
+	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+print(field_time_to_peak_plot)
+dev.off()
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/field_time_to_peak_print.png", 
+	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+print(field_time_to_peak_plot)
+dev.off()
+
+
+
+qplot(as.numeric(x=tot.prod.fields_p$total_time_to_peak)/365, binwidth=1)
+
+
+total_time_to_peak_plot<-ggplot(tot.prod.fields_p) +
+geom_histogram(aes(x=as.numeric(total_time_to_peak)/365, fill=field_size)) +
+labs(x="Producing Time to Peak Production, years", fill="Field Size") +
+scale_fill_grey()
+
+qplot(recoverable_oil,as.numeric(tot.prod.fields_p$total_time_to_peak)/365, data=tot.prod.fields_p)
 
 
 

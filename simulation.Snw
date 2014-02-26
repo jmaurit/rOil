@@ -1,0 +1,13 @@
+% simulation.Snw
+
+\documentclass[a4paper]{article}
+
+\title{Simulation of GAMs and Oil production Data}
+
+\author{Johannes Mauritzen}
+
+\begin{document}
+
+\maketitle
+
+\end{document}

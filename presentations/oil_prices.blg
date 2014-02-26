@@ -6,45 +6,45 @@ Database file #1: oil_prices.bib
 Warning--empty institution in british_petroleum_statistical_2013
 Warning--empty publisher in kahle_ggmap:_2013
 Warning--empty publisher in r_core_team_r:_2013
-You've used 31 entries,
+You've used 33 entries,
             2773 wiz_defined-function locations,
-            820 strings with 11427 characters,
-and the built_in function-call counts, 12061 in all, are:
-= -- 1189
-> -- 416
+            836 strings with 11957 characters,
+and the built_in function-call counts, 13259 in all, are:
+= -- 1305
+> -- 494
 < -- 33
-+ -- 155
-- -- 123
-* -- 919
-:= -- 1943
-add.period$ -- 152
-call.type$ -- 31
-change.case$ -- 131
-chr.to.int$ -- 30
-cite$ -- 65
-duplicate$ -- 594
-empty$ -- 1076
-format.name$ -- 166
-if$ -- 2507
++ -- 181
+- -- 147
+* -- 1041
+:= -- 2133
+add.period$ -- 164
+call.type$ -- 33
+change.case$ -- 145
+chr.to.int$ -- 32
+cite$ -- 69
+duplicate$ -- 636
+empty$ -- 1158
+format.name$ -- 192
+if$ -- 2751
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 32
-newline$ -- 221
-num.names$ -- 124
-pop$ -- 206
+missing$ -- 34
+newline$ -- 237
+num.names$ -- 132
+pop$ -- 224
 preamble$ -- 1
-purify$ -- 103
+purify$ -- 115
 quote$ -- 0
-skip$ -- 390
+skip$ -- 420
 stack$ -- 0
-substring$ -- 449
-swap$ -- 49
+substring$ -- 503
+swap$ -- 53
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 306
+type$ -- 328
 warning$ -- 3
-while$ -- 121
+while$ -- 131
 width$ -- 0
-write$ -- 519
+write$ -- 557
 (There were 3 warnings)

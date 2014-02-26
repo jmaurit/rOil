@@ -33,6 +33,22 @@ oil_long$year<-substr(oil_long$year,1,4)
 oil_long$year<-as.numeric(oil_long$year)
 #qplot(x=year, y=oil_price_real, geom="line", data=oil_long)
 
+#merge with oil price data
+#aggregate into years
+brentprices$month<-months(brentprices$date)
+brentprices$year<-year(brentprices$date) #from lubridate
+annual_brentprices<-ddply(brentprices, .(year), summarize, annual_brentprice=mean(brent_price))
+
+oil_plus<-annual_brentprices[25:27,]
+oil_price_real<-oil_plus[,2]
+oil_plus<-cbind(oil_plus,oil_price_real)
+oil_plus<-rename(oil_plus, c("annual_brentprice"="oil_price_nom"))
+oil_long<-rbind(oil_long, oil_plus)
+oil_long<-oil_long[order(oil_long$year),]
+
+write.csv(oil_long, "/Users/johannesmauritzen/Google Drive/github/rOil/brent_price.csv")
+
+
 #investment deflator from quandl
 #import deflator
 #The Fixed Investment implicit deflator is the ratio of Fixed Investment in current local currency to Fixed Investment in constant local currency. 
@@ -153,18 +169,6 @@ reserves<-rename(reserves, replace=c("fldName"="name", "fldRecoverableOil"="reco
 oil_reserves<-reserves[,c("name", "recoverable_oil", "remaining_oil")]
 fields<-merge(fields, oil_reserves, by="name", all=TRUE)
 
-#merge with oil price data
-#aggregate into years
-brentprices$month<-months(brentprices$date)
-brentprices$year<-year(brentprices$date) #from lubridate
-annual_brentprices<-ddply(brentprices, .(year), summarize, annual_brentprice=mean(brent_price))
-
-oil_plus<-annual_brentprices[25:27,]
-oil_price_real<-oil_plus[,2]
-oil_plus<-cbind(oil_plus,oil_price_real)
-oil_plus<-rename(oil_plus, c("annual_brentprice"="oil_price_nom"))
-oil_long<-rbind(oil_long, oil_plus)
-oil_long<-oil_long[order(oil_long$year),]
 
 #create lags
 manual_lag<-function(series, lag_num)

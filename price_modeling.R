@@ -22,6 +22,40 @@ split<-8
 fields_p$after_peak<-ifelse(fields_p$time_to_peak==0,1,0)
 fields_p$large_field<-as.factor(ifelse(fields_p$max_prod>split, "large","small"))
 
+#Two - stage model look at residuals.
+
+gam_1stage_under<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil),
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+
+gam_1stage_over<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil),
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+
+resid_under<-as.numeric(residuals(gam_1stage_under))
+resid_over<-as.numeric(residuals(gam_1stage_over))
+
+fields_p$residuals<-ifelse(fields_p$max_prod<=split,resid_under,resid_over)
+
+fields_p$
+
+plot(resid_under)
+plot(resid_over)
+qqplot(resid_under)
+
+hist(resid_under)
+hist(resid_over)
+
+ggplot(fields_p[c("year", "residuals")]) +
+geom_jitter(aes(x=year, y=residuals))
+
+ggplot(fields_p[c("peak_to_end", "residuals")]) +
+geom_jitter(aes(x=peak_to_end, y=residuals))
+
+ggplot(fields_p[c("time_to_peak", "residuals")]) +
+geom_jitter(aes(x=time_to_peak, y=residuals))
+
+
+
+
 #preferred models for effect on price
 gam_price_under_2d<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
 	oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
@@ -49,7 +83,7 @@ png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam
 plot(gam_price_under_2d, select=1)
 dev.off()
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_under_2d_plot_1.png", 
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_under_2d_plot_2.png", 
 	width = 35, height = 21, units = "cm", res=300, pointsize=10)
 plot(gam_price_under_2d, select=2)
 dev.off()
@@ -63,6 +97,24 @@ png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam
 	width = 35, height = 21, units = "cm", res=300, pointsize=10)
 plot(gam_price_over_2d, select=2)
 dev.off()
+
+#with fixed effect for after 1987 - introduction of gas injection.  
+
+fields_p$pre_87<-as.factor(ifelse(fields_p$year<1988, "pre-1987","post-1987"))
+
+
+gam_price_under_fe<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real + oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
+	oil_price_real_l5 +oil_price_real_l6 + oil_price_real_l7 + oil_price_real_l8 + pre_87,
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod<=split,])
+
+gam_price_over_fe<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil) +
+	oil_price_real +oil_price_real_l1 + oil_price_real_l2 + oil_price_real_l3 + oil_price_real_l4 + 
+	oil_price_real_l5 +oil_price_real_l6 + oil_price_real_l7 + oil_price_real_l8 + pre_87,
+	family=gaussian(link=log), weights=recoverable_oil, data=fields_p[fields_p$max_prod>split,])
+
+summary(gam_price_under_fe)
+summary(gam_price_over_fe)
 
 
 #qq-plot
@@ -837,6 +889,27 @@ gam_price_unweighted<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_
 gam_price2<-gam(year_prod~s(time_to_peak, recoverable_oil)+ s(peak_to_end, recoverable_oil)  + 
 	s(oil_price_real_l4) + s(oil_price_real_l5) + s(oil_price_real_l6),
 	family=gaussian(link=log), weights=recoverable_oil,data=fields_p)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#experimentation - not in paper************************************************
+
 
 
 #Have to be careful about price and effect of year dummies - remove affect of year

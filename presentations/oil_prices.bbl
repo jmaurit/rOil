@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{33}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -14,6 +14,17 @@ Ron Alquist and Lutz Kilian.
 \newblock \doi{10.1002/jae.1159}.
 \newblock URL
   \url{http://onlinelibrary.wiley.com/doi/10.1002/jae.1159/abstract}.
+
+\bibitem[Aune et~al.(2010)Aune, Mohn, Osmundsen, and
+  Rosendahl]{aune_financial_2010}
+Finn~Roar Aune, Klaus Mohn, Petter Osmundsen, and Knut~Einar Rosendahl.
+\newblock Financial market pressure, tacit collusion and oil price formation.
+\newblock \emph{Energy Economics}, 32\penalty0 (2):\penalty0 389--398, March
+  2010.
+\newblock ISSN 0140-9883.
+\newblock \doi{10.1016/j.eneco.2009.09.003}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0140988309001595}.
 
 \bibitem[Black and {LaFrance}(1998)]{black_is_1998}
 Geoffrey Black and Jeffrey~T {LaFrance}.
@@ -179,6 +190,17 @@ Klaus Mohn and Petter Osmundsen.
 \newblock \doi{10.1016/j.eneco.2006.10.011}.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/S0140988306001277}.
+
+\bibitem[Osmundsen et~al.(2007)Osmundsen, Mohn, Misund, and
+  Asche]{osmundsen_is_2007}
+Petter Osmundsen, Klaus Mohn, Bård Misund, and Frank Asche.
+\newblock Is oil supply choked by financial market pressures?
+\newblock \emph{Energy Policy}, 35\penalty0 (1):\penalty0 467--474, January
+  2007.
+\newblock ISSN 0301-4215.
+\newblock \doi{10.1016/j.enpol.2005.12.010}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0301421505003526}.
 
 \bibitem[Osmundsen et~al.(2010)Osmundsen, Roll, and
   Tveterås]{osmundsen_exploration_2010}

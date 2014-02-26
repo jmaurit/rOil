@@ -43,8 +43,6 @@ max_year<-function(year_prod, year)
 
 fields_p<-ddply(fields_p, .(name), mutate, peak_year=max_year(year_prod, year))
 
-
-
 #create variable, production time
 fields_p<-ddply(fields_p, .(name), mutate, producing_time=year-year(producing_from))
 
@@ -63,6 +61,7 @@ fields_p$field_time_to_peak<-as.numeric(fields_p$field_time_to_peak)
 
 fields_p<-ddply(fields_p, .(name), mutate, time_to_peak=peak_year-year)
 fields_p$time_to_peak<-as.numeric(fields_p$time_to_peak)
+fields_p$field_time_to_peak[fields_p$field_time_to_peak<0]<-0
 
 fields_p<-fields_p[!fields_p$year_prod==0,]
 
