@@ -8,7 +8,7 @@ library(boot)
 library(arm)
 library(gamm4) # for mixed models
 library(texreg)
-#library(lmer) not available for 3.02
+library(lme4)
 
 #clear workspace
 rm(list = ls())
@@ -79,22 +79,22 @@ plot(gam_price_over_2d, select=1)
 plot(gam_price_over_2d, select=2)
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_under_2d_plot_1.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 plot(gam_price_under_2d, select=1)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_under_2d_plot_2.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 plot(gam_price_under_2d, select=2)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_over_2d_plot_1.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 plot(gam_price_over_2d, select=1)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_over_2d_plot_2.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 plot(gam_price_over_2d, select=2)
 dev.off()
 
@@ -119,25 +119,25 @@ summary(gam_price_over_fe)
 
 #qq-plot
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/qq_gam_price_under_2d.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 qq.gam(gam_price_under_2d) 
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/qq_gam_price_over_2d.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 qq.gam(gam_price_over_2d) 
 dev.off()
 
 #fitted vs. predicted
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/over_fitted.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 plot(fitted(gam_price_over_2d), napredict(gam_price_over_2d$na.action, gam_price_over_2d$y), xlab = "Fitted Values", 
         ylab = "Response", main = "Response vs. Fitted Values")  #  fitted vs. reside
 dev.off()
 
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/under_fitted.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 plot(fitted(gam_price_under_2d), napredict(gam_price_under_2d$na.action, gam_price_under_2d$y), xlab = "Fitted Values", 
         ylab = "Response", main = "Response vs. Fitted Values") 
 dev.off()
@@ -228,12 +228,12 @@ labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size 
 gam_price_6
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_6_pres.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_6)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_6_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_6)
 dev.off()
 
@@ -257,12 +257,12 @@ labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size 
 gam_price_8
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_8_pres.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_8)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_8_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_8)
 dev.off()
 
@@ -287,12 +287,12 @@ labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size 
 gam_price_short
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_short_pres.png", 
-	width = 27.8, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.8, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_short)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_short_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_short)
 dev.off()
 
@@ -354,12 +354,12 @@ labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size 
 gam_price_pooled
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_pooled.png", 
-	width = 27.8, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.8, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_pooled)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_pooled_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_pooled)
 dev.off()
 
@@ -500,12 +500,12 @@ facet_wrap(~name, scales="free")
 Max_prod_vs_TRO
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/Max_prod_vs_TRO_pres.png", 
-	width = 27.8, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.8, height = 21, units = "cm", res=50, pointsize=10)
 print(Max_prod_vs_TRO)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/Max_prod_vs_TRO_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(Max_prod_vs_TRO)
 dev.off()
 
@@ -532,12 +532,12 @@ labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size 
 gam_postpeak
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_postpeak_pres.png", 
-	width = 27.8, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.8, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_postpeak)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_postpeak_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_postpeak)
 dev.off()
 
@@ -670,12 +670,12 @@ labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size 
 gam_prepeak
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_prepeak_pres.png", 
-	width = 27.8, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.8, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_prepeak)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_prepeak_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_prepeak)
 dev.off()
 
@@ -703,7 +703,7 @@ summary(gam_price_under_2d_gamma)
 summary(gam_price_over_2d_gamma)
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/qq_gam_price_under_2d_gamma.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 qq.gam(gam_price_over_2d_gamma) 
 dev.off()
 
@@ -810,12 +810,12 @@ labs(x="", y="Estimated Coefficients on Oil Price Variables", color="Field Size 
 invest_pooled
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/invest_pooled.png", 
-	width = 27.8, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.8, height = 21, units = "cm", res=50, pointsize=10)
 print(invest_pooled)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/invest_pooled_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(invest_pooled)
 dev.off()
 
@@ -1019,7 +1019,7 @@ facet_wrap(~field_type) +
 labs(y="Effect of Oil Prices on Norwegian Oil Production, % per 10$")
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/coeff_split_plot.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(coeff_split_plot)
 dev.off()
 
@@ -1073,13 +1073,13 @@ gam_price_over_dirty_box
 
 #presentation version
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_over_dirty_box_pres.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_over_dirty_box)
 dev.off()
 
 #print version
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_over_dirty_box_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_over_dirty_box)
 dev.off()
 
@@ -1106,7 +1106,7 @@ print(gam_price_under_dirty_box)
 
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/gam_price_under_dirty_box.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_under_dirty_box)
 dev.off()
 
@@ -1124,12 +1124,12 @@ labs(x="", y="Estimated Coefficients on Oil Price Variable", color="Field Size T
 gam_price_dirty_box
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_pres.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_dirty_box)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_price_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(gam_price_dirty_box)
 dev.off()
 

@@ -1,0 +1,27 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{R Core Team}(2013)]{r_core_team_r:_2013}
+{R Core Team}.
+\newblock \emph{R: A Language and Environment for Statistical Computing}.
+\newblock Vienna, Austria, 2013.
+\newblock URL \url{http://www.R-project.org/}.
+
+\bibitem[Wickham(2009)]{wickham_ggplot2:_2009}
+Hadley Wickham.
+\newblock \emph{Ggplot2: Elegant Graphics for Data Analysis}.
+\newblock Springer Publishing Company, Incorporated, 2nd edition, 2009.
+\newblock ISBN 0387981403, 9780387981406.
+
+\bibitem[Wood(2006)]{wood_generalized_2006}
+Simon Wood.
+\newblock \emph{Generalized Additive Models: An Introduction with R (Chapman \&
+  {Hall/CRC} Texts in Statistical Science)}.
+\newblock Chapman and {Hall/CRC}, 1 edition edition, February 2006.
+\newblock ISBN 1584884746.
+
+\end{thebibliography}

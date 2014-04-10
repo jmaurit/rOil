@@ -6,27 +6,32 @@
 \usepackage{syntonly}
 \usepackage{esdiff} %for writing partial derivatives
 \usepackage{url} %for inserting urls
-\usepackage{placeins}
-%\syntaxonly for quickly checking document
+\usepackage{placeins} % for limitting floats
+\usepackage{comment} %for excluding figures
+\excludecomment{figure} % for printing without figures
+% \syntaxonly % for quickly checking document
 %set document settings
 
-\doublespacing % from package setspacs
+% \doublespacing % from package setspacs
 
 % table font size
 \let\oldtabular\tabular
 \renewcommand{\tabular}{\scriptsize\oldtabular}
 
-\title{The effect of oil prices on offshore production: evidence from the Norwegian Continental Shelf}
+\title{The Effect of Oil Price on Field Production: Evidence from the Norwegian Continental Shelf}
 \author{Johannes Mauritzen\\
 		Department of Business and Management Science\\
         NHH Norwegian School of Economics\\
+        Helleveien 30, 5045\\
         Bergen, Norway\\
+        johannes.mauritzen@nhh.no\\
+        \url{jmaurit.github.io}\\
 		}
 \date{\today}
 
 
 \begin{document}
-\begin{spacing}{1} %sets spacing to single for title page
+% \begin{spacing}{1} %sets spacing to single for title page
 	\maketitle
 
 
@@ -34,9 +39,10 @@
 I use detailed field-level data on Norwegian off-shore oil field production and a semi-parametric additive model to control for the production profile of fields to estimate the effect of oil prices on production.  I find no significant evidence of a concurrent reaction of field production to oil prices, though a slight lagged effect is found of the magnitude of approximately 2 to 4\% for a 10 dollar per barrel increase in the real price of oil.  Most of this effect appears to come in the planning phase of a field's development.
 \end{abstract}
 
-\thanks{*I would like to thank Klaus Mohn, Jonas Andersson, Sturla Kvamsdal, Harrison Fell, R\"ognvaldur Hannesson, Henrik Horn and Gunnar Eskeland for valuable discussion and comments.}
-
-\end{spacing}
+\thanks{*A draft with all figures can be found online at \url{jmaurit.github.io#oil_prices}. 
+I would like to thank Klaus Mohn, Jonas Andersson, Sturla Kvamsdal, Harrison Fell, R\"ognvaldur Hannesson and Henrik Horn for valuable discussion and comments.  }
+% JEL Codes: Q4, L71
+ % \end{spacing}
 
 \section{Introduction}
 
@@ -66,20 +72,20 @@ By looking only at the effect of price on fields that currently or previously ha
 
 The main finding in this article is that oil production at the field level has no significant reaction to concurrent changes in the oil price, where concurrent is broadly defined as within the first three years.  A slight effect can be detected at a lag of between 4 and 8 years, with a magnitude of about a 2 to 4\% increase in yearly production for a 10 dollar increase in the price of oil.  This effect is somewhat greater and with less of a lag in large fields compared to small fields.  Price appears to have the most significant affect during the planning stage - before production begins in a field.  In the depletion phase of production, price is found to have little to no significant effect.  
 
-The main methodological problem, as mentioned, is the non-linear production profile of oil fields.  Once full-scale extraction is started in an oil field, pressure in wells will start declining. Compensating measures such as gas and water injection have been successful, but their impact is temporary. In turn production rates will therefore inevitably decline.
+The main methodological problem is the non-linear production profile of oil fields.  Once full-scale extraction is started in an oil field, pressure in wells will start declining. Compensating measures such as gas and water injection have been successful, but their impact is temporary. In turn production rates will therefore inevitably decline.
 
 More so, oil field production is correlated across fields - that is, increases and decreases in production in fields are not randomly distributed across time.  Instead, as figure \ref{top10_production} shows with the production profile of the 10 largest Norwegian oil fields, production tends to be correlated across fields.  The result is a total production curve that is bell-shaped over time as in figure \ref{oil_decline}.  Since the oil price series is autocorrelated and non-stationary, a failure to properly account for the production profile will lead to spurious estimation of the price terms in a regression.
 
 The direction of this bias can be gleaned in figure \ref{oil_decline}.  High oil prices were present at periods of relatively low production in the late 1970s and early 1980s as well as over the last 10 years, however real prices reached some of their lowest levels at the same time as the top of production around the year 2000. These oil price dynamics almost certainly affected investment decisions in the industry and in turn total production (\citep{osmundsen_is_2007}, \citep{aune_financial_2010}). However the inverse contemporaneous relationship at the field level is entirely accidental, but will heavily bias the estimation of the effect of price on production if field production profiles are not properly accounted for. 
 
 \begin{figure}
-	\includegraphics[width=.8\textwidth]{figures/top10_production_print.png}
+	\includegraphics[width=1\textwidth]{figures/top10_production_print.png}
 	\caption{The production profile of the 10 largest oil fields on the Norwegian Continental Shelf.  Production tends to be correlated across fields}
 	\label{top10_production}	
 	\end{figure}
 
 \begin{figure}
-	\includegraphics[width=.8\textwidth]{figures/oil_decline_print.png}
+	\includegraphics[width=1\textwidth]{figures/oil_decline_print.png}
 	\caption{The production profile for the entire Norwegian Continental Shelf is bell-shaped, reflecting the correlated production profiles of the fields.  With oil prices that are autocorrelated, }
 	\label{oil_decline}
 \end{figure}
@@ -391,6 +397,9 @@ I also estimate a pooled model, with both small and large fields.  This model pr
 
 Figure \ref{gam_buildout_hist} shows a histogram of the time it takes to fully build out an oil field and reach peak production.  We see that the vast majority of fields are built out quickly, reaching their peak production within one or two years.  Since the effect of price on the build-out phase is estimated with a lag of between 5 and 8 year, this indicates that changes in price likely has most effect well before production in a field even begins.  In turn, this suggests that changes in price that occur during the planning stage of a fields development are the most important in determining the production of the field.  This result fits well with the industry structure.  As mentioned, before physical investment in a field can begin and production started, detailed plans need to be approved by several government agencies and capital must be allocated.  Changing the level of investments in reaction to a change in prices after plans have been finalized is likely to lead to both an expensive delay as well as other costs that heavily outweigh any benefits of increased future production.  
 
+
+
+
 \section{Conclusion}
 
 \begin{figure}
@@ -412,13 +421,13 @@ Figure \ref{gam_buildout_hist} shows a histogram of the time it takes to fully b
 \end{figure}
 
 
-The main results of this research is to show that production in existing fields has no significant concurrent reaction to higher oil prices while a slight effect is estimated  with a lag of between 4 and 8 years.  Oil producers do not appear to be behaving strategically in relation to short-term production - increasing or reducing production in response to changes in oil price.  Instead they are likely using storage or financial instruments to hedge short-term price movements. Changes in oil prices can rather be seen as a relaxing of a production constraint, justifying increased investment that leads to either a higher total extraction rate or an intertemporal shifting of production. Furthermore, it appears that the most of the effect of price comes at the planning phase of a field's production life.  Little to no effect of price on production is found in the build-out or depletion phase.
+The main results of this research is to show that production in existing Norwegian offshore fields has no significant concurrent reaction to higher oil prices while a slight effect is estimated  with a lag of between 4 and 8 years.  Oil producers do not appear to be behaving strategically in relation to short-term production - increasing or reducing production in response to changes in oil price.  Instead they are likely using storage or financial instruments to hedge short-term price movements. Changes in oil prices can rather be seen as a relaxing of a production constraint, justifying increased investment that leads to either a higher total extraction rate or an inter-temporal shifting of production. Furthermore, it appears that the most of the effect of price comes at the planning phase of a field's production life.  Little to no effect of price on production is found in the build-out or depletion phase.
 
-The modest estimated effect of prices on production adds weight to the argument of \citet{hamilton_oil_2012} that most of the increased supply of oil that comes from higher prices is from expanding the geographic and technological boundaries of oil production.  For example exploration of deep-water oil deposits off the coast of Brazil and extraction of oil sands in western Canada.  
+The modest estimated effect of prices on production adds weight to the argument of \citet{hamilton_oil_2012} that most of the increased supply of oil that comes from higher prices is from expanding the geographic and technological boundaries of oil production.  For example exploration of deep-water oil deposits off the coast of Brazil and extraction of oil sands in western Canada. 
 
 Beyond the explanatory importance of the results, the Generalized Additive Model methodology, which to my knowledge has neither been used in geo-engineering nor econometric studies of oil production, can also serve a useful function in producing forecasts and scenarios.  The major advantage that the methodology has is that by estimating an overall function for the production profile of fields, production from newer fields can be estimated based on the history of older fields.  In this way, forecasts of total oil supply from a region can be built in a bottom-up and relatively simple way that avoids overly restrictive assumptions. 
 
-While a full forecasting model is outside the scope of this paper, I illustrate the potential with a simple forecast.  An important caveat here is that I am forecasting total oil production from existing fields.  Production from new fields are not estimated.  Figure \ref{field_lev_forecast} shows the forecast at the field level for several of the fields while figure \ref{tot_forecast} shows the aggregated forecast.  The different scenarios are for oil prices that increase or decrease by a fixed amount per year in order to reach a certain oil price in the year 2022 as shown in figure \ref{price_scenario} .  
+While a full forecasting model is outside the scope of this paper, I illustrate the potential with a simple forecast.  An important caveat here is that I am forecasting total oil production from existing fields.  Production from undiscovered or fields currently under development are not estimated.  Figure \ref{field_lev_forecast} shows the forecast at the field level for several of the fields while figure \ref{tot_forecast} shows the aggregated forecast.  The different scenarios are for oil prices that increase or decrease by a fixed amount per year in order to reach a certain oil price in the year 2022 as shown in figure \ref{price_scenario} .  
 
 Visually, the forecasts appear sensible.  As would be expected from the results, the different oil price scenarios only lead to slightly different outcomes and only after a several year delay.
 
@@ -426,13 +435,13 @@ Overall, the forecast is likely to be somewhat downward biased, even taking into
 
 The forecasting results of this model are presented in this article for illustrative purposes and a good deal more work would need to be done, especially in estimating an appropriate measure of uncertainty for the forecasts.  Nonetheless, the results of the model provide a striking contrast to the much more optimistic projections of oil production from the Norwegian Petroleum Directorate even when accounting for projected production from existing fields. \footnote{\url{http://www.npd.no/Templates/OD/Article.aspx?id=4648&epslanguage=en}}
 
-\begin{spacing}{1}
+% \begin{spacing}{1}
 
 \bibliographystyle{plainnat}
 \bibliography{oil_prices}
 
-\end{spacing}
-
+% \end{spacing}
+% \end{document} for shorter version with no appendix
 \FloatBarrier
 
 \appendix

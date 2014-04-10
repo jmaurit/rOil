@@ -3,12 +3,12 @@
 library(ggplot2)
 library(plyr)
 library(reshape2)
-library(ggmap)
 library(rgdal)
 library(sp)
 library(maptools)
 library(maps)
 library(mapdata) #worldHiRes
+library(ggmap)
 library(mapproj)
 library(rgeos)
 library(gdata) #for reading xls
@@ -101,14 +101,14 @@ scale_color_continuous(low="red", high="black") +
 labs(color="Initial Production Year", size="Total Recoverable Oil, Mill SM3")
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/north_sea_reserves.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(north_sea_reserves)
 dev.off()
 
 north_sea_reserves
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/north_sea_reserves_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(north_sea_reserves)
 dev.off()	
 
@@ -120,12 +120,12 @@ labs(color="Initial Production Year", size="Total Recoverable Oil, Mill SM3")
 
 #print(reserves_norwegian_sea)
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/norwegian_sea_reserves.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(reserves_norwegian_sea)
 dev.off()	
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/norwegian_sea_reserves_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(reserves_norwegian_sea)
 dev.off()
 
@@ -151,12 +151,12 @@ scale_color_grey() +
 labs(x="", y="Yearly Oil Production, Mill SM3", color="Field")
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/top10_production.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(top10_production)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/top10_production_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(top10_production)
 dev.off()		
 
@@ -183,12 +183,12 @@ labs(color="Oil Price, 2010 Prices") +
 scale_color_continuous(low="blue", high="red")
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/oil_decline.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(oil_decline)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/oil_decline_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(oil_decline)
 dev.off()
 
@@ -246,7 +246,7 @@ scale_color_discrete()
 
 tot_exist_prod_cf
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/tot_exist_prod_cf.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/tot_exist_prod_cf.png", width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(tot_exist_prod_cf)
 dev.off()
 
@@ -265,12 +265,12 @@ labs(x="", y="Yearly Production from Statfjord Field, Mill SM3")
 statfjord_dem
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/statfjord_dem.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(statfjord_dem)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/statfjord_dem_print.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(statfjord_dem)
 dev.off()
 
@@ -288,7 +288,7 @@ xlab("") + ylab("Investments, MILL NOK, 2010 Prices") +
 labs(color="Oil Price, 2010 Prices") +
 scale_color_continuous(low="blue", high="red")
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/invest_with_oil_price.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/invest_with_oil_price.png", width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(invest_with_oil_price)
 dev.off()
 
@@ -319,7 +319,7 @@ xlab("") + ylab("NOK Investment per sm3 of Oil Production") +
 labs(color="Oil Price, 2010 Prices") +
 scale_color_continuous(low="blue", high="red")
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/invest_per_prod.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/invest_per_prod.png", width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(invest_per_prod)
 dev.off()
 
@@ -334,7 +334,7 @@ xlab("") + ylab("NOK Investment per sm3 of Oil Production, 5 year lag") +
 labs(color="Oil Price, 2010 Prices") +
 scale_color_continuous(low="blue", high="red")
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/invest_per_prod_l5.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/invest_per_prod_l5.png", width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(invest_per_prod_l5)
 dev.off()
 
@@ -361,7 +361,7 @@ labs(color="Oil Price, 2010 Prices", size="Total Investment, Mill NOK:") +
 scale_color_continuous(low="blue", high="red")
 
 
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/size_vs_init_prod.png", width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/size_vs_init_prod.png", width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(size_vs_init_prod)
 dev.off()
 
@@ -403,7 +403,7 @@ labs(x="", y="Yearly Oil Production, Mill SM3",
 print(statfjord_plot)
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/statfjord_plot.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(statfjord_plot)
 dev.off()
 
@@ -417,12 +417,12 @@ geom_line(aes(x=year, y=smooth)) +
 labs(x="", y="Statfjord Yearly Oil Production, Mill SM3")
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/statfjord_gam.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(statfjord_gam)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/statfjord_gam_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(statfjord_gam)
 dev.off()
 
@@ -461,7 +461,7 @@ geom_line(aes(x=year, y=smooth)) +
 labs(title="Ekofisk Production", color="Oil Price, 2010 Prices")
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/ekofisk_plot.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(ekofisk_plot)
 dev.off()
 
@@ -520,7 +520,7 @@ scale_color_manual(values=c("black", "red")) +
 labs(x="Estimated Recoverable Oil", y="Field Life, Days", color="Field is Shut Down")
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/field_life.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(field_life)
 dev.off()
 
@@ -537,7 +537,7 @@ stat_smooth(method="lm") +
 labs(x="Estimated Recoverable Oil", y="Time to peak, Days", color="2013 is Peak Year (censored)")
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/time_to_peak_plot.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(time_to_peak_plot)
 dev.off()
 
@@ -620,12 +620,12 @@ labs(x="Producing Time to Peak Production, years", fill="Field Size") +
 scale_fill_grey()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/field_time_to_peak_pres.png", 
-	width = 27.81, height = 21, units = "cm", res=300, pointsize=10)
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
 print(field_time_to_peak_plot)
 dev.off()
 
 png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/field_time_to_peak_print.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+	width = 35, height = 21, units = "cm", res=50, pointsize=10)
 print(field_time_to_peak_plot)
 dev.off()
 

@@ -10,8 +10,9 @@ library(reshape2)
 
 #import oil prices
 #oil prices brent
-brent_price<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/brent_price.csv")
-#qplot(year, oil_price_real, data=brent_price, geom="line")
+#brent_price<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/brent_price.csv")
+brent_price<-read.csv
+qplot(year, oil_price_real, data=brent_price, geom="line")
 
 #import data of individual fields
 unique_fields<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/unique_oil_fields.csv")
@@ -39,7 +40,15 @@ qplot(prod_year, unique_fields$recoverable_oil[!is.na(unique_fields$producing_fr
 
 
 #look at oil prices post 1960.  
-qplot(year, oil_price_real, data=brent_price[brent_price$year>1960,], geom="line")
+oil_price_series<-qplot(year, oil_price_real, data=brent_price[brent_price$year>1960,], geom="line", xlab="", 
+	ylab="Real Oil Price, 2010 $ per Barrel")
+
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/oil_price_series.png", 
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
+oil_price_series
+dev.off()
+
+
 acf(brent_price$oil_price_real)
 pacf(brent_price$oil_price_real)
 
@@ -115,17 +124,17 @@ simul_prices<-data.frame(years, prices)
 
 #Simulation of data****************************************************************
 
-gam_mc<-function(formula, beta0=.05, use_true_prices=TRUE){ 
+gam_mc<-function(formula, beta0=.20, use_true_prices=TRUE){ 
 #fm - mean log field size, 
 #fsd - mean log field standard dev.
 #formula - gams formula 
 
 #test
- #formula=formula(prod~s(prod_time)+ size + price)
+  # formula=formula(prod~s(time_to_peak, size) + s(peak_to_end, size) + price)
 
- #use_true_prices=TRUE
- #ar_par=.9
- #beta0=.05
+   # use_true_prices=TRUE
+   # ar_par=.9
+   # beta0=.20
 #
 
 #create function with inputs of field size, start year and oil price series
@@ -159,8 +168,8 @@ gen_production<-function(field, prices){
 	#formula prodction = f(time)*exp(beta)*
 	  #log(production) = f`(time) + beta*log(price)
 	production$prod<-production$prod_shape*
-	(exp(beta0*(production$price-mean(production$price))/10))*
-		rlnorm(length(production$price), meanlog=0, sdlog=.05)
+	(exp(beta0*(production$price))*
+		rlnorm(length(production$price), meanlog=0, sdlog=.05))
 	
 	production$name<-name
 	production$prod_time<-1:length(production$prod)
@@ -178,6 +187,8 @@ if(use_true_prices==TRUE){
 	prices<-simul_prices
 }
 names(prices)<-c("year", "prices")
+
+#make units into 10 dollars units
 prices$prices<-prices$prices/10
 
 
@@ -185,9 +196,15 @@ sim_fields<-apply(fields, 1, gen_production, prices=prices)
 
 sim_fields<-Reduce(rbind, sim_fields)
 
-ggplot(sim_fields)+
-geom_line(aes(x=year, y=prod, color=factor(name)),alpha=.3) 
+ simulated_production<-ggplot(sim_fields)+
+ geom_line(aes(x=year, y=prod, color=factor(name)),alpha=.3) +
+ guides(color=FALSE) +
+ labs(x="", y="Simulated Production from Fields")
 
+ png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/simulated_production.png", 
+ 	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
+ simulated_production
+ dev.off()
 
 #GAM simualtion *********************************
 
@@ -195,10 +212,15 @@ sim_fields<-ddply(sim_fields, .(name), mutate, max_year=prod_time[max(prod)==pro
 sim_fields<-ddply(sim_fields, .(name), mutate, time_to_peak=ifelse(prod_time<=max_year, prod_time, 0))
 sim_fields<-ddply(sim_fields, .(name), mutate, peak_to_end=ifelse(prod_time>max_year, prod_time-max_year, 0))
 
+sim_fields$time_to_peak_sq=sim_fields$time_to_peak^2
+sim_fields$time_to_peak_cu=sim_fields$time_to_peak^3
+sim_fields$peak_to_end_sq=sim_fields$peak_to_end^2
+sim_fields$peak_to_end_cu=sim_fields$peak_to_end^3
+
 
 gam_sim<-gam(formula,
 	family=gaussian(link=log), weights=size, data=sim_fields)
-#summary(gam_sim)
+summary(gam_sim)
 
 return(coefficients(gam_sim)["price"])
 
@@ -208,51 +230,76 @@ return(coefficients(gam_sim)["price"])
 
 #****************************************************
 
-
-# formula_0=formula(prod~s(time_to_peak) + s(peak_to_end) + size + price/10)
-# gamm_mc_0<-replicate(100, gam_mc(fm=2.3, fsd=1.5, formula=formula_0), )
-# qplot(gamm_mc_0, geom="histogram")
+#bad formula
 
 
-formula_1= formula(prod~s(time_to_peak, size) + s(peak_to_end, size) + price)
-gamm_mc_1<-replicate(100, gam_mc(beta0=.05, formula=formula_1, use_true_prices=FALSE))
-qplot(gamm_mc_1, geom="histogram")
+formula_0=formula(prod~time_to_peak + time_to_peak_sq + time_to_peak_cu + 
+	peak_to_end + peak_to_end_sq + peak_to_end_cu +size + price)
+gamm_mc_0<-replicate(1000, gam_mc(beta=0, formula=formula_0, use_true_prices=TRUE))
 
- formula_2= formula(prod~s(time_to_peak, size) + s(peak_to_end, size) + price)
- gamm_mc_2<-replicate(100, gam_mc(beta0=.05, formula=formula_2, use_true_prices=TRUE))
- qplot(gamm_mc_2, geom="histogram")
+gamm_mc_0<-as.data.frame(gamm_mc_0)
 
-gamm_mc<-data.frame(cbind(gamm_mc_1, gamm_mc_2))
-gamm_mc_long<-melt(gamm_mc)
+lin_model_price_mc<-ggplot(gamm_mc_0, aes(x=gamm_mc_0)) + 
+geom_histogram(aes(y=..density..)) +
+geom_density() +
+xlab("Estimated Coefficient on Price")
 
-gam_mc_plot_2<-ggplot(gamm_mc_long, aes(x=value, fill=variable)) +
-geom_histogram(position="identity", alpha=.3)
-
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gamm_mc_plot_2.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
-print(gamm_mc_plot_2)
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/lin_model_price_mc.png", 
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
+lin_model_price_mc
 dev.off()
 
 
-formula_3= formula(prod~s(prod_time)+ size + price)
-gamm_mc_3<-replicate(200, gam_mc(beta0=.05, formula=formula_3, use_true_prices=FALSE))
-qplot(gamm_mc_3, geom="histogram")
+formula_1= formula(prod~s(prod_time,size) + price)
 
+gamm_mc_1<-replicate(1000, gam_mc(beta0=0, formula=formula_1, use_true_prices=TRUE))
+gamm_mc_1<-as.data.frame(gamm_mc_1)
 
-formula_4= formula(prod~s(prod_time)+ size + price)
-gamm_mc_4<-replicate(200, gam_mc(beta0=.05, formula=formula_3, use_true_prices=TRUE))
-qplot(gamm_mc_4, geom="histogram")	
+gam_model_price_mc<-ggplot(gamm_mc_1, aes(x=gamm_mc_1)) + 
+geom_histogram(aes(y=..density..)) +
+geom_density() +
+xlab("Estimated Coefficient on Price")
 
-gamm_mc<-data.frame(cbind(gamm_mc_3, gamm_mc_4))
-gamm_mc_long<-melt(gamm_mc)
-
-gam_mc_plot<-ggplot(gamm_mc_long, aes(x=value, fill=variable)) +
-geom_histogram(position="identity", alpha=.3)
-
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gamm_mc_plot.png", 
-	width = 35, height = 21, units = "cm", res=300, pointsize=10)
-print(gamm_mc_plot)
+png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_model_price_mc.png", 
+	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
+gam_model_price_mc
 dev.off()
+
+#  formula_2= formula(prod~s(time_to_peak, size) + s(peak_to_end, size) + price)
+#  gamm_mc_2<-replicate(25, gam_mc(beta0=.20, formula=formula_2, use_true_prices=FALSE))
+#  qplot(gamm_mc_2, geom="histogram")
+
+# gamm_mc<-data.frame(cbind(gamm_mc_1, gamm_mc_2))
+# gamm_mc_long<-melt(gamm_mc)
+
+# gam_mc_plot_2<-ggplot(gamm_mc_long, aes(x=value, fill=variable)) +
+# geom_histogram(position="identity", alpha=.3)
+
+# png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gamm_mc_plot_2.png", 
+# 	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+# print(gamm_mc_plot_2)
+# dev.off()
+
+
+# formula_3= formula(prod~s(prod_time)+ size + price)
+# gamm_mc_3<-replicate(200, gam_mc(beta0=.05, formula=formula_3, use_true_prices=FALSE))
+# qplot(gamm_mc_3, geom="histogram")
+
+
+# formula_4= formula(prod~s(prod_time)+ size + price)
+# gamm_mc_4<-replicate(200, gam_mc(beta0=.05, formula=formula_3, use_true_prices=TRUE))
+# qplot(gamm_mc_4, geom="histogram")	
+
+# gamm_mc<-data.frame(cbind(gamm_mc_3, gamm_mc_4))
+# gamm_mc_long<-melt(gamm_mc)
+
+# gam_mc_plot<-ggplot(gamm_mc_long, aes(x=value, fill=variable)) +
+# geom_histogram(position="identity", alpha=.3)
+
+# png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gamm_mc_plot.png", 
+# 	width = 35, height = 21, units = "cm", res=300, pointsize=10)
+# print(gamm_mc_plot)
+# dev.off()
 
 
 

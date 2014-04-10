@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: simulation_text.aux
+The style file: plainnat.bst
+Database file #1: oil_prices.bib
+Warning--empty publisher in r_core_team_r:_2013
+You've used 3 entries,
+            2773 wiz_defined-function locations,
+            612 strings with 5316 characters,
+and the built_in function-call counts, 972 in all, are:
+= -- 79
+> -- 30
+< -- 3
++ -- 12
+- -- 9
+* -- 60
+:= -- 165
+add.period$ -- 12
+call.type$ -- 3
+change.case$ -- 11
+chr.to.int$ -- 3
+cite$ -- 7
+duplicate$ -- 60
+empty$ -- 97
+format.name$ -- 12
+if$ -- 197
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 6
+newline$ -- 26
+num.names$ -- 12
+pop$ -- 31
+preamble$ -- 1
+purify$ -- 9
+quote$ -- 0
+skip$ -- 36
+stack$ -- 0
+substring$ -- 6
+swap$ -- 4
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 18
+warning$ -- 1
+while$ -- 9
+width$ -- 0
+write$ -- 51
+(There was 1 warning)

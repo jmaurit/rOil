@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{natbib} %for citet and citep
+\usepackage{syntonly}
+\usepackage{esdiff} %for writing partial derivatives
+\usepackage{url} %for inserting urls
+\usepackage{placeins}
+%\syntaxonly for quickly checking document
+%set document settings
+
+\doublespacing % from package setspacs
+
+% table font size
+\let\oldtabular\tabular
+\renewcommand{\tabular}{\scriptsize\oldtabular}
+
+\title{Local vs. Global Economies of Scale: The great fall in California solar power costs}
+\author{Johannes Mauritzen\\
+		Department of Business and Management Science\\
+        NHH Norwegian School of Economics\\
+        Bergen, Norway\\
+        johannes.mauritzen@nhh.no\\
+        \url{jmaurit.github.io}\\
+		}
+\date{\today}
+
+
+\begin{document}
+% \begin{spacing}{1} %sets spacing to single for title page
+	\maketitle
+
+
+\begin{abstract}
+The cost of solar power systems has plunged in recent years and is increasingly becoming a competitive form electricity generation.  Using a detailed data set of 124,000 solar power installations installed in California between 2007 and early 2014 I estimate what effect local economies of scale have in reducing total costs in contrast to global economies of scale in the manufacturing of solar panels.  The estimates are established using a multilevel bayesian regression.  
+\end{abstract}
+
+\thanks{*I would like to thank jesus...}
+% JEL Codes: Q4, L71
+% \end{spacing}
+
+\section{Solar power in California}
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/cost_over_time.png}
+	\caption{The cost of solar power systems have fallen dramatically over the time period studied.  Subsidies have been reduced in kind, however installations have continued a general upwards trend.}
+	\label{cost_over_time}	
+	\end{figure}
+
+In figure \ref{price_jitter_density} a jitter plot representing installations of solar power systems per year. The average price is decreasing the variance appears also to be decreasing the last several years.  The bands indicate some structural reason for 
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/price_jitter_density_plot.png}
+	\caption{The average price of solar power projects has fallen but the variance of prices also appears to have fallen over the last several years.  The bands indicate certain structural reasons for certain price points in the market.}
+	\label{price_jitter_density}	
+	\end{figure}
+
+Figure \ref{price_density} shows a smoothed density plot of costs of solar power installations per year.  It appears that the distribution of prices initially widened as the market expanded, but that eventually prices began to converge.  
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/price_density_plot.png}
+	\caption{The cost of solar power systems have fallen dramatically over the time period studied.  Subsidies have been reduced in kind, however installations have continued a general upwards trend.}
+	\label{price_density}	
+	\end{figure}
+
+Figure \ref{hist_cost_year} shows a histogram of the installations per year.  Clearly certain narrow categories of cost per KW contained an overweight of the number of solar systems installed.  This was especially true in the latter several years in which these spikes moved toward the center of the distribution.
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/hist_cost_year_plot.png}
+	\caption{The histogram of installations by per KW cost confirms the prescence of an overweight of certain narrow bins of panels of a certain price per kw.}
+	\label{hist_cost_year}	
+	\end{figure}
+
+A closer inspection of the data shows that for years between 2014 to 2011 these spikes were related to residential installations of solar power systems from one contractor/seller: SolarCity Corp.  For example in 2013, of the approximately 4800 installations that were priced in the narrow range of between 5100 and 5130 per kw, 4500 were sold by the company SolarCity.  
+
+However the same is not true for the less dramatic spikes seen on the expensive side of the distribution in 2010 through 2008.  Here no single contractor makes up the spike of the distribution.  Other possibilities that are not as easily identified from the data include some sort of local ologopolist price setting.  
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/hist_cost_year_plot}
+	\caption{The histogram of installations by per KW cost confirms the prescence of an overweight of certain narrow bins of panels of a certain price per kw.}
+	\label{hist_cost_year}	
+	\end{figure}
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/top_contractors_plot.png}
+	\caption{The histogram of installations by per KW cost confirms the prescence of an overweight of certain narrow bins of panels of a certain price per kw.}
+	\label{hist_cost_year}	
+	\end{figure}
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/hist_cost_year_plot}
+	\caption{The histogram of installations by per KW cost confirms the prescence of an overweight of certain narrow bins of panels of a certain price per kw.}
+	\label{hist_cost_year}	
+	\end{figure}
+
+
+\end{document}
+
