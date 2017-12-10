@@ -144,28 +144,10 @@
 	"buffers":
 	[
 		{
-			"file": "presentations/simulation_text.tex",
+			"file": "presentations/oil_prices.bib",
 			"settings":
 			{
-				"buffer_size": 10223,
-				"line_ending": "Unix",
-				"name": "simulation_text.tex"
-			}
-		},
-		{
-			"file": "simulation.r",
-			"settings":
-			{
-				"buffer_size": 8888,
-				"line_ending": "Unix",
-				"name": "simulation.r"
-			}
-		},
-		{
-			"file": "oil_modeling.R",
-			"settings":
-			{
-				"buffer_size": 7114,
+				"buffer_size": 103621,
 				"line_ending": "Unix"
 			}
 		},
@@ -174,38 +156,6 @@
 			"settings":
 			{
 				"buffer_size": 24679,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "oil_clean.R",
-			"settings":
-			{
-				"buffer_size": 12332,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "presentations/oil_prices.tex",
-			"settings":
-			{
-				"buffer_size": 89254,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "presentations/oil_prices.bib",
-			"settings":
-			{
-				"buffer_size": 102448,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "presentations/oil_geilo_2014.tex",
-			"settings":
-			{
-				"buffer_size": 7705,
 				"line_ending": "Unix"
 			}
 		},
@@ -221,15 +171,15 @@
 			"file": "oil_modeling_prep.r",
 			"settings":
 			{
-				"buffer_size": 2819,
+				"buffer_size": 2770,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/johannesmauritzen/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+			"file": "oil_clean.R",
 			"settings":
 			{
-				"buffer_size": 77,
+				"buffer_size": 11747,
 				"line_ending": "Unix"
 			}
 		}
@@ -237,9 +187,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 279.0,
 		"selected_items":
 		[
+			[
+				"package",
+				"Package Control: Install Package"
+			],
 			[
 				"p",
 				"Package Control: Install Package"
@@ -314,14 +268,24 @@
 	},
 	"file_history":
 	[
-		"/Users/johannesmauritzen/Google Drive/github/rOil/simulation.Snw",
-		"/Users/johannesmauritzen/Google Drive/github/rOil/simulation.Snw.tex",
+		"/Users/johannesmauritzen/Google Drive/Research/rOil/presentations/NYIAEE_Mauritzen.tex",
+		"/Users/johannesmauritzen/Google Drive/Research/rOil/presentations/oil_prices_cover.tex",
+		"/Users/johannesmauritzen/Google Drive/Research/rOil/presentations/oil_mc_pres.tex",
+		"/Users/johannesmauritzen/Google Drive/Research/rOil/presentations/oil_prices_wSimulation.tex",
+		"/Users/johannesmauritzen/Google Drive/Research/rOil/oil_modeling.R",
+		"/Users/johannesmauritzen/Google Drive/Research/rOil/simulation.r",
 		"/Users/johannesmauritzen/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/NYIAEE_Mauritzen.tex",
+		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/oil_geilo_2014.tex",
+		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/oil_prices_old.tex",
+		"/Users/johannesmauritzen/Google Drive/github/rOil/simulation.tex",
+		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/simulation_text.pdf",
+		"/Users/johannesmauritzen/Google Drive/github/rOil/simulation.Snw.tex",
+		"/Users/johannesmauritzen/Google Drive/github/rOil/simulation.Snw",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/oil_clean.R",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/oil_forecasting.r",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/price_modeling.R",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/oil_prices.tex",
-		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/oil_geilo_2014.tex",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/oil_pres_fibe_jan2014.tex",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/oil_modeling_prep.r",
 		"/Users/johannesmauritzen/Google Drive/github/rOil/presentations/oil_prices.bib",
@@ -381,6 +345,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"/Users/johannesmauritzen/Google Drive/github/",
+			"_",
 			"as",
 			"res=100",
 			"res=300",
@@ -437,6 +403,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"/Users/johannesmauritzen/Google Drive/Research",
+			"\\_",
 			"res=50",
 			"res=100",
 			"width=1",
@@ -495,24 +463,23 @@
 			[
 				{
 					"buffer": 0,
-					"file": "presentations/simulation_text.tex",
+					"file": "presentations/oil_prices.bib",
 					"settings":
 					{
-						"buffer_size": 10223,
+						"buffer_size": 103621,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								23,
-								23
+								102897,
+								102878
 							]
 						],
 						"settings":
 						{
-							"auto_name": "simulation_text.tex",
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -523,61 +490,6 @@
 				},
 				{
 					"buffer": 1,
-					"file": "simulation.r",
-					"settings":
-					{
-						"buffer_size": 8888,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7034,
-								6984
-							]
-						],
-						"settings":
-						{
-							"auto_name": "simulation.r",
-							"syntax": "Packages/R/R.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4623.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "oil_modeling.R",
-					"settings":
-					{
-						"buffer_size": 7114,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5614,
-								5614
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/R/R.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3065.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "oil_descriptives.R",
 					"settings":
 					{
@@ -604,114 +516,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "oil_clean.R",
-					"settings":
-					{
-						"buffer_size": 12332,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11704,
-								11704
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/R/R.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 479.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "presentations/oil_prices.tex",
-					"settings":
-					{
-						"buffer_size": 89254,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								269,
-								248
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "presentations/oil_prices.bib",
-					"settings":
-					{
-						"buffer_size": 102448,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								97016,
-								96997
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "presentations/oil_geilo_2014.tex",
-					"settings":
-					{
-						"buffer_size": 7705,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2523,
-								2510
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
+					"buffer": 2,
 					"file": "price_modeling.R",
 					"settings":
 					{
@@ -722,8 +527,8 @@
 						"selection":
 						[
 							[
-								220,
-								220
+								7585,
+								7570
 							]
 						],
 						"settings":
@@ -738,19 +543,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 3,
 					"file": "oil_modeling_prep.r",
 					"settings":
 					{
-						"buffer_size": 2819,
+						"buffer_size": 2770,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								151,
+								151
 							]
 						],
 						"settings":
@@ -765,24 +570,24 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "/Users/johannesmauritzen/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+					"buffer": 4,
+					"file": "oil_clean.R",
 					"settings":
 					{
-						"buffer_size": 77,
+						"buffer_size": 11747,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2710,
+								2710
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/R/R.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -830,7 +635,7 @@
 	},
 	"output.latex_log":
 	{
-		"height": 319.0
+		"height": 203.0
 	},
 	"replace":
 	{

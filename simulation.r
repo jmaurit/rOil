@@ -1,21 +1,23 @@
 library(ggplot2) #for plotting
 library(mgcv) #for gam modeling
 library(lubridate) #for extracting "year" component
-library(plyr) 
-library(tseries)
-library(zoo)
+library(dplyr) 
 library(reshape2)
 
 #simulation.r
 
 #import oil prices
 #oil prices brent
-#brent_price<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/brent_price.csv")
-brent_price<-read.csv
-qplot(year, oil_price_real, data=brent_price, geom="line")
+#get data at:
+#https://github.com/jmaurit/rOil/blob/master/brent_price.csv
+oil_price<-read.csv("research/oil_prices/data/oil_price.csv")
+
+
+qplot(year, oil_price_real, data=oil_price, geom="line")
 
 #import data of individual fields
-unique_fields<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/unique_oil_fields.csv")
+#get data at:
+unique_fields<-read.csv('/Users/johannesmauritzen/research/oil_prices/data/field_data.csv')
 
 #First Look at actual data *****************************************************
 #distribution of size looks about log-normal
@@ -113,11 +115,6 @@ years=1960:2014
 episolons=rnorm(55,0,5)
 prices = pmax((arima.sim(n=55, list(ar=.9), innov=episolons)+30), rep(5,55))
 simul_prices<-data.frame(years, prices)
-
-
-
-
-
 
 
 

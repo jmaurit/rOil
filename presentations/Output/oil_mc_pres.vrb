@@ -1,0 +1,3 @@
+\begin{verbatim}
+formula_1= formula(prod~s(prod_time,size) + price)
+\end{verbatim}

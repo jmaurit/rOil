@@ -27,7 +27,8 @@ brentprices$date<-as.Date(brentprices$date_read, format="%d-%b-%Y")
 brentprices$date_read<-NULL
 
 #from bp via Quandl
-oil_long<-read.csv('http://www.quandl.com/api/v1/datasets/BRP/CRUDE_OIL_PRICES.csv?&trim_start=1861-01-01&trim_end=2010-01-01&sort_order=desc', colClasses=c('Year'='Date'))
+Quandl.auth("WHFoD2EKU2J8H8yGn_bS")
+oil_long<-Quandl("BP/CRUDE_OIL_PRICES")
 names(oil_long)<-c("year", "oil_price_nom", "oil_price_real")
 oil_long$year<-substr(oil_long$year,1,4)
 oil_long$year<-as.numeric(oil_long$year)
@@ -46,8 +47,7 @@ oil_plus<-rename(oil_plus, c("annual_brentprice"="oil_price_nom"))
 oil_long<-rbind(oil_long, oil_plus)
 oil_long<-oil_long[order(oil_long$year),]
 
-write.csv(oil_long, "/Users/johannesmauritzen/Google Drive/github/rOil/brent_price.csv")
-
+write.csv(oil_long, "/Users/johannesmauritzen/Google Drive/Research/rOil/data/brent_price.csv")
 
 #investment deflator from quandl
 #import deflator
@@ -98,20 +98,6 @@ descriptions<-read.csv("http://factpages.npd.no/ReportServer?/FactPages/TableVie
 reserves<-read.csv("http://factpages.npd.no/ReportServer?/FactPages/TableView/field_reserves&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=158.37.94.112&CultureCode=en", stringsAsFactors=FALSE)
 
 
-#fieldArea
-setwd("/Users/johannesmauritzen/Google Drive/Oil/NorwayGeo/fldArea")
-field_area<-readOGR(".", "v_geo_fldarea", stringsAsFactors=FALSE)
-field_area_data<-fortify(field_area)
-
-n<-length(field_area)
-field.geo<-data.frame("name"=rep(NA, n), "lon"=rep(NA, n), "lat"=rep(NA, n))
-for(i in 1:n){
-	field.geo$name[i]<-field_area$FIELDNAME[i]
-	field.geo$lon[i]<-field_area@polygons[[i]]@labpt[1]
-	field.geo$lat[i]<-field_area@polygons[[i]]@labpt[2]
-}
-
-field.geo<-field.geo[!duplicated(field.geo$name),]
 
 
 
@@ -162,7 +148,7 @@ investments<-investments[investments$year<2014,] #only those 2013 or earlier
 fields<-merge(year_prod_cum, investments, by=c("name", "year"), all=TRUE)
 
 #merge with location data?
-fields<-merge(fields, field.geo, by="name", all=TRUE)
+#fields<-merge(fields, field.geo, by="name", all=TRUE)
 
 #merge with reserves data
 reserves<-rename(reserves, replace=c("fldName"="name", "fldRecoverableOil"="recoverable_oil", "fldRemainingOil"="remaining_oil"))
@@ -264,4 +250,4 @@ fields<-fields[!is.na(fields$year),]
 #deflated investment
 fields$investmentMillNOK_real<-with(fields, investmentMillNOK*(1/deflator))
 
-write.csv(fields, "/Users/johannesmauritzen/Google Drive/github/rOil/oil_fields.csv")
+write.csv(fields, "/Users/johannesmauritzen/Google Drive/research/rOil/data/oil_fields.csv")

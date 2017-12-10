@@ -1,0 +1,296 @@
+\begin{thebibliography}{33}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Alquist and Kilian(2010)]{alquist_what_2010}
+Ron Alquist and Lutz Kilian.
+\newblock What do we learn from the price of crude oil futures?
+\newblock \emph{Journal of Applied Econometrics}, 25\penalty0 (4):\penalty0
+  539–573, 2010.
+\newblock ISSN 1099-1255.
+\newblock \doi{10.1002/jae.1159}.
+\newblock URL
+  \url{http://onlinelibrary.wiley.com/doi/10.1002/jae.1159/abstract}.
+
+\bibitem[Aune et~al.(2010)Aune, Mohn, Osmundsen, and
+  Rosendahl]{aune_financial_2010}
+Finn~Roar Aune, Klaus Mohn, Petter Osmundsen, and Knut~Einar Rosendahl.
+\newblock Financial market pressure, tacit collusion and oil price formation.
+\newblock \emph{Energy Economics}, 32\penalty0 (2):\penalty0 389--398, March
+  2010.
+\newblock ISSN 0140-9883.
+\newblock \doi{10.1016/j.eneco.2009.09.003}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0140988309001595}.
+
+\bibitem[Black and LaFrance(1998)]{black_is_1998}
+Geoffrey Black and Jeffrey~T LaFrance.
+\newblock Is hotelling's rule relevant to domestic oil production?
+\newblock \emph{Journal of Environmental Economics and Management}, 36\penalty0
+  (2):\penalty0 149--169, September 1998.
+\newblock ISSN 0095-0696.
+\newblock \doi{10.1006/jeem.1998.1042}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0095069698910427}.
+
+\bibitem[Boyce(2013)]{boyce_prediction_2013}
+John~R. Boyce.
+\newblock Prediction and inference in the hubbert-deffeyes peak oil model.
+\newblock \emph{The Energy journal}, 34\penalty0 (2):\penalty0 91--144, 2013.
+\newblock ISSN 0195-6574.
+\newblock URL \url{http://cat.inist.fr/?aModele=afficheN&cpsidt=27152751}.
+
+\bibitem[Brandt(2010)]{brandt_review_2010}
+Adam~R. Brandt.
+\newblock Review of mathematical models of future oil supply: Historical
+  overview and synthesizing critique.
+\newblock \emph{Energy}, 35\penalty0 (9):\penalty0 3958--3974, September 2010.
+\newblock ISSN 0360-5442.
+\newblock \doi{10.1016/j.energy.2010.04.045}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0360544210002537}.
+
+\bibitem[{British Petroleum}(2013)]{british_petroleum_statistical_2013}
+{British Petroleum}.
+\newblock Statistical review of world energy 2013.
+\newblock Technical report, 2013.
+\newblock URL
+  \url{http://www.bp.com/content/dam/bp/pdf/statistical-review/statistical_review_of_world_energy_2013.pdf}.
+
+\bibitem[Chinn et~al.(2005)Chinn, LeBlanc, and Coibion]{chinn_predictive_2005}
+Menzie~D. Chinn, Michael LeBlanc, and Olivier Coibion.
+\newblock The predictive content of energy futures: An update on petroleum,
+  natural gas, heating oil and gasoline.
+\newblock Working Paper 11033, National Bureau of Economic Research, January
+  2005.
+\newblock URL \url{http://www.nber.org/papers/w11033}.
+
+\bibitem[Deffeyes(2001)]{deffeyes_hubberts_2001}
+Kenneth~S. Deffeyes.
+\newblock \emph{Hubbert's Peak: The Impending World Oil Shortage}.
+\newblock Princeton University Press, September 2001.
+
+\bibitem[Farzin(2001)]{farzin_impact_2001}
+Y.H. Farzin.
+\newblock The impact of oil price on additions to {US} proven reserves.
+\newblock \emph{Resource and Energy Economics}, 23\penalty0 (3):\penalty0
+  271--292, July 2001.
+\newblock ISSN 0928-7655.
+\newblock \doi{10.1016/S0928-7655(01)00040-9}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0928765501000409}.
+
+\bibitem[Hamilton(2008)]{hamilton_understanding_2008}
+James~D. Hamilton.
+\newblock Understanding crude oil prices.
+\newblock Working Paper 14492, National Bureau of Economic Research, November
+  2008.
+\newblock URL \url{http://www.nber.org/papers/w14492}.
+
+\bibitem[Hamilton(2012)]{hamilton_oil_2012}
+James~D. Hamilton.
+\newblock Oil prices, exhaustible resources, and economic growth.
+\newblock {NBER} Working Paper 17759, National Bureau of Economic Research,
+  Inc, 2012.
+\newblock URL \url{http://ideas.repec.org/p/nbr/nberwo/17759.html}.
+
+\bibitem[Hastie and Tibshirani(1990)]{hastie_generalized_1990}
+T.~J. Hastie and R.~J. Tibshirani.
+\newblock \emph{Generalized Additive Models (Chapman \& Hall/{CRC} Monographs
+  on Statistics \& Applied Probability)}.
+\newblock Chapman and Hall/{CRC}, 1 edition edition, June 1990.
+\newblock ISBN 0412343908.
+
+\bibitem[Hotelling(1931)]{hotelling_economics_1931}
+Harold Hotelling.
+\newblock The economics of exhaustible resources.
+\newblock \emph{Journal of Political Economy}, 39\penalty0 (2):\penalty0
+  137--175, April 1931.
+\newblock ISSN 0022-3808.
+\newblock URL \url{http://www.jstor.org/stable/1822328}.
+\newblock {ArticleType}: research-article / Full publication date: Apr., 1931 /
+  Copyright © 1931 The University of Chicago Press.
+
+\bibitem[Hubbert(1962)]{hubbert_energy_1962}
+M.~King Hubbert.
+\newblock Energy resources: A report to the committee on natural resources,
+  1962.
+\newblock Publication 1000-D, Washington D.C.
+
+\bibitem[Hurn and Wright(1994)]{hurn_geology_1994}
+A.~S. Hurn and Robert~E. Wright.
+\newblock Geology or economics? testing models of irreversible investment using
+  north sea oil data.
+\newblock \emph{The Economic Journal}, 104\penalty0 (423):\penalty0 363--371,
+  March 1994.
+\newblock ISSN 0013-0133.
+\newblock \doi{10.2307/2234756}.
+\newblock URL \url{http://www.jstor.org/stable/2234756}.
+\newblock {ArticleType}: research-article / Full publication date: Mar., 1994 /
+  Copyright © 1994 Royal Economic Society.
+
+\bibitem[Kahle and Wickham(2013)]{kahle_ggmap:_2013}
+David Kahle and Hadley Wickham.
+\newblock \emph{ggmap: A package for spatial visualization with Google Maps and
+  {OpenStreetMap}}.
+\newblock 2013.
+\newblock URL \url{http://CRAN.R-project.org/package=ggmap}.
+\newblock R package version 2.3.
+
+\bibitem[Kellogg(2014)]{kellogg_effect_2014}
+Ryan Kellogg.
+\newblock The effect of uncertainty on investment: Evidence from texas oil
+  drilling $^{\textrm{†}}$.
+\newblock \emph{American Economic Review}, 104\penalty0 (6):\penalty0
+  1698--1734, June 2014.
+\newblock ISSN 0002-8282.
+\newblock \doi{10.1257/aer.104.6.1698}.
+\newblock URL
+  \url{https://www.aeaweb.org/articles.php?doi=10.1257/aer.104.6.1698}.
+
+\bibitem[Krautkraemer(1998)]{krautkraemer_nonrenewable_1998}
+Jeffrey~A. Krautkraemer.
+\newblock Nonrenewable resource scarcity.
+\newblock \emph{Journal of Economic Literature}, 36\penalty0 (4):\penalty0
+  2065--2107, December 1998.
+\newblock ISSN 0022-0515.
+\newblock URL \url{http://www.jstor.org/stable/2565047}.
+\newblock {ArticleType}: research-article / Full publication date: Dec., 1998 /
+  Copyright © 1998 American Economic Association.
+
+\bibitem[Leifeld(2013)]{leifeld_texreg:_2013}
+Philip Leifeld.
+\newblock texreg: Conversion of statistical model output in r to {LATEX} and
+  {HTML} tables.
+\newblock \emph{Journal of Statistical Software}, 55\penalty0 (8), November
+  2013.
+
+\bibitem[Mohn(2008{\natexlab{a}})]{mohn_efforts_2008}
+Klaus Mohn.
+\newblock Efforts and efficiency in oil exploration: A vector error-correction
+  approach.
+\newblock \emph{The Energy Journal}, Volume 29\penalty0 (Number 4):\penalty0
+  53--78, 2008{\natexlab{a}}.
+\newblock URL \url{http://ideas.repec.org/a/aen/journl/2008v29-04-a03.html}.
+
+\bibitem[Mohn(2008{\natexlab{b}})]{mohn_investment_2008}
+Klaus Mohn.
+\newblock \emph{Investment Behaviour in the International Oil and Gas
+  Industry}.
+\newblock Ph.D Dissertation. University of Stavanger, 2008{\natexlab{b}}.
+
+\bibitem[Mohn and Osmundsen(2008)]{mohn_exploration_2008}
+Klaus Mohn and Petter Osmundsen.
+\newblock Exploration economics in a regulated petroleum province: The case of
+  the norwegian continental shelf.
+\newblock \emph{Energy Economics}, 30\penalty0 (2):\penalty0 303--320, March
+  2008.
+\newblock ISSN 0140-9883.
+\newblock \doi{10.1016/j.eneco.2006.10.011}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0140988306001277}.
+
+\bibitem[Osmundsen et~al.(2007)Osmundsen, Mohn, Misund, and
+  Asche]{osmundsen_is_2007}
+Petter Osmundsen, Klaus Mohn, Bård Misund, and Frank Asche.
+\newblock Is oil supply choked by financial market pressures?
+\newblock \emph{Energy Policy}, 35\penalty0 (1):\penalty0 467--474, January
+  2007.
+\newblock ISSN 0301-4215.
+\newblock \doi{10.1016/j.enpol.2005.12.010}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0301421505003526}.
+
+\bibitem[Osmundsen et~al.(2010)Osmundsen, Roll, and
+  Tveterås]{osmundsen_exploration_2010}
+Petter Osmundsen, Kristin~Helen Roll, and Ragnar Tveterås.
+\newblock Exploration drilling productivity at the norwegian shelf.
+\newblock \emph{Journal of Petroleum Science and Engineering}, 73\penalty0
+  (1–2):\penalty0 122--128, August 2010.
+\newblock ISSN 0920-4105.
+\newblock \doi{10.1016/j.petrol.2010.05.015}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0920410510001129}.
+
+\bibitem[Pesaran(1990)]{pesaran_econometric_1990}
+M.~Hashem Pesaran.
+\newblock An econometric analysis of exploration and extraction of oil in the
+  u.k. continental shelf.
+\newblock \emph{The Economic Journal}, 100\penalty0 (401):\penalty0 367--390,
+  June 1990.
+\newblock ISSN 0013-0133.
+\newblock \doi{10.2307/2234130}.
+\newblock URL \url{http://www.jstor.org/stable/2234130}.
+\newblock {ArticleType}: research-article / Full publication date: Jun., 1990 /
+  Copyright © 1990 Royal Economic Society.
+
+\bibitem[{R Core Team}(2013)]{r_core_team_r:_2013}
+{R Core Team}.
+\newblock \emph{R: A Language and Environment for Statistical Computing}.
+\newblock Vienna, Austria, 2013.
+\newblock URL \url{http://www.R-project.org/}.
+
+\bibitem[Ramcharran(2002)]{ramcharran_oil_2002}
+Harri Ramcharran.
+\newblock Oil production responses to price changes: an empirical application
+  of the competitive model to {OPEC} and non-{OPEC} countries.
+\newblock \emph{Energy Economics}, 24\penalty0 (2):\penalty0 97--106, March
+  2002.
+\newblock ISSN 0140-9883.
+\newblock \doi{10.1016/S0140-9883(01)00091-3}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0140988301000913}.
+
+\bibitem[Rao(2010)]{rao_taxation_2010}
+Nirupama~S. Rao.
+\newblock Taxation and the extraction of exhaustible resources: Evidence from
+  california oil production.
+\newblock \emph{{MIT} Center for Energy and Environmental Policy}, 2010.
+\newblock URL \url{http://dspace.mit.edu/handle/1721.1/54781}.
+
+\bibitem[Wickham(2009)]{wickham_ggplot2:_2009}
+Hadley Wickham.
+\newblock \emph{Ggplot2: Elegant Graphics for Data Analysis}.
+\newblock Springer Publishing Company, Incorporated, 2nd edition, 2009.
+\newblock ISBN 0387981403, 9780387981406.
+
+\bibitem[Wickham(2011)]{wickham_split-apply-combine_2011}
+Hadley Wickham.
+\newblock The split-apply-combine strategy for data analysis.
+\newblock \emph{Journal of Statistical Software}, 40\penalty0 (1):\penalty0
+  1–29, 2011.
+\newblock ISSN 1548-7660.
+\newblock URL \url{http://www.jstatsoft.org/v40/i01}.
+
+\bibitem[Wood(2006)]{wood_generalized_2006}
+Simon Wood.
+\newblock \emph{Generalized Additive Models: An Introduction with R (Chapman \&
+  Hall/{CRC} Texts in Statistical Science)}.
+\newblock Chapman and Hall/{CRC}, 1 edition edition, February 2006.
+\newblock ISBN 1584884746.
+
+\bibitem[Wood(2003)]{wood_thin_2003}
+Simon~N. Wood.
+\newblock Thin plate regression splines.
+\newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 65\penalty0 (1):\penalty0 95–114, 2003.
+\newblock ISSN 1467-9868.
+\newblock \doi{10.1111/1467-9868.00374}.
+\newblock URL
+  \url{http://onlinelibrary.wiley.com/doi/10.1111/1467-9868.00374/abstract}.
+
+\bibitem[Wood(2011)]{wood_fast_2011}
+Simon~N. Wood.
+\newblock Fast stable restricted maximum likelihood and marginal likelihood
+  estimation of semiparametric generalized linear models.
+\newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 73\penalty0 (1):\penalty0 3–36, 2011.
+\newblock ISSN 1467-9868.
+\newblock \doi{10.1111/j.1467-9868.2010.00749.x}.
+\newblock URL
+  \url{http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9868.2010.00749.x/abstract}.
+
+\end{thebibliography}

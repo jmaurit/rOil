@@ -3,7 +3,7 @@
 #under oil_modeling.R
 
 #modeling with price
-fields<-read.csv("/Users/johannesmauritzen/Google Drive/github/rOil/oil_fields.csv")
+fields<-read.csv("/Users/johannesmauritzen/Google Drive/Research/rOil/oil_fields.csv")
 
 #make oil denominated in 10 $ units
 fields$oil_price_real<-fields$oil_price_real/10
@@ -17,7 +17,6 @@ fields$oil_price_real_l7<-fields$oil_price_real_l7/10
 fields$oil_price_real_l8<-fields$oil_price_real_l8/10
 
 fields$diff_oil_price<-fields$diff_oil_price/10
-fields$diff_oil_price<-fields$diff_oil_price_3y/10
 
 #weed out fields where oil is not produced
 fields_p<-fields[fields$tot.prod>0,]
